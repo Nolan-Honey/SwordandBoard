@@ -1,1 +1,35 @@
-<router-outlet></router-outlet>
+<div style="width: 498px; height: 314px;" id="comp-j2th1exilink" class="wp2link">
+    <nav class="navbar navbar-dark bg-dark">
+            <div style="top: 0px; left: 0px; position: relative; width: 498px; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
+                <form class="form-inline">    
+                      <button class="btn-primary my-2 my-sm-0 mr-2 btn"
+                        routerLink="/" type="button"><a>
+                          Home</a>
+                      </button> <br>
+                  <button id="qsLoginBtn"
+                    class="btn-primary my-2 my-sm-0 btn"
+                    *ngIf="!auth.isAuthenticated()"
+                    (click)="auth.login()" type="button">
+                      Log In
+                  </button><br>
+          
+                  <button id="qsLogoutBtn"
+                    class="btn btn-primary my-2 my-sm-0"
+                    *ngIf="auth.isAuthenticated()"
+                    (click)="auth.logout()" type="button">
+                      Log Out
+                  </button>
+          
+                </form>          
+                <div>
+              <img id="sbLogo"  alt="" data-type="image" src="../assets/images/snblogoinvert.png">
+            </div>
+            </div>
+          </nav>
+
+     </div>
+
+<!--
+<div style="width: 498px; height: 314px;" id="comp-j2th1exilink" class="wp2link">
+  <div style="top: 0px; left: 0px; position: relative; width: 498px; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
+    <img id="sbLogo"  alt="" data-type="image" src="../assets/images/snblogoinvert.png"></div></div>-->

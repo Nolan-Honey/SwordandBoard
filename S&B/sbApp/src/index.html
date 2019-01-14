@@ -9,6 +9,14 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  
+    <video autoplay muted loop id="myVideo">
+        <source src="https://video.wixstatic.com/video/11062b_cb0c4d13153f4008920bb26beda8de0f/1080p/mp4/file.mp4" type="video/mp4">
+      </video>
   <app-root></app-root>
+  <script>
+  var vid = document.getElementById("myVideo");
+  vid.playbackRate=0.5;
+  </script>
 </body>
 </html>
