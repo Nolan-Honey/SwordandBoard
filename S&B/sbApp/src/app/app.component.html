@@ -1,18 +1,19 @@
-<div style="width: 498px; height: 314px;" id="comp-j2th1exilink" class="wp2link">
-  <div style="top: 0px; left: 0px; position: relative; width: 498px; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
-    <form>
-      <button routerLink="home" type="button">
+<div style="height: 314px;" id="comp-j2th1exilink" class="wp2link">
+  <div style="top: 0px; left: 0px; position: relative; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
+    <form id="navform">
+      <a id="sbbtn" href='https://www.theswordandboardtoronto.com/' type="button"> Back to Sword & Board</a>
+      <a id="navbtn" routerLink="home" type="button">
         Home View
-      </button>          
-      <button routerLink="login" type="button">
+      </a>          
+      <a id="navbtn" routerLink="login" type="button">
         Login View
-      </button>
-      <button routerLink="customer" type="button">
+      </a>
+      <a id="navbtn" routerLink="customer" type="button">
         Customer View
-      </button>
-      <button routerLink="admin" type="button">
+      </a>
+      <a id="navbtn" routerLink="admin" type="button">
         Admin View
-      </button>
+      </a>
     </form>
     <img id="sbLogo"  alt="s&b logo" data-type="image" src="../assets/images/snblogoinvert.png">
     <router-outlet></router-outlet>
