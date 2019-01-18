@@ -1,5 +1,5 @@
 #navbtn{
-    margin-left: 70px;
+    margin-left: 170px;
     display: inline-block;
     padding: 0 calc(1px + 10px);
     color: #FFFFFF;
@@ -8,7 +8,7 @@
     text-decoration: none
 }
 #navlogin{
-    margin-left:300px;
+    margin-left: 325px;
     display: inline-block;
     padding: 0 calc(1px + 10px);
     color: #FFFFFF;
@@ -19,7 +19,6 @@
 #sbbtn{
     text-decoration: none;
     color: initial;
-    margin-right: 135px;
     display: inline-block;
     color: #FFFFFF;
     font: normal normal  20px/1.4em futura-lt-w01-light,sans-serif;

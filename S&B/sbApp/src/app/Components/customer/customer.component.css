@@ -1,0 +1,26 @@
+img{
+    height: 284px;
+    width: 300px;
+    opacity: 0.4;
+}
+#cInfo{
+    margin: -313px 0 0 325px;
+}
+#cCredit{
+    margin-left: 325px;
+    margin-right: 560px;
+}
+#cOrders{
+    margin: 0 0 0 0;
+}
+#cTable{
+    width: 270px;
+}
+
+#lblPadding{
+    padding: 0px 15px 0px 15px;
+}
+#lblPad{
+    padding-right:15px;
+}
+
