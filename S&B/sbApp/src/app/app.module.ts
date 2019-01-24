@@ -9,13 +9,15 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CustomerComponent } from './Components/customer/customer.component';
 import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes=[
   {path: '',  component: HomeComponent},
   {path: 'home',  component: HomeComponent},
   {path: 'login',  component: LoginComponent},
   {path: 'customerProfile',  component: CustomerComponent},
-  {path: 'admin',  component: AdminComponent}
+  {path: 'admin',  component: AdminComponent},
+  {path: 'signup',  component: SignupComponent}
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const routes: Routes=[
     AdminComponent,
     HomeComponent,
     CustomerComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

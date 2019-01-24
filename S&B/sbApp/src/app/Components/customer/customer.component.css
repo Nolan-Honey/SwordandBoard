@@ -3,24 +3,14 @@ img{
     width: 300px;
     opacity: 0.4;
 }
-#cInfo{
-    margin: -313px 0 0 325px;
+.customer{
+    text-align:center;
+
+}
+#cCredit, #cOrders, #cTable{
+    margin-left: auto;
+    margin-right: auto;
 }
 #cCredit{
-    margin-left: 325px;
-    margin-right: 560px;
+    margin: 0 230px 0 230px;
 }
-#cOrders{
-    margin: 0 0 0 0;
-}
-#cTable{
-    width: 270px;
-}
-
-#lblPadding{
-    padding: 0px 15px 0px 15px;
-}
-#lblPad{
-    padding-right:15px;
-}
-
