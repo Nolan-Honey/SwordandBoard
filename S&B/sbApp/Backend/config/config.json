@@ -1,0 +1,11 @@
+{
+    "development":{
+        "PORT": 3000,
+        "MONGODB_URI":"mongodb://user:user00@ds039125.mlab.com:39125/sb_db"
+    },
+    "production":{
+        "PORT":80,
+        "MONGODB_URI":""
+    }
+    
+}
