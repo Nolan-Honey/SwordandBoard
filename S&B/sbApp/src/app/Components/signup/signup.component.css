@@ -36,3 +36,11 @@
     color: darkslategray;
     text-decoration: none;
 }	
+.success{
+    font-size: 20px;
+    color:green;
+}
+.error{
+    font-size: 20px;
+    color:red;
+}
