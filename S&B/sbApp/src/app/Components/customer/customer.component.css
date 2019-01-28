@@ -2,15 +2,42 @@ img{
     height: 284px;
     width: 300px;
     opacity: 0.4;
+    float: left;
+    margin: 0 0 0 290px;
 }
-.customer{
-    text-align:center;
-
+#cInfo{
+    
+    float: left; margin: 0 215px 0 115px;
 }
 #cCredit, #cOrders, #cTable{
     margin-left: auto;
     margin-right: auto;
+    float: left;
 }
 #cCredit{
-    margin: 0 230px 0 230px;
+    float: left;
+    margin: 0 0px 0px 290px;
+}
+#cOrders{
+    float: right;
+    margin: 0 0px 0px 290px;
+}
+#cCredit td, #cOrders td{
+    padding: 5px 100px 5px 40px;
+}
+#cInfoTable td{
+    padding:19px;
+}
+#notes{
+    margin: 0 280px 0 435px;
+}
+.customer{
+    text-align: justify;
+}
+#header{
+    margin: 10px 280px 10px 0px;
+    text-align: center;
+}
+#header2{
+    margin: 0 60px 0 100px;
 }
