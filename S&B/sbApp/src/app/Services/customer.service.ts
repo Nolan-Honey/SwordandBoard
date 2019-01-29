@@ -20,6 +20,6 @@ export class CustomerService{
     }
 
     postUser(customer:Customer){
-        return this.http.post(environment.apiBaseUrl+'/register',customer)
+        return this.http.post(environment.apiBaseUrl+'/register',customer);
     }
 }

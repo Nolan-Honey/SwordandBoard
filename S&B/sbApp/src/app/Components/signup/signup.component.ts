@@ -3,6 +3,8 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { CustomerComponent } from '../customer/customer.component';
 import { CustomerService } from 'src/app/Services/customer.service';
 import { HttpClient, post } from 'selenium-webdriver/http';
+import { Customer } from 'src/app/Shared/customer.model';
+import { Profile } from 'selenium-webdriver/firefox';
 
 
 @Component({
@@ -17,21 +19,31 @@ export class SignupComponent implements OnInit {
   showErrorMessage:string;
 
   profileForm = new FormGroup({
-  first_name: new FormControl('firstName'),
-  last_name: new FormControl('lastName'),
-  email: new FormControl('email'),
-  password: new FormControl('password'),
+  first_name: new FormControl(''),
+  last_name: new FormControl(''),
+  email: new FormControl(''),
+  password: new FormControl(''),
   confirm_password: new FormControl('')
   });
-
   title='Sign Up'
   constructor(private customerService:CustomerService) {
-
    }
   ngOnInit() {
   }
   onSubmit(){
-    console.warn(this.profileForm.value);
-
+    if(this.profileForm.get("password").value ==this.profileForm.get("confirm_password").value){
+    this.customerService.postUser(this.profileForm.value).subscribe(
+      res => {
+        this.showSuccessMessage = true;
+        setTimeout(()=> this.showSuccessMessage = false,4000);
+      },
+      err => {
+          this.showErrorMessage = "Error, try again or constact customer service!";
+        }
+  );
+      }
+      else{
+        this.showErrorMessage = "Passwords don't match!"
+      }
   }
 }
