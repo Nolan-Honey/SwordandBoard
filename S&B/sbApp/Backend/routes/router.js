@@ -11,9 +11,20 @@ router.route('/').get(function (req,res){
             console.log(err);
         }
         else{
-            //console.log(customer)
+            console.log(customer)
             res.json(customer)
         }
     });
+});
+
+router.get('/customers',function(req,res){
+    customer.find({}).exec(function(err,customers){
+        if (err){
+            console.log(err);
+        }
+        else{
+            res.json(customers)
+        }
+    })
 });
 module.exports = router;

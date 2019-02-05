@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   title='Admin Tools';
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

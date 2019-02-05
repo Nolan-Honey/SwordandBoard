@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { CustomerComponent } from '../customer/customer.component';
 import { CustomerService } from 'src/app/Services/customer.service';
-import { HttpClient, post } from 'selenium-webdriver/http';
-import { Customer } from 'src/app/Shared/customer.model';
-import { Profile } from 'selenium-webdriver/firefox';
-
 
 @Component({
   selector: 'app-signup',
