@@ -12,7 +12,7 @@ import { CustomerService } from 'src/app/Services/customer.service';
 export class SignupComponent implements OnInit {
 
   showSuccessMessage:boolean;
-  showErrorMessage:string;
+  showErrorMessage:boolean;
 
   profileForm = new FormGroup({
   first_name: new FormControl(''),
@@ -34,12 +34,13 @@ export class SignupComponent implements OnInit {
         setTimeout(()=> this.showSuccessMessage = false,4000);
       },
       err => {
-          this.showErrorMessage = "Error, try again or constact customer service!";
+          this.showErrorMessage = true;
+          setTimeout(()=> this.showErrorMessage = false,4000);
         }
   );
       }
-      else{
-        this.showErrorMessage = "Passwords don't match!"
+      else if(this.profileForm.get("agree")){
+        this.showErrorMessage = true;
       }
   }
 }

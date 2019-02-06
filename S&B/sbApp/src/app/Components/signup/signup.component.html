@@ -9,7 +9,7 @@
         	<input type="text" class="form-control" formControlName='last_name' placeholder="Last Name" required="required">
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" formControlName='email' placeholder="Email Address" required="required" [pattern]="emailRegex">
+        	<input type="email" class="form-control" formControlName='email' placeholder="Email Address" required="required">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" formControlName='password' placeholder="Password" required="required">
@@ -18,12 +18,12 @@
             <input type="password" class="form-control" formControlName='confirm_password' placeholder="Confirm Password" required="required">
         </div>        
         <div class="form-group">
-			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="">Terms of Use</a> &amp; <a href="">Privacy Policy</a></label>
+			<label class="checkbox-inline"><input type="checkbox" formControlName='agree' required="required"> I accept the <a href="">Terms of Use</a> &amp; <a href="">Privacy Policy</a></label>
         </div>
 		<div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg" [disabled]="!profileForm.valid">Sign Up</button>
         </div>
     </form>
-    <div class="success" *ngIf = "showSuccessMessage">Saved Successfully!</div>
-    <div class="error" *ngIf = "showErrorMessage">{{showErrorMessage}}</div>
+    <div class="success" *ngIf = "showSuccessMessage">Sign up was successfull!</div>
+    <div class="error" *ngIf = "showErrorMessage">Error, try again or constact customer service!</div>
 </div>       
