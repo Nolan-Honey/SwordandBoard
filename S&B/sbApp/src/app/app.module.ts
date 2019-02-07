@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { FilterPipe } from './filter/filter.pipe';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './Components/admin/admin.component';
@@ -30,7 +31,8 @@ const routes: Routes=[
     CustomerComponent,
     LoginComponent,
     SignupComponent,
-    SearchCustomersComponent
+    SearchCustomersComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
