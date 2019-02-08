@@ -1,5 +1,7 @@
-<input type="text"  id="myInput" onkeyup="myFunction()" placeholder="Search for names..">   
-<div id="table100">
+<h3 style="text-align:center">{{title}}</h3>
+<input style="margin:0 595px 0 605px" [(ngModel)]="searchText" placeholder="Search..">
+
+<div id="table100"><br>   
 <table id="myTable">
   <tr class="header">
   <th>Customer Id</th>
@@ -7,8 +9,10 @@
   <th>Last Name</th>
   <th>Email</th>
   <th>Store Credit</th>
+  <th>Controls</th>
   </tr>
-  <tr *ngFor="let x of customers">
+  <tr *ngFor="let x of customers | filter: {first_name:searchText, 
+    last_name:searchText, email:searchText}">
     <td>{{x._id}}</td>
     <td>{{x.first_name}}</td>
     <td>{{x.last_name}}</td>
