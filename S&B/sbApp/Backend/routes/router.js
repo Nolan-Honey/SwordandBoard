@@ -27,4 +27,14 @@ router.get('/customers',function(req,res){
         }
     })
 });
+//update customer that was edited
+router.route('/customer/update/:id').post(function (res, req){
+    customer.findById(req.params.id, function (err, customer){
+        if (!customer)
+            return new Error('Could not load customer')
+        else{
+            customer.first_name = req.body.first_name
+        }
+    })
+})
 module.exports = router;
