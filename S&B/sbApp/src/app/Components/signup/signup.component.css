@@ -38,9 +38,9 @@
 }	
 .success{
     font-size: 20px;
-    color:green;
+    color:darkgreen;
 }
 .error{
     font-size: 20px;
-    color:red;
+    color:darkred;
 }

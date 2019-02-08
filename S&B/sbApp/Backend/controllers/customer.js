@@ -1,4 +1,14 @@
 const mongoose = require('mongoose');
+//+++++++++++++++++++++++++++EMAIL SERVICE++++++++++++++++++++++++++++++++++++++
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: '02capstone@gmail.com',
+      pass: 'Capstone23#'
+    }
+  });
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const Customer = mongoose.model('Customer');
 module.exports.register =(req,res,next) =>{
     var customer = new Customer();
@@ -12,4 +22,18 @@ module.exports.register =(req,res,next) =>{
             res.send(doc);
         }
     });
+    var mailOptions = {
+        from: '02capstone@gmail.com',
+        to: customer.email,
+        subject: 'Sword and Board',
+        text: 'Sword and Board username:'+customer.email+" password: "+ customer.password
+      };
+      
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 }
