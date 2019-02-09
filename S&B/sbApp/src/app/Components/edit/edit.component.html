@@ -15,7 +15,7 @@
             <input type="password" class="form-control" formControlName='password' #password placeholder="Password" [(ngModel)] = 'customer.password'>
         </div>
 		<div class="form-group">
-            <input type="text" class="form-control" formControlName='store_credit' #store_credit placeholder="store_credit" [(ngModel)] = "customer.credit">
+            <input type="text" class="form-control" formControlName='store_credit' #store_credit placeholder="Customer credit" [(ngModel)] = "customer.credit">
         </div>        
 		<div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid"> Update</button>

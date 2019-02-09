@@ -24,12 +24,13 @@ export class SearchCustomersComponent implements OnInit {
     .subscribe(data => this.customers = data)
   }
   onClickDelete(id){
+    if(confirm("Are you sure you want to delete this customer?")){
     this.customerService.deleteCustomer(id).subscribe(res =>{
       console.log("customer deleted")
       this.ngOnInit()
     })
   }
-
+  }
   onSubmit(){
     var emailExist:Boolean = false;
     this.customers.forEach(element => {
