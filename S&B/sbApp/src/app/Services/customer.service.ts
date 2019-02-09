@@ -13,9 +13,9 @@ export class CustomerService{
     baseUrl = environment.apiBaseUrl
     constructor(private http:HttpClient){
     }
-
+    registerURL = environment.apiBaseUrl+'/register';
     postUser(customer:Customer){
-        return this.http.post(environment.apiBaseUrl+'/register',customer);
+        return this.http.post(this.registerURL,customer);
     }
 
     customerURL = environment.apiBaseUrl+'/customers'

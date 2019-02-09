@@ -1,6 +1,13 @@
 <h3 style="text-align:center">{{title}}</h3>
-<input style="margin:0 595px 0 605px" [(ngModel)]="searchText" placeholder="Search..">
-
+<input id="myInput" [(ngModel)]="searchText" placeholder="Search Customers...">
+<form id="form" [formGroup] = "newCustomer" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="First Name..." formControlName='first_name' required>
+  <input type="text" placeholder="Last Name..." formControlName='last_name' required>
+  <input type="text" placeholder="Email..." formControlName='email' email required>
+  <button type="submit" [disabled]="!newCustomer.valid">Add New Customer</button>
+  <div id="messageSuccess" *ngIf = successMessage >Customer added and temporary password sent to his email address!</div>
+  <div class="error" *ngIf = "showErrorMessageEmail">Email already in use, pick diffrent email.</div>
+</form>
 <div id="table100"><br>   
 <table id="myTable">
   <tr class="header">

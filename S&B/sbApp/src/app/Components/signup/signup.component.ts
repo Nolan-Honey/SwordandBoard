@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, EmailValidator } from '@angular/forms';
 import { CustomerComponent } from '../customer/customer.component';
 import { CustomerService } from 'src/app/Services/customer.service';
 
@@ -10,9 +10,11 @@ import { CustomerService } from 'src/app/Services/customer.service';
   providers:[CustomerComponent]
 })
 export class SignupComponent implements OnInit {
-
+  
   showSuccessMessage:boolean;
   showErrorMessage:boolean;
+  showErrorMessagePassword:boolean;
+  showErrorMessageEmail:boolean;
 
   profileForm = new FormGroup({
   first_name: new FormControl(''),
@@ -24,14 +26,26 @@ export class SignupComponent implements OnInit {
   title='Sign Up'
   constructor(private customerService:CustomerService) {
    }
+  customers = []
+  
   ngOnInit() {
+    this.customerService.getCustomers()
+    .subscribe(data => this.customers = data);
   }
   onSubmit(){
-    if(this.profileForm.get("password").value ==this.profileForm.get("confirm_password").value){
+    var emailExist:Boolean = false;
+    this.customers.forEach(element => {
+    if(element.email == this.profileForm.get("email").value){
+      emailExist = true;
+    }
+  });
+  if(!emailExist){
+    if(this.profileForm.get("password").value == this.profileForm.get("confirm_password").value){
     this.customerService.postUser(this.profileForm.value).subscribe(
       res => {
         this.showSuccessMessage = true;
         setTimeout(()=> this.showSuccessMessage = false,4000);
+        this.profileForm.reset();
       },
       err => {
           this.showErrorMessage = true;
@@ -39,8 +53,14 @@ export class SignupComponent implements OnInit {
         }
   );
       }
-      else if(this.profileForm.get("agree")){
-        this.showErrorMessage = true;
+      else{
+        this.showErrorMessagePassword = true;
+        setTimeout(()=> this.showErrorMessagePassword = false,4000);
       }
+    }
+  else{
+      this.showErrorMessageEmail = true;
+      setTimeout(()=> this.showErrorMessageEmail = false,4000);
   }
+}
 }
