@@ -16,7 +16,8 @@ module.exports.register =(req,res,next) =>{
     customer.last_name = req.body.last_name;
     customer.email = req.body.email;
     customer.password = req.body.password;
-    customer.credit = 0
+    customer.credit = 0,
+    customer.time =  new Date().toString().substring(4,15);
     customer.save((err,doc)=>{
         if(!err){
             res.send(doc);
@@ -26,9 +27,8 @@ module.exports.register =(req,res,next) =>{
         from: '02capstone@gmail.com',
         to: customer.email,
         subject: 'Sword and Board',
-        text: 'Sword and Board username:'+customer.email+" password: "+ customer.password
+        text:'Your Sword and Board account informations.\nusername: '+customer.email+"\npassword: "+ customer.password
       };
-      
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);

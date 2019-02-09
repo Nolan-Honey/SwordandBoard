@@ -7,8 +7,8 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./search-customers.component.css']
 })
 export class SearchCustomersComponent implements OnInit {
-  title='Search Customer'
-  public customers = []
+  showErrorMessageEmail:Boolean = false;
+  customers = []
   constructor(private customerService:CustomerService) { }
   successMessage = false;
   pass = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -19,22 +19,33 @@ export class SearchCustomersComponent implements OnInit {
     password: new FormControl(this.pass),
     });
 
-
   ngOnInit() {
     this.customerService.getCustomers()
-    .subscribe(data=>this.customers = data)
+    .subscribe(data => this.customers = data)
   }
 
   onSubmit(){
+    var emailExist:Boolean = false;
+    this.customers.forEach(element => {
+    if(element.email == this.newCustomer.get("email").value){
+      emailExist = true;
+    }
+  });
+  if(!emailExist){
     this.customerService.postUser(this.newCustomer.value).subscribe(
       res => {
         this.successMessage = true;
         this.newCustomer.reset();
+        location.reload();
       },
       err => {
         console.log(err)
         }
   );
   }
-  
+  else{
+    this.showErrorMessageEmail = true;
+    setTimeout(()=> this.showErrorMessageEmail = false,4000);
+}
+}
 }

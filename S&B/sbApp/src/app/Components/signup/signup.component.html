@@ -26,4 +26,6 @@
     </form>
     <div class="success"*ngIf = "showSuccessMessage">Sign up was successfull!</div>
     <div class="error" *ngIf = "showErrorMessage">Error, try again or constact customer service!</div>
-</div> 
+    <div class="error" *ngIf = "showErrorMessagePassword">Password do not match!</div>
+    <div class="error" *ngIf = "showErrorMessageEmail">Email already in use, pick diffrent email.</div>
+</div>
