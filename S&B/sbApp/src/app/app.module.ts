@@ -12,6 +12,7 @@ import { CustomerComponent } from './Components/customer/customer.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { SearchCustomersComponent } from './Components/search-customers/search-customers.component';
+import { EditComponent } from './Components/edit/edit.component';
 
 const routes: Routes=[
   {path: '',  component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes=[
   {path: 'customerProfile',  component: CustomerComponent},
   {path: 'admin',  component: AdminComponent},
   {path: 'signup',  component: SignupComponent},
+  {path: 'edit/:id', component:  EditComponent},
   
 ];
 
@@ -32,7 +34,8 @@ const routes: Routes=[
     LoginComponent,
     SignupComponent,
     SearchCustomersComponent,
-    FilterPipe
+    FilterPipe,
+    EditComponent
   ],
   imports: [
     BrowserModule,

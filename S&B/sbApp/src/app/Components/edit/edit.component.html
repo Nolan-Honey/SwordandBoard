@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="signup-form">
+    <form [formGroup]="editForm" (ngSubmit)="updateCustomer(first_name.value, last_name.value, email.value, password.value, store_credit.value)">
+		<h2>Sign Up</h2>
+        <div class="form-group">
+        	<input type="text" class="form-control" formControlName='first_name' #first_name placeholder="First Name" [(ngModel)] = "customer.first_name" >
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" formControlName='last_name' #last_name placeholder="Last Name" [(ngModel)] = "customer.last_name" >
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" formControlName='email' #email placeholder="Email Address" [(ngModel)] = "customer.email">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" formControlName='password' #password placeholder="Password" [(ngModel)] = 'customer.password'>
+        </div>
+		<div class="form-group">
+            <input type="text" class="form-control" formControlName='store_credit' #store_credit placeholder="store_credit" [(ngModel)] = "customer.credit">
+        </div>        
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid"> Update</button>
+        </div>
+    </form>
+</div>       

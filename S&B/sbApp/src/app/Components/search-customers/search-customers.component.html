@@ -18,8 +18,8 @@
     <td>{{x.last_name}}</td>
     <td>{{x.email}}</td>
     <td>{{x.credit}}</td>
-    <button (click) = "onClickEdit()">Edit</button>
-    <button (click) = "onClickDelete()">Delete</button>
+    <button><a [routerLink] = "['/edit', x._id]" >Edit</a></button>
+    <button (click) = "onClickDelete(x._id)">Delete</button>
   </tr>
 </table>
 </div>

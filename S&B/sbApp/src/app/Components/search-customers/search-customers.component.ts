@@ -15,5 +15,10 @@ export class SearchCustomersComponent implements OnInit {
     this.customerService.getCustomers()
     .subscribe(data=>this.customers = data)
   }
-  
+  onClickDelete(id){
+    this.customerService.deleteCustomer(id).subscribe(res =>{
+      console.log("customer deleted")
+      this.ngOnInit()
+    })
+  }
 }
