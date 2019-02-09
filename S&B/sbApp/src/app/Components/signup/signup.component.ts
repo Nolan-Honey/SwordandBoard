@@ -7,39 +7,39 @@ import { CustomerService } from 'src/app/Services/customer.service';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-  providers:[CustomerComponent]
+  providers: [CustomerComponent]
 })
 export class SignupComponent implements OnInit {
 
-  showSuccessMessage:boolean;
-  showErrorMessage:string;
+  showSuccessMessage: boolean;
+  showErrorMessage: string;
 
   profileForm = new FormGroup({
-  first_name: new FormControl(''),
-  last_name: new FormControl(''),
-  email: new FormControl(''),
-  password: new FormControl(''),
-  confirm_password: new FormControl('')
+    first_name: new FormControl(''),
+    last_name: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    confirm_password: new FormControl('')
   });
-  title='Sign Up'
-  constructor(private customerService:CustomerService) {
-   }
+  title = 'Sign Up'
+  constructor(private customerService: CustomerService) {
+  }
   ngOnInit() {
   }
-  onSubmit(){
-    if(this.profileForm.get("password").value ==this.profileForm.get("confirm_password").value){
-    this.customerService.postUser(this.profileForm.value).subscribe(
-      res => {
-        this.showSuccessMessage = true;
-        setTimeout(()=> this.showSuccessMessage = false,4000);
-      },
-      err => {
-          this.showErrorMessage = "Error, try again or constact customer service!";
+  onSubmit() {
+    if (this.profileForm.get("password").value == this.profileForm.get("confirm_password").value) {
+      this.customerService.postUser(this.profileForm.value).subscribe(
+        res => {
+          this.showSuccessMessage = true;
+          setTimeout(() => this.showSuccessMessage = false, 4000);
+        },
+        err => {
+          this.showErrorMessage = "Error, try again or contact customer service!";
         }
-  );
-      }
-      else{
-        this.showErrorMessage = "Passwords don't match!"
-      }
+      );
+    }
+    else {
+      this.showErrorMessage = "Password doesn't match!"
+    }
   }
 }

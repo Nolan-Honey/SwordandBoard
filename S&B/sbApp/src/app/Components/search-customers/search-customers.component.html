@@ -1,19 +1,35 @@
-<div id="table100">
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-<table id="myTable">
-  <tr class="header">
-  <th>Customer Id</th>
-  <th>First Name</th>
-  <th>Last Name</th>
-  <th>Email</th>
-  <th>Store Credit</th>
-  </tr>
-  <tr *ngFor="let x of customers; let i = index;">
-    <td>{{x._id}}</td>
-    <td>{{x.first_name}}</td>
-    <td>{{x.last_name}}</td>
-    <td>{{x.email}}</td>
-    <td>{{x.credit}}</td>
-  </tr>
+
+<mat-form-field id="searchField">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+   <!-- First Name Column -->
+   <ng-container matColumnDef="first_name">
+      <th mat-header-cell *matHeaderCellDef><strong>first name </strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="last_name">
+      <th mat-header-cell *matHeaderCellDef><strong> last name </strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef><strong> email </strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Credit Column -->
+  <ng-container matColumnDef="credit">
+      <th mat-header-cell *matHeaderCellDef><strong> credit </strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.credit}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 </table>
-</div>
