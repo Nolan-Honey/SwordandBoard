@@ -36,11 +36,8 @@ router.post('/login', (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    console.log(email, password, process.env.admin_email, process.env.admin_pw);
-
     if (email == process.env.admin_email && password == process.env.admin_pw) {
 
-        console.log(process.env.jwt_key);
 
         const token = jwt.sign({
             email: email,
