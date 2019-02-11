@@ -1,35 +1,33 @@
 
-<mat-form-field id="searchField">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-</mat-form-field>
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-   <!-- First Name Column -->
-   <ng-container matColumnDef="first_name">
-      <th mat-header-cell *matHeaderCellDef><strong>first name </strong></th>
-      <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
-  </ng-container>
-
-  <!-- Last Name Column -->
-  <ng-container matColumnDef="last_name">
-      <th mat-header-cell *matHeaderCellDef><strong> last name </strong></th>
-      <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
-  </ng-container>
-
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef><strong> email </strong></th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <!-- Credit Column -->
-  <ng-container matColumnDef="credit">
-      <th mat-header-cell *matHeaderCellDef><strong> credit </strong></th>
-      <td mat-cell *matCellDef="let element"> {{element.credit}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+<h3 style="text-align:center">{{title}}</h3>
+<input id="myInput" [(ngModel)]="searchText" placeholder="Search Customers...">
+<form id="form" [formGroup] = "newCustomer" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="First Name..." formControlName='first_name' required>
+  <input type="text" placeholder="Last Name..." formControlName='last_name' required>
+  <input type="text" placeholder="Email..." formControlName='email' email required>
+  <button type="submit" [disabled]="!newCustomer.valid">Add New Customer</button>
+  <div id="messageSuccess" *ngIf = successMessage >Customer added and temporary password sent to his email address!</div>
+  <div class="error" *ngIf = "showErrorMessageEmail">Email already in use, pick diffrent email.</div>
+</form>
+<div id="table100"><br>   
+<table id="myTable">
+  <tr class="header">
+  <th>Customer Id</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Email</th>
+  <th>Store Credit</th>
+  <th>Controls</th>
+  </tr>
+  <tr *ngFor="let x of customers | filter: {first_name:searchText, 
+    last_name:searchText, email:searchText}">
+    <td>{{x._id}}</td>
+    <td>{{x.first_name}}</td>
+    <td>{{x.last_name}}</td>
+    <td>{{x.email}}</td>
+    <td>{{x.credit}}</td>
+    <button><a [routerLink] = "['/edit', x._id]" >Edit</a></button>
+    <button (click) = "onClickDelete(x._id)">Delete</button>
+  </tr>
 </table>
+</div>
