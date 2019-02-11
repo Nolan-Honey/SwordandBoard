@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+
 import { CustomerService } from 'src/app/Services/customer.service';
+import { Customer } from '../../Shared/customer.model';
+
+
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-search-customers',
@@ -7,6 +12,7 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./search-customers.component.css']
 })
 export class SearchCustomersComponent implements OnInit {
+
   showErrorMessageEmail:Boolean = false;
   customers = []
   constructor(private customerService:CustomerService) { }

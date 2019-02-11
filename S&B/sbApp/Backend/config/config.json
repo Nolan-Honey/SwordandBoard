@@ -1,7 +1,11 @@
 {
     "development":{
         "PORT": 3000,
-        "MONGODB_URI":"mongodb://user:user00@ds039125.mlab.com:39125/sb_db"
+        "MONGODB_URI":"mongodb://user:user00@ds039125.mlab.com:39125/sb_db",
+        "admin_email":"123@test.ca",
+        "admin_pw":"admin",
+        "admin_id": "1211",
+        "jwt_key" : "J1235J"
     },
     "production":{
         "PORT":80,

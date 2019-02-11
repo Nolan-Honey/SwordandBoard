@@ -1,3 +1,6 @@
+table {
+  width: 100%;
+
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -9,23 +12,47 @@
   margin-bottom: 12px; /* Add some space below the input */
 }
 
-#myTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }
 
-#myTable th, #myTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
+.ng-container {
+  flex: 0 0 100px;
+  white-space: unset;
 }
 
-#myTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd; 
+th{height:50px;font-size: 16px;font-weight: 900; background-color: rgb(229, 196, 250)}
+#searchField{font-size: 20px;text-align: center;color:rgb(69, 9, 180);}
+tr:hover {background-color: #f5f5f5;}
+
+table {
+  width: 100%;
+
 }
 
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.ng-container {
+  flex: 0 0 100px;
+  white-space: unset;
+}
+
+.ng-container:hover{
+  background-color: aquamarine
+}
+
+th{height:50px;font-size: 16px;font-weight: 900; background-color: rgb(63,62,62)}
+
+tr:hover {background-color: #e6dbda;}
+
+button{
+  padding: 0 10px 0 10px;
+  width: 100px;
+}
 #myTable tr.header, #myTable tr:hover {
   /* Add a grey background color to the table header and on hover */
   background-color: black

@@ -10,7 +10,8 @@ var transporter = nodemailer.createTransport({
   });
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const Customer = mongoose.model('Customer');
-module.exports.register =(req,res,next) =>{
+
+module.exports.register = (req, res, next) => {
     var customer = new Customer();
     customer.first_name = req.body.first_name;
     customer.last_name = req.body.last_name;

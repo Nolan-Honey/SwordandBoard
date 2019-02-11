@@ -7,7 +7,7 @@ import { CustomerService } from 'src/app/Services/customer.service';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-  providers:[CustomerComponent]
+  providers: [CustomerComponent]
 })
 export class SignupComponent implements OnInit {
   
@@ -17,12 +17,13 @@ export class SignupComponent implements OnInit {
   showErrorMessageEmail:boolean;
 
   profileForm = new FormGroup({
-  first_name: new FormControl(''),
-  last_name: new FormControl(''),
-  email: new FormControl(''),
-  password: new FormControl(''),
-  confirm_password: new FormControl('')
+    first_name: new FormControl(''),
+    last_name: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    confirm_password: new FormControl('')
   });
+
   title='Sign Up'
   constructor(private customerService:CustomerService) {
    }
@@ -32,6 +33,21 @@ export class SignupComponent implements OnInit {
     this.customerService.getCustomers()
     .subscribe(data => this.customers = data);
   }
+  onSubmit() {
+    if (this.profileForm.get("password").value == this.profileForm.get("confirm_password").value) {
+      this.customerService.postUser(this.profileForm.value).subscribe(
+        res => {
+          this.showSuccessMessage = true;
+          setTimeout(() => this.showSuccessMessage = false, 4000);
+        },
+        err => {
+          this.showErrorMessage = "Error, try again or contact customer service!";
+        }
+      );
+    }
+    else {
+      this.showErrorMessage = "Password doesn't match!"
+    }
   onSubmit(){
     var emailExist:Boolean = false;
     this.customers.forEach(element => {

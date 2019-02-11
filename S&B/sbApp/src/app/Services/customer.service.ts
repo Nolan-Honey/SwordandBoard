@@ -19,6 +19,7 @@ export class CustomerService{
     }
 
     customerURL = environment.apiBaseUrl+'/customers'
+    
     getCustomers():Observable<Customer[]>{
         return this.http.get<Customer[]>(this.customerURL)
     }
