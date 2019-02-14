@@ -1,35 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
 const ctrlCustomer = require('../controllers/customer');
 const customer = require('../models/costumer');
 
+router.post('/register',ctrlCustomer.register);
 
-
-router.post('/register', ctrlCustomer.register);
-
-router.route('/').get(function (req, res) {
+router.route('/').get(function (req,res){
     customer.find(function (err, customer) {
-        if (err) {
+        if (err){
             console.log(err);
         }
-        else {
+        else{
             console.log(customer)
             res.json(customer)
         }
     });
 });
 
-router.get('/customers', function (req, res) {
-    customer.find({}).exec(function (err, customers) {
-        if (err) {
+router.get('/customers',function(req,res){
+    customer.find({}).exec(function(err,customers){
+        if (err){
             console.log(err);
         }
-        else {
+        else{
             res.json(customers)
         }
     })
 });
+<<<<<<< HEAD
 
 router.post('/login', (req, res, next) => {
 
@@ -63,6 +61,8 @@ router.post('/login', (req, res, next) => {
     }
 });
 
+=======
+>>>>>>> parent of 9638468... Merge pull request #2 from nCoder13D/Saif-code
 //find customer by id
 router.route('/customers/:id').get(function (req, res){
     const id = req.params.id

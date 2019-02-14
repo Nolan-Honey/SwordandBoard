@@ -1,26 +1,15 @@
-import { Component } from "@angular/core";
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
-
-import { AuthService } from "../../Services/auth.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+title='Login Component'
+  constructor() { }
 
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  constructor(public authService: AuthService) {}
-
-  onLogin() {
-    if (this.loginForm.invalid) {
-      return;
-    }else{
-      this.authService.login(this.loginForm.get("email").value, this.loginForm.get("password").value);
-    }
+  ngOnInit() {
   }
+
 }
