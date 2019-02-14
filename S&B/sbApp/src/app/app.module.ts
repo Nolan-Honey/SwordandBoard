@@ -37,7 +37,7 @@ import { EditComponent } from './Components/edit/edit.component';
     LoginComponent,
     SignupComponent,
     SearchCustomersComponent,
-    HeaderComponent
+    HeaderComponent,
     FilterPipe,
     EditComponent
   ],
