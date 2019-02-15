@@ -1,5 +1,6 @@
 table {
   width: 100%;
+}
 
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */

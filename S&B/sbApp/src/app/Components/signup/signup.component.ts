@@ -41,14 +41,14 @@ export class SignupComponent implements OnInit {
           setTimeout(() => this.showSuccessMessage = false, 4000);
         },
         err => {
-          this.showErrorMessage = "Error, try again or contact customer service!";
+          this.showErrorMessage = true;
         }
       );
     }
     else {
-      this.showErrorMessage = "Password doesn't match!"
+      this.showErrorMessage = true
     }
-  onSubmit(){
+
     var emailExist:Boolean = false;
     this.customers.forEach(element => {
     if(element.email == this.profileForm.get("email").value){
@@ -80,3 +80,4 @@ export class SignupComponent implements OnInit {
   }
 }
 }
+
