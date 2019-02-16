@@ -18,33 +18,32 @@ export class AddCustomerComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(this.pass),
     });
-
+    
   ngOnInit() {
+    this.customerService.getCustomers()
+    .subscribe(data => this.customers = data);
   }
-
-  onSubmit(){
-    var emailExist:Boolean = false;
-    this.customers.forEach(element => {
-    if(element.email == this.newCustomer.get("email").value){
-      emailExist = true;
-    }
-  });
-  if(!emailExist){
-    this.customerService.postUser(this.newCustomer.value).subscribe(
-      res => {
-        this.successMessage = true;
-        this.newCustomer.reset();
-        location.reload();
-      },
-      err => {
-        console.log(err)
+onSubmit(){
+      var emailExist:Boolean = false;
+      this.customers.forEach(element => {
+      if(element.email == this.newCustomer.get("email").value){
+        emailExist = true;
+      }
+    });
+    if(!emailExist){
+      this.customerService.postUser(this.newCustomer.value).subscribe(
+        res => {
+          this.successMessage = true;
+          this.newCustomer.reset();
+        },
+        err => {
+          console.log(err)
         }
-  );
+    );
+    }
+    else{
+      this.showErrorMessageEmail = true;
+      setTimeout(()=> this.showErrorMessageEmail = false,4000);
   }
-  else{
-    this.showErrorMessageEmail = true;
-    setTimeout(()=> this.showErrorMessageEmail = false,4000);
-}
-}
-
+  }
 }

@@ -34,21 +34,6 @@ export class SignupComponent implements OnInit {
     .subscribe(data => this.customers = data);
   }
   onSubmit() {
-    if (this.profileForm.get("password").value == this.profileForm.get("confirm_password").value) {
-      this.customerService.postUser(this.profileForm.value).subscribe(
-        res => {
-          this.showSuccessMessage = true;
-          setTimeout(() => this.showSuccessMessage = false, 4000);
-        },
-        err => {
-          this.showErrorMessage = true;
-        }
-      );
-    }
-    else {
-      this.showErrorMessage = true
-    }
-
     var emailExist:Boolean = false;
     this.customers.forEach(element => {
     if(element.email == this.profileForm.get("email").value){
@@ -80,4 +65,3 @@ export class SignupComponent implements OnInit {
   }
 }
 }
-
