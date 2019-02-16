@@ -1,0 +1,82 @@
+<h1>{{title}}</h1>  
+
+<div class='form'>
+    <form id="form">
+        <table id="fTable">
+<tr>
+    <td style="width: 325px;">
+        <div id="cardPricing">
+            <input type="checkbox">
+            <label>Enable Card Pricing System</label>
+        </div>
+    </td>
+    <td style="width: 325px;">
+        <div id="cardStock">
+            <input type="checkbox">
+            <label>Enable Card Stock System</label>
+        </div>
+    </td>
+    <td style="width: 325px;">
+        <div id="storeCredit">
+            <input type="checkbox">
+            <label>Enable Store Credit System</label>
+            
+        </div>
+    </td>
+    <td style="width: 325px;">
+        <div id="customerLogin">
+            <input type="checkbox">
+            <label>Enable Customer Login System</label>
+        </div>       
+    </td>
+</tr>
+<tr>
+    <td style="width: 325px;">
+            If enabled, the platform will display the prices
+            based on the scraping of other prices from other
+            sources
+    </td>
+    <td style="width: 325px;">
+            If enabled, the platform will display the on hand
+            stock of the cards displayed from the database to 
+            the user
+    </td>
+    <td style="width: 325px;">
+            If enabled, the platform will allow for the display
+            and use of store given credit. Administrator will
+            be allowed to edit customer credit
+    </td>
+    <td style="width: 325px;">
+            If enabled, the platform will allow for customers 
+            who have registered with the store to have their 
+            customer info stored in the database and able to login 
+            for advanced features
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+        <div id="confirmChanges">
+            <label>Confirm Changes to the System?</label>
+            <br>
+            <input id='confirm' type="submit" value="Confirm"> 
+        </div>
+        </table>
+    </form>
+</div>
+<br>
+<div id='addCustomer'>
+    <button type="button" *ngIf="!showAdd" (click)=showAddCustomer(true)>Add Customer</button>
+    <button type="button" [hidden]="!showAdd" (click)=showAddCustomer(false)>Minimize Adding Customer</button>
+</div>
+<div id='searchCustomer'>
+    <button type="button" *ngIf="!showCustomer"(click)=showSearchCustomer(true)>Search Customer</button>
+    <button type="button" [hidden]="!showCustomer"(click)=showSearchCustomer(false)>Minimize Searching Customer</button>
+</div>
+
+<div id="showComponents">
+    <app-search-customers [hidden]='!showCustomer'></app-search-customers>
+    <app-add-customer [hidden]='!showAdd'></app-add-customer>
+</div>
+

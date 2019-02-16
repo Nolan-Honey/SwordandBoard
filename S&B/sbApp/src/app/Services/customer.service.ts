@@ -31,14 +31,13 @@ export class CustomerService{
         }));
     }
 // update customer
-    updateCustomer(id, first_name, last_name, email, password, credit ){
+    updateCustomer(id, first_name, last_name, email, credit ){
         const uri = this.baseUrl + '/customers/update/' + id
         const selectedCustomer = {
         
         first_name: first_name,
         last_name: last_name,
         email: email,
-        password: password,
         credit: credit
         }
 

@@ -81,7 +81,6 @@ router.route('/customers/update/:id').post(function (req, res){
             customer.first_name = req.body.first_name
             customer.last_name = req.body.last_name
             customer.email = req.body.email
-            customer.password = req.body.password
             customer.credit = req.body.credit
             
             customer.save().then(customer =>{

@@ -1,5 +1,25 @@
 <div style="height: 314px;" id="comp-j2th1exilink" class="wp2link">
   <div style="top: 0px; left: 0px; position: relative; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
-    <app-header></app-header>
+    <mat-toolbar color="primary">
+      <span>
+        <a routerLink="https://www.theswordandboardtoronto.com/">Sword & Board</a>
+      </span>
+      <span class="spacer"></span>
+      <ul>   
+        <li>
+          <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent">Cards</a>
+        </li>
+        <li>
+          <a class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent">Login/Register</a>
+        </li>
+        <li>
+          <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent">Admin</a>
+        </li>
+        <li class="headerButton">
+          <button mat-button (click)="onLogout()">Logout</button>
+        </li>
+      </ul>
+    </mat-toolbar>
+    
     <img id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogoinvert.png">
     <router-outlet></router-outlet>

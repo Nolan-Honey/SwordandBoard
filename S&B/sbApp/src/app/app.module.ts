@@ -19,14 +19,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { FilterPipe } from './filter/filter.pipe';
 
 import { AppComponent } from './app.component';
-import { AdminComponent } from './Components/admin/admin.component';
+import { AdminComponent } from './Components/Administrator/admin/admin.component';
 import { HomeComponent } from './Components/home/home.component';
-import { CustomerComponent } from './Components/customer/customer.component';
-import { LoginComponent } from './Components/login/login.component';
-import { SignupComponent } from './Components/signup/signup.component';
-import { SearchCustomersComponent } from './Components/search-customers/search-customers.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { EditComponent } from './Components/edit/edit.component';
+import { CustomerComponent } from './Components/Customers/customer/customer.component';
+import { LoginComponent } from './Components/Credentials/login/login.component';
+import { SignupComponent } from './Components/Credentials/signup/signup.component';
+import { SearchCustomersComponent } from './Components/Administrator/search-customers/search-customers.component';
+import { EditComponent } from './Components/Administrator/edit/edit.component';
+import { AddCustomerComponent } from './Components/Administrator/add-customer/add-customer.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +37,9 @@ import { EditComponent } from './Components/edit/edit.component';
     LoginComponent,
     SignupComponent,
     SearchCustomersComponent,
-    HeaderComponent,
     FilterPipe,
-    EditComponent
+    EditComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,

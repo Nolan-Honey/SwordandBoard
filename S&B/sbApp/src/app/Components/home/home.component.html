@@ -4,17 +4,18 @@
         <label id="wFilter">Filter by card name, type and/or text: </label>
         <br>
         <br>
-        <input id="bFilter" type="text" placeholder="Search..">
+        <input id="bFilter" [(ngModel)]="searchText" placeholder="Search card...">
     </div>
     <div id="tFilter">
         <h3>Type Filter</h3>
         <label>Card Type: </label>
         <br>
         <br>
-        <label for="black-mana"><img src="../../../assets/images/Black_Mana.png"></label><input name="black-mana" value="black-mana" type="checkbox">
-        <label for="blue-mana"><img src="../../../assets/images/Blue_Mana.png"></label><input name="blue-mana"  value="blue-mana" type="checkbox">
-        <label for="green-mana"><img src="../../../assets/images/Green_Mana.png"></label><input name="green-mana" value="green-mana" type="checkbox">
-        <label for="red-mana"><img src="../../../assets/images/Red_Mana.png"></label><input name="red-mana" value="red-mana" type="checkbox">
-        <label for="white-mana"><img src="../../../assets/images/White_Mana.png"></label><input name="white-mana" value="white-mana" type="checkbox">
+        <input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
+        <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
+        <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
+        <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
+        <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
     </div>
+    
 </div>

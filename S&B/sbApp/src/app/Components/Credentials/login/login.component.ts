@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
-import { AuthService } from "../../Services/auth.service";
+import { AuthService } from "../../../Services/auth.service";
 
 @Component({
   templateUrl: "./login.component.html",

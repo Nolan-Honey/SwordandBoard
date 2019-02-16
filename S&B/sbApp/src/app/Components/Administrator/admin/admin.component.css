@@ -1,0 +1,9 @@
+h1{
+    text-align:center;
+}
+#confirmChanges{
+    margin-top: 25px;
+}
+button,#confirm{
+    color:black;
+}

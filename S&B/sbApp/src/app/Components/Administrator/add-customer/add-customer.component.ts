@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
-
 import { CustomerService } from 'src/app/Services/customer.service';
-import { Customer } from '../../Shared/customer.model';
-
-
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 @Component({
-  selector: 'app-search-customers',
-  templateUrl: './search-customers.component.html',
-  styleUrls: ['./search-customers.component.css']
+  selector: 'app-add-customer',
+  templateUrl: './add-customer.component.html',
+  styleUrls: ['./add-customer.component.css']
 })
-export class SearchCustomersComponent implements OnInit {
-
+export class AddCustomerComponent implements OnInit {
   showErrorMessageEmail:Boolean = false;
   customers = []
   constructor(private customerService:CustomerService) { }
@@ -26,17 +20,8 @@ export class SearchCustomersComponent implements OnInit {
     });
 
   ngOnInit() {
-    this.customerService.getCustomers()
-    .subscribe(data => this.customers = data)
   }
-  onClickDelete(id){
-    if(confirm("Are you sure you want to delete this customer?")){
-    this.customerService.deleteCustomer(id).subscribe(res =>{
-      console.log("customer deleted")
-      this.ngOnInit()
-    })
-  }
-  }
+
   onSubmit(){
     var emailExist:Boolean = false;
     this.customers.forEach(element => {
@@ -61,4 +46,5 @@ export class SearchCustomersComponent implements OnInit {
     setTimeout(()=> this.showErrorMessageEmail = false,4000);
 }
 }
+
 }

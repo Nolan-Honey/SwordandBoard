@@ -1,0 +1,43 @@
+<h3 style="text-align:center">{{title}}</h3>
+<div id="table100"><br> 
+  <input id="myInput" [(ngModel)]="searchText" placeholder="Search Customers...">
+<table id="myTable">
+  <tr class="header">
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Email</th>
+  <th>Store Credit</th>
+  <th colspan="2">Controls</th>
+  </tr>
+  <tr *ngFor="let x of customers | filter: {first_name:searchText, 
+    last_name:searchText, email:searchText}">
+    <td>{{x.first_name}}</td>
+    <td>{{x.last_name}}</td>
+    <td>{{x.email}}</td>
+    <td>{{x.credit}}</td>
+    <button (click)='onLoad(true)'><a [routerLink]="['/edit',x._id]">Edit</a></button>
+    <!--<button (click)='onLoad(true)'>Edit</button>-->
+    <button (click) = "onClickDelete(x._id)">Delete</button>
+  </tr>
+</table>
+</div>
+<div *ngIf='load' class="signup-form">
+  <form [formGroup]="editForm" (ngSubmit)="updateCustomer(first_name.value, last_name.value, email.value, store_credit.value)">
+  <h2>Update Customer</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName='first_name' #first_name placeholder="First Name" [(ngModel)] = "customer.first_name" >
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName='last_name' #last_name placeholder="Last Name" [(ngModel)] = "customer.last_name" >
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName='email' #email placeholder="Email Address" [(ngModel)] = "customer.email">
+      </div>
+  <div class="form-group">
+          <input type="text" class="form-control" formControlName='store_credit' #store_credit placeholder="Customer credit" [(ngModel)] = "customer.credit">
+      </div>        
+  <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid"> Update</button>
+      </div>
+  </form>
+</div>       
