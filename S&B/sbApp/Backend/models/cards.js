@@ -3,8 +3,7 @@ var Schema = mongoose.Schema
 var cardSchema = new Schema({
     name: String,
     type: String,
-    price: Number,
-    inventory: Number,
+    inventory: {type:Number, default:0}
 
 })
 var card = mongoose.model('card', cardSchema)
