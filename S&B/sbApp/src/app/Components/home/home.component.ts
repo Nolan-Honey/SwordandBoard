@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { cardService } from '../../Services/card.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 title='Home Component';
+cardName:string = ""
 cardInfo=[]
 constructor(private cardInfoService: cardService,
   private route: ActivatedRoute, private router: Router){}
@@ -18,5 +20,14 @@ constructor(private cardInfoService: cardService,
     this.cardInfoService.getcardInfo()
     .subscribe(data => this.cardInfo = data)
   }
+  //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
+  newCard = new FormGroup({
+    cardName : new FormControl('')
+  })
 
+  onSubmit(){
+    this.cardName = this.newCard.get('cardName').value;
+    this.cardInfoService.viewCard(this.cardName)
+  }
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 }

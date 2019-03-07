@@ -18,6 +18,9 @@ export class cardService{
         return this.http.get<CardInfo[]>(this.cardInfoURL)
     }
 
-
+    getcardURL = environment.apiBaseUrl+'/card';
+    viewCard(cardName:String){
+        return this.http.post(this.getcardURL,cardName);
+    }
 
 }
