@@ -17,5 +17,16 @@
         <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
         <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
     </div>
-    
 </div>
+<table id="myTable">
+    <tr class="header">
+    <th>Card Name</th>
+    <th>Card Category</th>
+    <th>Card Price</th>
+    </tr>
+    <tr *ngFor="let x of cardInfo | filter: {card:searchtext}">
+      <td>{{x.card}}</td>
+      <td>{{x.category}}</td>
+      <td>{{x.msrp}}</td>
+    </tr>
+  </table>

@@ -1,8 +1,19 @@
 <div style="height: 314px;" id="comp-j2th1exilink" class="wp2link">
   <div style="top: 0px; left: 0px; position: relative; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
-    <mat-toolbar color="primary">
+    <mat-toolbar style="background-color:black">
       <span>
         <a routerLink="https://www.theswordandboardtoronto.com/">Sword & Board</a>
+          
+          <div class="dropdown">
+              <img src='../assets/images/bgIcon.jpg' width='20px' height='10px' style='margin-left:10px;'>
+              <div class="dropdown-content">
+              <button (click)="bg1()" ><img src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button>
+              <button (click)="bg2()"><img src='../assets/images/backgrounds/bg2.jpg' width='100px' height='100px'></button>
+              <button (click)="bg3()"><img src='../assets/images/backgrounds/bg5.jpg' width='100px' height='100px'></button>
+              <button (click)="bg4()"><img src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button>
+              <button (click)="bg5()"><img src='../assets/images/backgrounds/bg6-invert.jpg' width='100px' height='100px'></button>
+              </div>
+            </div>
       </span>
       <span class="spacer"></span>
       <ul>   
@@ -21,5 +32,6 @@
       </ul>
     </mat-toolbar>
     
-    <img id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogoinvert.png">
+    <img className='logo' id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogoinvert.png">
     <router-outlet></router-outlet>
+    

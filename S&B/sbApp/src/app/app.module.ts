@@ -13,7 +13,7 @@ import {
   MatExpansionModule,
   MatPaginatorModule,
   MatTableModule,
-  MatSelectModule
+  MatSelectModule,
 } from "@angular/material";
 import { AppRoutingModule } from "./app-routing.module";
 import { FilterPipe } from './filter/filter.pipe';
@@ -55,7 +55,9 @@ import { AddCustomerComponent } from './Components/Administrator/add-customer/ad
     MatExpansionModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

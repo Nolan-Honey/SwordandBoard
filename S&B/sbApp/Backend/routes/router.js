@@ -3,8 +3,18 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const ctrlCustomer = require('../controllers/customer');
 const customer = require('../models/costumer');
+const cardInfo = require('../models/cardInfo');
 
-
+router.get('/cardInfo', function (req, res) {
+    cardInfo.find({}).exec(function (err, ci) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(ci)
+        }
+    })
+});
 
 router.post('/register', ctrlCustomer.register);
 
