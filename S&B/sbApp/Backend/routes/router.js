@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 const ctrlCustomer = require('../controllers/customer');
 const customer = require('../models/costumer');
 const cardInfo = require('../models/cardInfo');
+const ctrlCard = require('../controllers/card');
+
+router.post('/card',ctrlCard.card);
 
 router.get('/cardInfo', function (req, res) {
     cardInfo.find({}).exec(function (err, ci) {

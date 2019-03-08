@@ -18,6 +18,16 @@
         <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
     </div>
 </div>
+<div class="cards">
+    <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
+    <h2>Search Cards</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName='cardName' placeholder="Search card...">
+            <button type="submit" >Search</button>
+            <h1>{{cardName}}</h1>
+        </div>
+    </form>
+</div>
 <table id="myTable">
     <tr class="header">
     <th>Card Name</th>

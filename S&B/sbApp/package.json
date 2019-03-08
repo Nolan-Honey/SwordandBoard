@@ -28,6 +28,7 @@
     "express": "^4.16.4",
     "hammerjs": "^2.0.8",
     "mongoose": "^5.4.6",
+    "mtgsdk": "^0.4.2",
     "ngx-renderer": "^1.0.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
