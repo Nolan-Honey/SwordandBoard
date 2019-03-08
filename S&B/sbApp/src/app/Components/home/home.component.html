@@ -1,23 +1,31 @@
-<div class="search">
-    <div id="dFilter">
-        <h3 id="wFilter">Description Filter</h3>
-        <label id="wFilter">Filter by card name, type and/or text: </label>
-        <br>
-        <br>
-        <input id="bFilter" [(ngModel)]="searchText" placeholder="Search card...">
-    </div>
-    <div id="tFilter">
-        <h3>Type Filter</h3>
-        <label>Card Type: </label>
-        <br>
-        <br>
-        <input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
-        <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
-        <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
-        <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
-        <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
-    </div>
-</div>
+<div class="cards">
+    <table id='searchTable'>
+        <tr>
+            <th><h3>Description Filter</h3></th>
+            <th><h3>Type Filter</h3></th>
+            </tr>
+        <tr>
+            <th>Filter by card name, type and/or text: </th>
+            <th>Card Type:</th>
+        </tr>
+        <tr>
+            <th><input id="searchText" [(ngModel)]="searchText" placeholder="Search card..."></th>
+            <th><input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
+                <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
+                <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
+                <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
+                <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
+            </th>
+        </tr>
+    </table>  
+    <ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            size="medium"
+            color= "rgba(189, 123, 0, 0.986)"
+            type="ball-scale-multiple">
+           <p style="font-size: 20px; color: rgba(189, 123, 0, 0.986)">Loading Magic The Gathering Cards Please Wait...</p>
+    </ngx-spinner>
+
 <div class="cards">
     <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
     <h2>Search Cards</h2>
@@ -28,15 +36,18 @@
         </div>
     </form>
 </div>
-<table id="myTable">
-    <tr class="header">
-    <th>Card Name</th>
-    <th>Card Category</th>
-    <th>Card Price</th>
-    </tr>
-    <tr *ngFor="let x of cardInfo | filter: {card:searchtext}">
-      <td>{{x.card}}</td>
-      <td>{{x.category}}</td>
-      <td>{{x.msrp}}</td>
-    </tr>
+    <table id="resultsTable" *ngIf="allDataFetched">
+        <tr>
+            <th>Card Name</th>
+            <th>Card Category</th>
+            <th>Card Price</th>
+        </tr>
+        <tr *ngFor="let x of cardInfo | filter: {card:searchtext} | paginate: { itemsPerPage: 20, currentPage: p}">
+            <td>{{x.card}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.msrp}}</td>
+        </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table>
+  
+</div>

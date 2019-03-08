@@ -5,6 +5,8 @@ import { AuthInterceptor } from "./Shared/auth-interceptor";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import {
   MatInputModule,
   MatCardModule,
@@ -57,7 +59,9 @@ import { AddCustomerComponent } from './Components/Administrator/add-customer/ad
     MatTableModule,
     MatSelectModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    NgxSpinnerModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

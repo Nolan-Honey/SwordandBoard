@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { cardService } from '../../Services/card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,23 @@ export class HomeComponent implements OnInit {
 title='Home Component';
 cardName:string = ""
 cardInfo=[]
-constructor(private cardInfoService: cardService,
-  private route: ActivatedRoute, private router: Router){}
+allDataFetched=false
+constructor(private spinnerService: NgxSpinnerService, private cardInfoService: cardService,
+  private route: ActivatedRoute, private router: Router){
+    for(let i=0;i<=100;i++){
+      this.cardInfo.push(`${i}`)
+    }
+  }
 
   ngOnInit() {
+    this.spinnerService.show();
     this.cardInfoService.getcardInfo()
-    .subscribe(data => this.cardInfo = data)
+    .subscribe(data => {
+      console.log('trying to get')
+      this.cardInfo = data;
+      this.allDataFetched = true
+      this.spinnerService.hide();
+    })
   }
     //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
     newCard = new FormGroup({
