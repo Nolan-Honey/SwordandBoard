@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs/observable'
 import {map} from 'rxjs/operators'
+import { delay } from 'q';
 @Injectable({
     providedIn:'root'
 })
@@ -22,6 +23,7 @@ export class cardService{
     viewCard(card:String){
         return this.http.post(this.getcardURL,card);
     }
-
-
+    // getData(){       
+    //     return this.http.get(this.getcardURL);
+    // }   
 }

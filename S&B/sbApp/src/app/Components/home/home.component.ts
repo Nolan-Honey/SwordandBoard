@@ -3,6 +3,7 @@ import { cardService } from '../../Services/card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Response } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ export class HomeComponent implements OnInit {
 title='Home Component';
 cardName:string = ""
 cardInfo=[]
+cards:any = {}
+
 allDataFetched=false
 constructor(private spinnerService: NgxSpinnerService, private cardInfoService: cardService,
   private route: ActivatedRoute, private router: Router){
@@ -22,7 +25,7 @@ constructor(private spinnerService: NgxSpinnerService, private cardInfoService: 
   }
 
   ngOnInit() {
-    this.spinnerService.show();
+    //this.spinnerService.show();
     this.cardInfoService.getcardInfo()
     .subscribe(data => {
       console.log('trying to get')
@@ -38,7 +41,6 @@ constructor(private spinnerService: NgxSpinnerService, private cardInfoService: 
   
     onSubmit(){
       this.cardName = this.newCard.get('cardName').value;
-  
       this.cardInfoService.viewCard(this.newCard.value).subscribe(
         res => {
           console.log(res)
@@ -47,6 +49,11 @@ constructor(private spinnerService: NgxSpinnerService, private cardInfoService: 
           console.log(err)
         }
     );
+    // this.cardName = this.newCard.get('cardName').value;
+    // this.cardInfoService.viewCard(this.newCard.value).subscribe(data => this.cards = data);
+    // setTimeout(function(){
+    //   console.log("Jan");
+    // },5000)
     }
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
