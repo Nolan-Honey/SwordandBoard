@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Response } from 'selenium-webdriver/http';
+import { AuthService } from 'src/app/Services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,50 +13,68 @@ import { Response } from 'selenium-webdriver/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-title='Home Component';
-cardName:string = ""
-cardInfo=[]
-cards:any = {}
+  title = 'Home Component';
+  cardName: string = ""
+  cardInfo = []
+  cards: any = {}
 
-allDataFetched=false
-constructor(private spinnerService: NgxSpinnerService, private cardInfoService: cardService,
-  private route: ActivatedRoute, private router: Router){
-    for(let i=0;i<=100;i++){
+  allDataFetched = false
+
+  userIsAuthenticated = false;
+  private authListenerSubs: Subscription;
+
+  constructor(
+    private spinnerService: NgxSpinnerService, private cardInfoService: cardService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    for (let i = 0; i <= 100; i++) {
       this.cardInfo.push(`${i}`)
     }
   }
 
   ngOnInit() {
+    //Auth info
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
     //this.spinnerService.show();
     this.cardInfoService.getcardInfo()
-    .subscribe(data => {
-      console.log('trying to get')
-      this.cardInfo = data;
-      this.allDataFetched = true
-      this.spinnerService.hide();
-    })
+      .subscribe(data => {
+        console.log('trying to get')
+        this.cardInfo = data;
+        this.allDataFetched = true
+        this.spinnerService.hide();
+      })
   }
-    //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
-    newCard = new FormGroup({
-      cardName : new FormControl('')
-    })
-  
-    onSubmit(){
-      this.cardName = this.newCard.get('cardName').value;
-      this.cardInfoService.viewCard(this.newCard.value).subscribe(
-        res => {
-          console.log(res)
-        },
-        err => {
-          console.log(err)
-        }
+  //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
+  newCard = new FormGroup({
+    cardName: new FormControl('')
+  })
+
+  onSubmit() {
+    this.cardName = this.newCard.get('cardName').value;
+    this.cardInfoService.viewCard(this.newCard.value).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => {
+        console.log(err)
+      }
     );
     // this.cardName = this.newCard.get('cardName').value;
     // this.cardInfoService.viewCard(this.newCard.value).subscribe(data => this.cards = data);
     // setTimeout(function(){
     //   console.log("Jan");
     // },5000)
-    }
-    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  }
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ngOnDestroy() {
+    this.authListenerSubs.unsubscribe();
+  }
 
 }

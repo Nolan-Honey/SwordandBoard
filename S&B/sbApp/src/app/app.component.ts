@@ -1,4 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
+import { AuthService } from './Services/auth.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +9,23 @@ import { Component, Renderer2 } from '@angular/core';
 export class AppComponent {
   title = 'App Component';
   toState = 'state1';
-  constructor(private renderer: Renderer2) {}
+  userIsAuthenticated = false;
+  private authListenerSubs: Subscription;
+
+  constructor(
+    private renderer: Renderer2,
+    private authService: AuthService
+  ) { }
+
+  ngOnInit() {
+    this.authService.autoAuthUser();
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
+  }
 
   bg1() {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg.jpg")');
@@ -20,7 +38,7 @@ export class AppComponent {
   bg3() {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg5.jpg")');
     this.renderer.setStyle(document.body, 'color', 'black');
-    
+
   }
   bg4() {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg3-invert.jpg")');
@@ -30,4 +48,11 @@ export class AppComponent {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg6-invert.jpg")');
     this.renderer.setStyle(document.body.getElementsByClassName('logo'), 'src', "../assets/images/backgrounds/sblogo.jpg");
   }
+  onLogout() {
+    this.authService.logout();
+  }
+  ngOnDestroy() {
+    this.authListenerSubs.unsubscribe();
+  }
+
 }

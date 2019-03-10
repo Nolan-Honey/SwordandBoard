@@ -2,7 +2,7 @@
   <div style="top: 0px; left: 0px; position: relative; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
     <mat-toolbar style="background-color:black">
       <span>
-        <a routerLink="https://www.theswordandboardtoronto.com/">Sword & Board</a>
+        <a href="https://www.theswordandboardtoronto.com/">Sword & Board</a>
           
           <div class="dropdown">
               <img src='../assets/images/bgIcon.jpg' width='20px' height='10px' style='margin-left:10px;'>
@@ -17,16 +17,16 @@
       </span>
       <span class="spacer"></span>
       <ul>   
-        <li>
+        <li *ngIf="userIsAuthenticated">
           <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent">Cards</a>
         </li>
-        <li>
+        <li *ngIf="!userIsAuthenticated">
           <a class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent">Login/Register</a>
         </li>
-        <li>
+        <li *ngIf="userIsAuthenticated">
           <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent">Admin</a>
         </li>
-        <li class="headerButton">
+        <li class="headerButton" *ngIf="userIsAuthenticated">
           <button mat-button (click)="onLogout()">Logout</button>
         </li>
       </ul>
