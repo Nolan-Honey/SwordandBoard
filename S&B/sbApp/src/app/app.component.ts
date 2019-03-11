@@ -51,6 +51,13 @@ export class AppComponent {
   onLogout() {
     this.authService.logout();
   }
+
+  clickMethod() {
+    if (confirm("Are you sure you want to navigate to https://www.theswordandboardtoronto.com? ")) {
+      window.open("https://www.theswordandboardtoronto.com");
+    }
+  }
+
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
   }

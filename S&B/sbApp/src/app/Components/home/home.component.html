@@ -43,7 +43,7 @@
             <th>Card Category</th>
             <th>Card Price</th>
         </tr>
-        <tr *ngFor="let x of cardInfo | filter: {card:searchtext} | paginate: { itemsPerPage: 20, currentPage: p}">
+        <tr *ngFor="let x of JSON.parse(sessionStorage.getItem('cardInfo')) | filter: {card:searchtext} | paginate: { itemsPerPage: 20, currentPage: p}">
             <td>{{x.card}}</td>
             <td>{{x.category}}</td>
             <td>{{x.msrp}}</td>
