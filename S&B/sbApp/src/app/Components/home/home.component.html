@@ -32,11 +32,12 @@
         <div class="form-group">
             <input type="text" class="form-control" formControlName='cardName' placeholder="Search card...">
             <button type="submit" >Search</button>
-            <h1>{{cardName}}</h1>
+            <h1>{{cards["Static Orb"]}}</h1>
+            <!-- <div ngFor*=" let card in cards"><p>{{card[0]}}</p></div> -->
         </div>
     </form>
 </div>
-    <table id="resultsTable" *ngIf="allDataFetched">
+    <!-- <table id="resultsTable" *ngIf="allDataFetched">
         <tr>
             <th>Card Name</th>
             <th>Card Category</th>
@@ -48,6 +49,6 @@
             <td>{{x.msrp}}</td>
         </tr>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </table>
+  </table> -->
   
 </div>

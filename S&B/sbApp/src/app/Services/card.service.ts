@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs/observable'
 import {map} from 'rxjs/operators'
 import { delay } from 'q';
+import { Params } from '@angular/router';
 @Injectable({
     providedIn:'root'
 })
@@ -23,7 +24,7 @@ export class cardService{
     viewCard(card:String){
         return this.http.post(this.getcardURL,card);
     }
-    // getData(){       
-    //     return this.http.get(this.getcardURL);
-    // }   
+    getCards(card:Params){
+        return this.http.get(this.getcardURL,card);
+    }
 }

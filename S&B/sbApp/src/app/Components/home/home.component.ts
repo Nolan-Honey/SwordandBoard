@@ -60,17 +60,14 @@ export class HomeComponent implements OnInit {
     this.cardName = this.newCard.get('cardName').value;
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
+        this.cards = res;
         console.log(res)
       },
       err => {
         console.log(err)
       }
     );
-    // this.cardName = this.newCard.get('cardName').value;
-    // this.cardInfoService.viewCard(this.newCard.value).subscribe(data => this.cards = data);
-    // setTimeout(function(){
-    //   console.log("Jan");
-    // },5000)
+
   }
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ngOnDestroy() {
