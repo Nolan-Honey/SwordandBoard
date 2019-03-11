@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         console.log('trying to get')
         this.cardInfo = data;
+        sessionStorage.setItem('cards', data.toString())
         this.allDataFetched = true
         this.spinnerService.hide();
       })
