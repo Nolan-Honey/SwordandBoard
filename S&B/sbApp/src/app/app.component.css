@@ -31,6 +31,10 @@
     margin-right: auto;
 }
 
+#siteLink{
+  cursor: pointer;
+}
+
 mat-toolbar {
     margin-bottom: 30px;
     background-color: white;
