@@ -9,3 +9,11 @@ var cardSchema = new Schema({
 var card = mongoose.model('card', cardSchema)
 module.exports = card
 
+
+var cardJan = new Schema({
+    card:[]
+
+})
+var jansCard = mongoose.model('jansCard',cardJan)
+
+module.exports = jansCard;

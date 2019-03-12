@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   title = 'Home Component';
   cardName: string = ""
   cardInfo = []
-  cards: any = {}
+  cards: any = []
 
   allDataFetched = false
 
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
-    //this.spinnerService.show();
+    // this.spinnerService.show();
     this.cardInfoService.getcardInfo()
       .subscribe(data => {
         console.log('trying to get')

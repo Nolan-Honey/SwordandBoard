@@ -1,42 +1,30 @@
 <div class="cards">
-    <table id='searchTable'>
-        <tr>
-            <th><h3>Description Filter</h3></th>
-            <th><h3>Type Filter</h3></th>
-            </tr>
-        <tr>
-            <th>Filter by card name, type and/or text: </th>
-            <th>Card Type:</th>
-        </tr>
-        <tr>
-            <th><input id="searchText" [(ngModel)]="searchText" placeholder="Search card..."></th>
-            <th><input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
-                <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
-                <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
-                <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
-                <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
-            </th>
-        </tr>
-    </table>  
-    <ngx-spinner
-            bdColor="rgba(51,51,51,0.8)"
-            size="medium"
-            color= "rgba(189, 123, 0, 0.986)"
-            type="ball-scale-multiple">
-           <p style="font-size: 20px; color: rgba(189, 123, 0, 0.986)">Loading Magic The Gathering Cards Please Wait...</p>
-    </ngx-spinner>
-
-<div class="cards">
-    <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
-    <h2>Search Cards</h2>
-        <div class="form-group">
-            <input type="text" class="form-control" formControlName='cardName' placeholder="Search card...">
-            <button type="submit" >Search</button>
-            <h1>{{cards["Static Orb"]}}</h1>
-            <!-- <div ngFor*=" let card in cards"><p>{{card[0]}}</p></div> -->
+    <div class="cards">
+        <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
+                <div id="border">
+                <input  id="cardInput" type="text" class="form-control" formControlName='cardName' placeholder="Search card...">
+                <button class="btn btn-dark" type="submit">Search</button>
+            </div>
+        </form>
+        <div id="type">
+        <input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
+        <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
+        <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
+        <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
+        <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row text-center text-lg-left">
+            <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
+                <p>{{card['name'] }}</p>
+                <p>Set {{card['set']}}</p>
+                <div class="zoom">
+                    <img id="image" class="img-fluid img-thumbnail" src="{{card['imageUrl']}}" alt="Image not avalible">
+                </div>
+            </div>
         </div>
-    </form>
-</div>
+    </div>
     <!-- <table id="resultsTable" *ngIf="allDataFetched">
         <tr>
             <th>Card Name</th>
@@ -50,5 +38,7 @@
         </tr>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table> -->
-  
 </div>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="rgba(189, 123, 0, 0.986)" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: rgba(189, 123, 0, 0.986)">Loading Magic The Gathering Cards Please Wait...</p>
+</ngx-spinner>
