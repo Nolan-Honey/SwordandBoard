@@ -110,6 +110,7 @@ export class SearchCustomersComponent implements OnInit {
       this.customerService.updateCustomer(params['id'], first_name, last_name, email, credit);
       console.log(params['id'], first_name, last_name, email, credit);
       this.load = false;
+      this.ngOnInit();
       this.router.navigate(['admin'])
     });
   }
