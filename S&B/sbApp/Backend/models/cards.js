@@ -10,10 +10,14 @@ var card = mongoose.model('card', cardSchema)
 module.exports = card
 
 
-var cardJan = new Schema({
-    card:[]
+var card = new Schema({
+    name:String,
+    set:String,
+    text:String,
+    imageUrl:String
+
 
 })
-var jansCard = mongoose.model('jansCard',cardJan)
+var Card = mongoose.model('Card',card)
 
-module.exports = jansCard;
+module.exports = Card;

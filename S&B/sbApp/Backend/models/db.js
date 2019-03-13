@@ -4,3 +4,4 @@ mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true },(err)=>{
 });
 require('./costumer')
 require('./cardInfo')
+require('./cards')
