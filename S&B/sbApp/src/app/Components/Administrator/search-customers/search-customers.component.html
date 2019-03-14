@@ -15,7 +15,7 @@
     <td>{{x.last_name}}</td>
     <td>{{x.email}}</td>
     <td>{{x.credit}}</td>
-    <button (click)='onLoad(true)'><a [routerLink]="['/edit',x._id]">Edit</a></button>
+    <button (click)='onLoad(true); getID(x._id)'>Edit</button>
     <!--<button (click)='onLoad(true)'>Edit</button>-->
     <button (click) = "onClickDelete(x._id)">Delete</button>
   </tr>
