@@ -8,6 +8,7 @@ const ctrlCard = require('../controllers/card');
 
 router.post('/card',ctrlCard.card);
 
+
 router.get('/cardInfo', function (req, res) {
     cardInfo.find({}).exec(function (err, ci) {
         if (err) {

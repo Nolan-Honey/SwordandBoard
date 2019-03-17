@@ -21,3 +21,12 @@ var card = new Schema({
 var Card = mongoose.model('Card',card)
 
 module.exports = Card;
+
+var scryfallSheme = new Schema({
+    name: String,
+    lang:String,
+    image:String,
+    color:String
+},{collection:'mtg_cards'})
+var scryfall = mongoose.model('Scryfall',scryfallSheme);
+module.exports = scryfall;
