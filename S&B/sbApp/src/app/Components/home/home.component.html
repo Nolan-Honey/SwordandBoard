@@ -17,8 +17,8 @@
     <div class="container">
         <div class="row text-center text-lg-left">
             <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
-                <p>{{card['name'] }}</p>
-                <p>Set {{card['set']}}</p>
+                <p>{{card.name }}</p>
+                <p>Set {{card.set}}</p>
                 <div class="zoom">
                     <img id="image" class="img-fluid img-thumbnail" src="{{card.image_uris.normal}}" alt="Image not avalible">
                 </div>
