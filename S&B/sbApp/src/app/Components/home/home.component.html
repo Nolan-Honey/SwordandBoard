@@ -1,19 +1,24 @@
 <div class="cards">
-    <div class="cards">
-        <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
-                <div id="border">
-                <input  id="cardInput" type="text" class="form-control" formControlName='cardName' placeholder="Search card...">
-                <button class="btn btn-dark" type="submit">Search</button>
-            </div>
-        </form>
-        <div id="type">
-        <input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
-        <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
-        <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
-        <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
-        <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
-    </div>
-    </div>
+    <table id='searchTable'>
+        <tr>
+            <th><h3>Description Filter</h3></th>
+            <th><h3>Type Filter</h3></th>
+            </tr>
+        <tr>
+            <th>Filter by card name, type and/or text: </th>
+            <th>Card Type:</th>
+        </tr>
+        <tr>
+            <th><input id="searchText" [(ngModel)]="searchText" placeholder="Search card..."></th>
+            <th><input type="checkbox"><label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
+                <input type="checkbox"><label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
+                <input type="checkbox"><label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
+                <input type="checkbox"><label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
+                <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
+            </th>
+        </tr>
+    </table>  
+
     <div class="container">
         <div class="row text-center text-lg-left">
             <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
@@ -39,6 +44,3 @@
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table> -->
 </div>
-<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="rgba(189, 123, 0, 0.986)" type="ball-scale-multiple">
-    <p style="font-size: 20px; color: rgba(189, 123, 0, 0.986)">Loading Magic The Gathering Cards Please Wait...</p>
-</ngx-spinner>

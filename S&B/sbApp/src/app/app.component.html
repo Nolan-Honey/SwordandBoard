@@ -1,36 +1,37 @@
-<div style="height: 314px;" id="comp-j2th1exilink" class="wp2link">
-  <div style="top: 0px; left: 0px; position: relative; height: 314px;" data-style="" class="wp2img" id="comp-j2th1exiimg">
-    <mat-toolbar style="background-color:black">
+
+    <mat-toolbar  style="background-color: rgba(0, 0, 0, 0.9);">
       <span>
-        <a (click)="clickMethod()" id="siteLink">Sword & Board</a>
+        <ul class="borderYtoX" style='margin-left:30px'><li><a class="headerButton " mat-button (click)="clickMethod()" id="siteLink">Sword & Board</a></li></ul>
           <div class="dropdown">
-              <img src='../assets/images/bgIcon.jpg' width='20px' height='10px' style='margin-left:10px;'>
+              <img src='../assets/images/bgIcon.jpg' width='20px' height='10px'>
               <div class="dropdown-content">
-              <button (click)="bg1()" ><img src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button>
-              <button (click)="bg2()"><img src='../assets/images/backgrounds/bg2.jpg' width='100px' height='100px'></button>
-              <button (click)="bg3()"><img src='../assets/images/backgrounds/bg5.jpg' width='100px' height='100px'></button>
-              <button (click)="bg4()"><img src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button>
-              <button (click)="bg5()"><img src='../assets/images/backgrounds/bg6-invert.jpg' width='100px' height='100px'></button>
+              <button (click)="bg4()"><img id='bg' src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button>
+              <button (click)="bg1()"><img id='bg' src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button>
+              <button (click)="bg2()"><img id='bg' src='../assets/images/backgrounds/bg2.jpg' width='100px' height='100px'></button>
+              <!--<button (click)="bg3()"><img id='bg' src='../assets/images/backgrounds/bg5.jpg' width='100px' height='100px'></button>-->
+              
+              <button (click)="bg5()"><img id='bg' src='../assets/images/backgrounds/bg6-invert.jpg' width='100px' height='100px'></button>
               </div>
             </div>
       </span>
       <span class="spacer"></span>
-      <ul>   
-        <li *ngIf="userIsAuthenticated">
-          <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent">Cards</a>
-        </li>
-        <li *ngIf="!userIsAuthenticated">
-          <a class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent">Login/Register</a>
+      <ul class="container borderYtoX" >   
+        <li>
+          <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent">Card Search</a>
         </li>
         <li *ngIf="userIsAuthenticated">
           <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent">Admin</a>
         </li>
-        <li class="headerButton" *ngIf="userIsAuthenticated">
-          <button mat-button (click)="onLogout()">Logout</button>
+        <li>
+          <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()">Logout</a>
+          <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent">Login/Register</a>
         </li>
       </ul>
     </mat-toolbar>
+    <div>
+      <a  routerLink="/" ><img id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogowhite.png" ></a>
+    </div>
     
-    <img className='logo' id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogoinvert.png">
     <router-outlet></router-outlet>
-    
+           
+   

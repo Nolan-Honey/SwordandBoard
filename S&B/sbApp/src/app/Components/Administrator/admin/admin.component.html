@@ -1,5 +1,30 @@
 <h1>{{title}}</h1>  
-
+<form class='adminForm'>
+    <div class='cardPricing'>
+        <input class='check' type="checkbox">
+        <label class='lblFeature'>Enable Card Pricing System</label>
+        <label class='lblDescP'>Display the prices</label>
+    </div>
+    <div class='stockSytem'>
+        <input class='check' type="checkbox">
+        <label class='lblFeature'>Enable Card Stock System</label>
+        <label class='lblDescS'>Display stock of the cards</label>
+    </div>
+    <div class='creditSystem'>
+        <input class='check' type="checkbox">
+        <label class='lblFeature'>Enable Store Credit System</label>
+        <label class='lblDescC'>Allow Customer Credit Feature</label>
+    </div>        
+    <div class='customerLogin'>
+        <input class='check' type="checkbox">
+        <label class='lblFeature'>Enable Customer Login System</label>
+        <label class='lblDescL'>Allow Customer Login/Registration</label>
+    </div>
+    <div class='enableCommit'>
+        <input class='confirm' type="submit" value="Confirm Changes to the System?"> 
+    </div>
+</form>
+<!--
 <div class='form'>
     <form id="form">
         <table id="fTable">
@@ -60,7 +85,7 @@
         <div id="confirmChanges">
             <label>Confirm Changes to the System?</label>
             <br>
-            <input id='confirm' type="submit" value="Confirm"> 
+            
         </div>
         </table>
     </form>
@@ -78,5 +103,5 @@
 <div id="showComponents">
     <app-search-customers [hidden]='!showCustomer'></app-search-customers>
     <app-add-customer [hidden]='!showAdd'></app-add-customer>
-</div>
+</div>-->
 

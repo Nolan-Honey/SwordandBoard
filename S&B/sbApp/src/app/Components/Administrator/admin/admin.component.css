@@ -1,9 +1,65 @@
 h1{
     text-align:center;
 }
-#confirmChanges{
-    margin-top: 25px;
+.adminForm{
+    margin-left: 259.6px;
+    margin-right: 259.6px;
+    display: grid;
+    grid-gap: 50px 100px;
+    grid-template-columns: auto auto;
+    padding: 10px;
 }
-button,#confirm{
-    color:black;
+.confirm{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background: white;
+    border: none;
+    min-width: 140px;
 }
+.confirm:hover{
+    background-color: rgb(187, 53, 0);
+    transition: 0.5s;
+    color: white;
+    text-decoration: underline;
+}
+.cardPricing, .stockSytem, .creditSystem, .customerLogin{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 25px;
+}
+/*
+.check{
+    margin-left: 100px;
+    margin-right: 12px;
+    transition: transform .2s;
+    
+}
+.check:hover {
+    transform: scale(1.2);
+}
+.lblFeature{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.lblDescP{
+    margin-left: 60px;
+    margin-right: 12px;
+}
+.lblDescS{
+    margin-left: 77px;
+    margin-right: 12px;
+}
+.lblDescC{
+    margin-left: 67px;
+    margin-right: 12px;
+}
+.lblDescL{
+    margin-left: 18px;
+    margin-right: 12px;
+}
+.enableCommit{
+    margin-left: 375.6px; 
+    margin-right: 375.6px;
+}*/

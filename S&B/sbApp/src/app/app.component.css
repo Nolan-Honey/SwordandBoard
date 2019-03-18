@@ -26,17 +26,19 @@
 }
 
 #sbLogo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: 559.6px;
+  margin-right: 559.6px;
 }
-
+#sbLogomenu{
+  margin-left:10px;
+  height:290px;
+  width:180px;
+}
 #siteLink{
   cursor: pointer;
 }
 
 mat-toolbar {
-    margin-bottom: 30px;
     background-color: white;
     color: white;
     position: sticky;
@@ -53,9 +55,11 @@ ul {
     text-decoration: none;
     color: white;
   }
-  
   ul {
     display: flex;
+    height:0px;
+    width:0px;
+    margin-right: 310px;
   }
   
   .spacer {
@@ -63,8 +67,9 @@ ul {
   }
   
   .headerButton:hover{
-    background-color: rgba(255, 255, 255, 0.486);
+    background-color: rgb(187, 53, 0);
     transition: 0.5s;
+    color: black;
   
   }
   .dropdown {
@@ -75,7 +80,7 @@ ul {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: black;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -84,3 +89,56 @@ ul {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+#bg{
+  transition: transform .2s;
+  
+}
+#bg:hover {
+  transform: scale(1.2);
+}
+ul.container
+{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+ul.container a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+ul.borderYtoX a:before, ul.borderYtoX a:after
+{
+    position: absolute;
+    opacity: 0.5;
+    height: 100%;
+    width: 2px;
+    content: '';
+    background: black;
+    transition: all 0.3s;
+}
+
+ul.borderYtoX a:before
+{
+    left: 0px;
+    top: 0px;
+}
+
+ul.borderYtoX a:after
+{
+    right: 0px;
+    bottom: 0px;
+}
+
+ul.borderYtoX a:hover:before, ul.borderYtoX a:hover:after
+{
+    opacity: 1;
+    height: 2px;
+    width: 100%;
+}

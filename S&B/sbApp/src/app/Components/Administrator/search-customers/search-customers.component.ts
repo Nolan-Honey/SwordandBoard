@@ -15,7 +15,6 @@ export class SearchCustomersComponent implements OnInit {
   editCustomer = false;
   showErrorMessageEmail: Boolean = false;
   customers = []
-  customer_id: String
   successMessage = false;
   pass = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   editForm: FormGroup;
@@ -106,26 +105,15 @@ export class SearchCustomersComponent implements OnInit {
       this.customer = res;
     })
   }
-
-  getID(id){
-    this.customer_id = id
-    console.log("customer_id retrieved")
-    console.log(this.customer_id)
-    this.customer = this.customerService.viewCustomer(this.customer_id).subscribe(res => {
-      this.customer = res;
-    })
-  }
-
   updateCustomer(first_name, last_name, email, credit) {
-    
-      this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, credit);
-      console.log(this.customer_id, first_name, last_name, email, credit);
+    this.route.params.subscribe(params => {
+      this.customerService.updateCustomer(params['id'], first_name, last_name, email, credit);
+      console.log(params['id'], first_name, last_name, email, credit);
       this.load = false;
-      location.reload();
-      //this.ngOnInit();
-      //this.router.navigate(['admin'])
-    }
-  
+      this.ngOnInit();
+      this.router.navigate(['admin'])
+    });
+  }
 
   onLoad(b) {
     this.load = b
