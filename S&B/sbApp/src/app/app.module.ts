@@ -15,7 +15,7 @@ import {
   MatExpansionModule,
   MatPaginatorModule,
   MatTableModule,
-  MatSelectModule, MatSidenavModule, MatIconModule, MatListModule,
+  MatSelectModule,
 } from "@angular/material";
 import { AppRoutingModule } from "./app-routing.module";
 import { FilterPipe } from './filter/filter.pipe';
@@ -29,7 +29,6 @@ import { SignupComponent } from './Components/Credentials/signup/signup.componen
 import { SearchCustomersComponent } from './Components/Administrator/search-customers/search-customers.component';
 import { EditComponent } from './Components/Administrator/edit/edit.component';
 import { AddCustomerComponent } from './Components/Administrator/add-customer/add-customer.component';
-import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -62,11 +61,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    NgxSpinnerModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    NgxSpinnerModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

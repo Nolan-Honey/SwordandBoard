@@ -11,7 +11,7 @@ export class AppComponent {
   toState = 'state1';
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
-  
+
   constructor(
     private renderer: Renderer2,
     private authService: AuthService

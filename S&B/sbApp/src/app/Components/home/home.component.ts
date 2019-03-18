@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   title = 'Home Component';
   cardName: string = ""
   cardInfo = []
-  cards: any = {}
+  cards: any = []
 
   allDataFetched = false
 
@@ -28,7 +28,11 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) {
+    for (let i = 0; i <= 100; i++) {
+      this.cardInfo.push(`${i}`)
+    }
+  }
 
   ngOnInit() {
     //Auth info
@@ -38,12 +42,14 @@ export class HomeComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
-    //this.spinnerService.show();
+    // this.spinnerService.show();
     this.cardInfoService.getcardInfo()
       .subscribe(data => {
         console.log('trying to get')
         this.cardInfo = data;
         sessionStorage.setItem('cards', data.toString())
+        this.allDataFetched = true
+        this.spinnerService.hide();
       })
   }
   //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
@@ -56,7 +62,6 @@ export class HomeComponent implements OnInit {
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
         this.cards = res;
-        this.allDataFetched = true
         console.log(res)
       },
       err => {

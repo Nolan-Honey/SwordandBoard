@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-html, body{
-  font-size: 25px;
+html{
+    font-size: 20px;
 }
 body{
     background-image: url('./assets/images/backgrounds/bg6-invert.jpg');
     background-size: cover;
     position: absolute;
+    color:white;
     width: 100%;
     transition: background-image 3s;
-    color:white;
-    margin:0;
+    font-size: 25px;
 }
   #sbLogo{
     object-position: 50% 50%; 
@@ -19,3 +19,4 @@ body{
     object-fit: cover;    
     margin: 0px 485px 0 485px;
   }
+  
