@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports.card = (req, res, next) => {
 var cardValue = req.body.cardName;
 var card = mongoose.model('Scryfall');
-card.find({name:cardValue},function (err, docs) {
+card.find({name: { "$regex": cardValue, "$options": "i" } },function (err, docs) {
     if(err){
         
     }
