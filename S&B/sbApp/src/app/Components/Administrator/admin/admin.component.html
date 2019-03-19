@@ -28,12 +28,12 @@
 <h1 id='ct'>Customer Tools</h1>
 <form class='adminForm'>
         <div>
-            <button class='toolsOpt' type="button" *ngIf="!showAdd" (click)=showAddCustomer(true)>Add Customer</button>
-            <button class='toolsOpt' type="button" [hidden]="!showAdd" (click)=showAddCustomer(false)>Minimize Adding Customer</button>
+            <button class='toolsOpt confirm' type="button" *ngIf="!showAdd" (click)=showAddCustomer(true)>Add Customer</button>
+            <button class='toolsOpt confirm' type="button" [hidden]="!showAdd" (click)=showAddCustomer(false)>Minimize Adding Customer</button>
         </div>
         <div>
-            <button class='toolsOpt' type="button" *ngIf="!showCustomer"(click)=showSearchCustomer(true)>Search Customer</button>
-            <button class='toolsOpt' type="button" [hidden]="!showCustomer"(click)=showSearchCustomer(false)>Minimize Searching Customer</button>
+            <button class='toolsOpt confirm' type="button" *ngIf="!showCustomer"(click)=showSearchCustomer(true)>Search Customer</button>
+            <button class='toolsOpt confirm' type="button" [hidden]="!showCustomer"(click)=showSearchCustomer(false)>Minimize Searching Customer</button>
         </div>
     </form>
 <div id="showComponents">

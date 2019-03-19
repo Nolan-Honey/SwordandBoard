@@ -22,9 +22,13 @@
   border-bottom: 1px solid #ddd; 
 }
 
-#myTable tr.header, #myTable tr:hover {
+#myTable tr.header{
   /* Add a grey background color to the table header and on hover */
   background-color: black
+}
+#myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: rgb(187, 53, 0);
 }
 
 #table100{
@@ -165,19 +169,29 @@ button[disabled], html input[disabled] {
   border-radius: 4px;
   text-decoration: none;
 }
-button, input, select, textarea {
+.btn, input, select, textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
-button, html input[type=button], input[type=reset], input[type=submit] {
+.btn, html input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer;
 }
-button, select {
+.btn, select {
   text-transform: none;
 }
-button {
+.btn {
   overflow: visible;
   color:black;
+}
+.edit{
+  background-color: rgb(187, 53, 0);
+  transition: 0.5s;
+  color: white;
+}
+.delete{
+  background-color: rgb(187, 53, 0);
+  transition: 0.5s;
+  color: white;
 }
