@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  title='Admin Tools';
+  title='System Tools';
   showAdd=false;
   showCustomer=false;
   userIsAuthenticated = false;
