@@ -16,12 +16,10 @@
       </span>
       
       <ul class="container2 borderYtoX" > 
-          <li *ngIf="userIsAuthenticated">
-              <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent" title='My Info'>Profile</a>
-          </li>         
-          <li *ngIf="userIsAuthenticated">
-            <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent" title='System Tools'>Admin</a>
-          </li>
+        <li >
+          <!--<a *ngIf="userIsAuthenticated" class="headerButton" mat-button routerLink="/customer" routerLinkActive="mat-accent" title='My Info'>Profile</a>
+          --><a *ngIf="userIsAuthenticated" class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent" title='System Tools'>Tools</a>
+        </li>
       </ul>
       <span class="spacer" *ngIf="!userIsAuthenticated"></span>
       <ul class="container borderYtoX" > 
@@ -33,8 +31,8 @@
           <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent" title='Customer Login'><img width='25px' height='25px' src='../assets/images/customerLogin.png'></a>
         </li>
         <li>
-            <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img width='25px' height='25px' src='../assets/images/adminLogout.png'></a>
-            <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent" title='Admin Login'><img width='25px' height='25px' src='../assets/images/adminIcon.png'></a>
+          <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img width='25px' height='25px' src='../assets/images/adminLogout.png'></a>
+          <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent" title='Admin Login'><img width='25px' height='25px' src='../assets/images/adminIcon.png'></a>
           </li>
       </ul>
     </mat-toolbar>
