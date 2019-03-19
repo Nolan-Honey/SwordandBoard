@@ -5,15 +5,14 @@ h1{
     margin-left: 259.6px;
     margin-right: 259.6px;
     display: grid;
-    grid-gap: 50px 100px;
-    grid-template-columns: auto auto;
+    grid-gap: 10% 10%;
+    grid-template-columns: 45% 45%;
     padding: 10px;
 }
 .confirm{
-    font-size: 16px;
+    font-size: 25px;
     font-weight: bold;
-    color: black;
-    background: white;
+    color: white;
     border: none;
     min-width: 140px;
 }
@@ -23,43 +22,27 @@ h1{
     color: white;
     text-decoration: underline;
 }
-.cardPricing, .stockSytem, .creditSystem, .customerLogin{
+.tools{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 25px;
 }
-/*
-.check{
-    margin-left: 100px;
-    margin-right: 12px;
-    transition: transform .2s;
-    
-}
-.check:hover {
-    transform: scale(1.2);
-}
-.lblFeature{
-    margin-left: 12px;
-    margin-right: 12px;
-}
-.lblDescP{
-    margin-left: 60px;
-    margin-right: 12px;
-}
-.lblDescS{
-    margin-left: 77px;
-    margin-right: 12px;
-}
-.lblDescC{
-    margin-left: 67px;
-    margin-right: 12px;
-}
-.lblDescL{
-    margin-left: 18px;
-    margin-right: 12px;
+.lblDesc{
+    font-size:60%;
 }
 .enableCommit{
-    margin-left: 375.6px; 
-    margin-right: 375.6px;
-}*/
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 0% 67% 0% 65%;
+}
+.toolsOpt{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 0% 28% 0% 27%;
+    font-size: 25px;
+}
+#ct{
+    text-align:center;
+    margin-top: 6%;
+}

@@ -1,42 +1,43 @@
 <h1>{{title}}</h1>  
 <form class='adminForm'>
-    <div class='cardPricing'>
+    <div class='tools'>
         <input class='check' type="checkbox" checked>
         <label class='lblFeature'>Enable Card Pricing System</label>
-        <label class='lblDescP'>Display the prices</label>
+        <label class='lblDesc'>Display the prices</label>
     </div>
-    <div class='stockSytem'>
+    <div class='tools'>
         <input class='check' type="checkbox" checked>
         <label class='lblFeature'>Enable Card Stock System</label>
-        <label class='lblDescS'>Display stock of the cards</label>
+        <label class='lblDesc'>Display stock of the cards</label>
     </div>
-    <div class='creditSystem'>
+    <div class='tools'>
         <input class='check' type="checkbox" checked>
         <label class='lblFeature'>Enable Store Credit System</label>
-        <label class='lblDescC'>Allow Customer Credit Feature</label>
+        <label class='lblDesc'>Allow Customer Credit Feature</label>
     </div>        
-    <div class='customerLogin'>
+    <div class='tools'>
         <input class='check' type="checkbox" checked>
         <label class='lblFeature'>Enable Customer Login System</label>
-        <label class='lblDescL'>Allow Customer Login/Registration</label>
+        <label class='lblDesc'>Allow Customer Login/Registration</label>
     </div>
-    <div class='enableCommit'>
-        <input class='confirm' type="submit" value="Confirm Changes to the System?"> 
+    <div >
+        <input class='enableCommit confirm' type="submit" value="Confirm Changes to the System?"> 
     </div>
 </form>
-<!-- 
-      <br>
-<div id='addCustomer'>
-    <button type="button" *ngIf="!showAdd" (click)=showAddCustomer(true)>Add Customer</button>
-    <button type="button" [hidden]="!showAdd" (click)=showAddCustomer(false)>Minimize Adding Customer</button>
-</div>
-<div id='searchCustomer'>
-    <button type="button" *ngIf="!showCustomer"(click)=showSearchCustomer(true)>Search Customer</button>
-    <button type="button" [hidden]="!showCustomer"(click)=showSearchCustomer(false)>Minimize Searching Customer</button>
-</div>
-
+<br>
+<h1 id='ct'>Customer Tools</h1>
+<form class='adminForm'>
+        <div>
+            <button class='toolsOpt' type="button" *ngIf="!showAdd" (click)=showAddCustomer(true)>Add Customer</button>
+            <button class='toolsOpt' type="button" [hidden]="!showAdd" (click)=showAddCustomer(false)>Minimize Adding Customer</button>
+        </div>
+        <div>
+            <button class='toolsOpt' type="button" *ngIf="!showCustomer"(click)=showSearchCustomer(true)>Search Customer</button>
+            <button class='toolsOpt' type="button" [hidden]="!showCustomer"(click)=showSearchCustomer(false)>Minimize Searching Customer</button>
+        </div>
+    </form>
 <div id="showComponents">
     <app-search-customers [hidden]='!showCustomer'></app-search-customers>
     <app-add-customer [hidden]='!showAdd'></app-add-customer>
-</div>-->
+</div>
 
