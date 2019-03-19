@@ -1,9 +1,9 @@
 
     <mat-toolbar  style="background-color: rgba(0, 0, 0, 0.9);">
       <span>
-        <ul class="borderYtoX" style='margin-left:30px'><li><a class="headerButton " mat-button (click)="clickMethod()" id="siteLink">Sword & Board</a></li></ul>
+        <ul class="borderYtoX" style='margin-left:30px'><li><a class="headerButton " mat-button (click)="clickMethod()" id="siteLink" title='Go Back'>Sword & Board</a></li></ul>
           <div class="dropdown">
-              <img src='../assets/images/bgIcon.jpg' width='20px' height='10px'>
+              <img title='Change Background' src='../assets/images/bgIcon.jpg' width='20px' height='10px'>
               <div class="dropdown-content">
               <button (click)="bg4()"><img id='bg' src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button>
               <button (click)="bg1()"><img id='bg' src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button>
@@ -14,18 +14,28 @@
               </div>
             </div>
       </span>
-      <span class="spacer"></span>
-      <ul class="container borderYtoX" >   
+      
+      <ul class="container2 borderYtoX" > 
+          <li *ngIf="userIsAuthenticated">
+              <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent" title='My Info'>Profile</a>
+          </li>         
+          <li *ngIf="userIsAuthenticated">
+            <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent" title='System Tools'>Admin</a>
+          </li>
+      </ul>
+      <span class="spacer" *ngIf="!userIsAuthenticated"></span>
+      <ul class="container borderYtoX" > 
         <li>
-          <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent">Card Search</a>
-        </li>
-        <li *ngIf="userIsAuthenticated">
-          <a class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent">Admin</a>
+          <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent" title='MTG Search'>Card Search</a>
         </li>
         <li>
-          <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()">Logout</a>
-          <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent">Login/Register</a>
+          <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img width='25px' height='25px' src='../assets/images/adminLogout.png'></a>
+          <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent" title='Customer Login'><img width='25px' height='25px' src='../assets/images/customerLogin.png'></a>
         </li>
+        <li>
+            <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img width='25px' height='25px' src='../assets/images/adminLogout.png'></a>
+            <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent" title='Admin Login'><img width='25px' height='25px' src='../assets/images/adminIcon.png'></a>
+          </li>
       </ul>
     </mat-toolbar>
     <div>

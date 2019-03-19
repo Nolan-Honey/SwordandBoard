@@ -58,12 +58,6 @@ a {
 ul {
   display: flex;
   height:0px;
-  width:0px;
-  margin-right: 310px;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }
 
 .headerButton:hover{
@@ -99,10 +93,34 @@ transform: scale(1.2);
 ul.container
 {
   text-align: center;
+  margin-left: -11%;
+  
   margin-bottom: 40px;
+}
+.spacer{
+  margin-left: 14%;
 }
 
 ul.container a
+{
+  color: #FFF;
+  text-decoration: none;
+  font: 20px Raleway;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+ul.container2
+{
+  text-align: center;
+  margin-left: 55%;
+  margin-right: 11%;
+  margin-bottom: 40px;
+}
+
+ul.container2 a
 {
   color: #FFF;
   text-decoration: none;

@@ -14,11 +14,19 @@
         <input type="checkbox"><label id="Green_Mana"><img src="../../../assets/images/Green_Mana.png"></label>
     </div>
     </div>
+    <ngx-spinner
+        class='la-ball-running-dots'
+        bdColor="rgba(51,51,51,0.8)"
+        size="large"
+        color="rgba(187, 53, 0, 0.8)"
+        type="ball-elastic-dots">
+        <p style="font-size: 20px; color: white">Mastering the Card Search Process...</p>
+    </ngx-spinner>
     <div class="container">
         <div class="row text-center text-lg-left">
-            <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
+            <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6 ">
                 <p>{{card.name }}</p>
-                <p>Set {{card.set}}</p>
+                <p>{{card.set}}</p>
                 <div class="zoom">
                     <img id="image" class="img-fluid img-thumbnail" src="{{card.image_uris.normal}}" alt="Image not avalible">
                 </div>
@@ -39,6 +47,3 @@
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table> -->
 </div>
-<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="rgba(189, 123, 0, 0.986)" type="ball-scale-multiple">
-    <p style="font-size: 20px; color: rgba(189, 123, 0, 0.986)">Loading Magic The Gathering Cards Please Wait...</p>
-</ngx-spinner>

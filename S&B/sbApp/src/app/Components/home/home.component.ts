@@ -7,6 +7,7 @@ import { Response } from 'selenium-webdriver/http';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,24 +16,17 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit {
   title = 'Home Component';
   cardName: string = ""
-  cardInfo = []
   cards: any = []
-
-  allDataFetched = false
-
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
 
   constructor(
-    private spinnerService: NgxSpinnerService, private cardInfoService: cardService,
+    private cardInfoService: cardService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
-  ) {
-    for (let i = 0; i <= 100; i++) {
-      this.cardInfo.push(`${i}`)
-    }
-  }
+    private authService: AuthService,
+    private spinner: NgxSpinnerService,
+  ) { }
 
   ngOnInit() {
     //Auth info
@@ -42,14 +36,10 @@ export class HomeComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
-    // this.spinnerService.show();
     this.cardInfoService.getcardInfo()
       .subscribe(data => {
         console.log('trying to get')
-        this.cardInfo = data;
         sessionStorage.setItem('cards', data.toString())
-        this.allDataFetched = true
-        this.spinnerService.hide();
       })
   }
   //^^^^^^^^^^^^^^^^^^^^^^Search Cards^^^^^^^^^^^^^^^^^^^
@@ -58,10 +48,12 @@ export class HomeComponent implements OnInit {
   })
 
   onSubmit() {
+    this.spinner.show()
     this.cardName = this.newCard.get('cardName').value;
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
         this.cards = res;
+        this.spinner.hide()
         console.log(res)
       },
       err => {
