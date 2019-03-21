@@ -12,7 +12,7 @@ body{
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    color:white;
+    color:Black;
     width: 100%;
     transition: background-image 3s;
     font-size: 25px;
@@ -22,10 +22,10 @@ body{
     background-size: cover;
 }
   #sbLogo{
-    object-position: 50% 50%; 
+    object-position: center; 
     width: 20.8%;
     height: 22%;
     object-fit: cover;    
-    margin: 0px 485px 0 485px;
+    margin: 0px 0px 0 0px;
   }
   
