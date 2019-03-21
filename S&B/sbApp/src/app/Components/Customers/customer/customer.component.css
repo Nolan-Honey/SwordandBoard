@@ -1,18 +1,29 @@
-img{
-    height: 284px;
-    width: 300px;
-    opacity: 0.4;
+/*img{
+    width: 25%;
     float: left;
-    margin: 0 0 0 290px;
+    margin-left: 20%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+#cTable{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin-right: 68%;
+}
+#cTable td{
+    padding:0% 0% 0% 0%
 }
 #cInfo{
-    
-    float: left; margin: 0 215px 0 115px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: 95%;
+    float: left;
+    margin-left: 5%;
+    padding-right: 1%;
 }
 #cCredit, #cOrders, #cTable{
-    margin-left: auto;
-    margin-right: auto;
     float: left;
+    
 }
 #cCredit{
     float: left;
@@ -22,22 +33,64 @@ img{
     float: right;
     margin: 0 0px 0px 290px;
 }
-#cCredit td, #cOrders td{
-    padding: 5px 100px 5px 40px;
-}
 #cInfoTable td{
-    padding:19px;
-}
-#notes{
-    margin: 0 280px 0 435px;
+    padding: 2%;
 }
 .customer{
     text-align: justify;
 }
 #header{
-    margin: 10px 280px 10px 0px;
+    margin: 2% 68% 2% 0%;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
 }
 #header2{
-    margin: 0 60px 0 100px;
+    text-align: center;
+}*/
+h1{
+    text-align: center;
+}
+.customer{
+    margin-left: 292.6px;
+    margin-right: 259.6px;
+    display: grid;
+    grid-gap: 2% 2%;
+    grid-template-columns: 45% 45%;
+    padding: 10px;
+}
+#cNameImage{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5%;
+}
+img{
+    width:100%;
+}
+#cInfo{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+}
+#cInfo td{
+    padding: 4% 0% 4% 0%;
+}
+#cCredit{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 0% 15% 0% 15%;
+}
+#cCredit td{
+    padding: 4% 0% 4% 0%;
+}
+#cOrders{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);padding: 0% 15% 0% 15%;
+}
+#cOrders td{
+    padding: 4% 0% 4% 0%;
+}
+#nHeader{
+    padding-left: 35%
 }

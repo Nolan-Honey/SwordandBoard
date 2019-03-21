@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  title = 'Customer Component';
+  title = 'My Profile';
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
   constructor(
