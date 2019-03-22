@@ -58,6 +58,7 @@ h1{
     grid-gap: 2% 2%;
     grid-template-columns: 45% 45%;
     padding: 10px;
+    color: white;
 }
 #cNameImage{
     background-color: rgba(0, 0, 0, 0.8);

@@ -9,6 +9,5 @@ var customerSchema = new Schema({
     credit:number = 0,
     time:String
 });
-var Customer = mongoose.model('Customer', customerSchema)
-module.exports = Customer;
+module.exports = mongoose.model('Customer', customerSchema);
 
