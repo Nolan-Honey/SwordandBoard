@@ -7,89 +7,73 @@
 
     <div id="cInfo">
         <h2 id="header2">Information</h2>
-            <form id="cInfoForm">
-                <table id="cInfoTable">
-                    <tr>
-                        <td>Name:</td>
-                        <td><label>Magic Customer</label></td>
-                    </tr>
-                    <tr>
-                        <td>Email: </td>
-                        <td><label>m.customer@magic.com</label></td>
-                    </tr>
-                    <tr>
-                        <td>Joined:</td>
-                        <td><label>January 8, 2018</label></td>
-                    </tr>
-                </table>
-                
-            </form>
+        <form id="cInfoForm">
+            <table id="cInfoTable">
+                <tr>
+                    <td>Name:</td>
+                    <td><label *ngIf="customerLoaded">{{customer.first_name + " " + customer.last_name}}</label></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><label *ngIf="customerLoaded">{{customer.email}}</label></td>
+                </tr>
+                <tr>
+                    <td>Joined:</td>
+                    <td><label *ngIf="customerLoaded">{{customer.time}}</label></td>
+                </tr>
+            </table>
+
+        </form>
     </div>
     <div id="cCredit">
         <h2 id="header">Credit</h2>
         <table id="cTable">
             <tr>
                 <td>Current Credit</td>
-                <td>As of..</td>
             </tr>
             <tr>
-                <td>$45.23</td>
+                <td>As of {{this.now}}</td>
+            </tr>
+            <tr>
+                <td>${{customer.credit}}</td>
+            </tr>
+            <tr>
+                <h2 id="nHeader">Notes:</h2>
+            </tr>
+        </table>
+    </div>
+
+    <div id="cOrders">
+        <h2 id="header">Order History</h2>
+        <table id="cTable">
+            <tr>
+                <td>Order #</td>
+                <td>Date</td>
+            </tr>
+            <tr>
+                <td>sb12345</td>
                 <td>02/05/18</td>
             </tr>
             <tr>
-                <td>$45.23</td>
+                <td>sb67890</td>
                 <td>02/05/18</td>
             </tr>
             <tr>
-                <td>$45.23</td>
+                <td>sb95175</td>
                 <td>02/05/18</td>
             </tr>
             <tr>
-                <td>$45.23</td>
+                <td>sb84260</td>
                 <td>02/05/18</td>
             </tr>
             <tr>
                 <h2 id="nHeader">Notes:</h2>
             </tr>
             <tr>
-                <p> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim 
+                <p> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim
                 </p>
-             </tr>    
-        </table>
-    </div>
-
-    <div id="cOrders">
-        <h2 id="header">Order History</h2>
-            <table id="cTable">
-                <tr>
-                    <td>Order #</td>
-                    <td>Date</td>
-                </tr>
-                <tr>
-                    <td>sb12345</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb67890</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb95175</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb84260</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <h2 id="nHeader">Notes:</h2>
-                </tr>
-                <tr>
-                    <p> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim 
-                    </p>
-                </tr>    
+            </tr>
         </table>
     </div>
 </div>

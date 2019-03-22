@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const ctrlCustomer = require('../controllers/customer');
-const customer = require('../models/costumer');
+const customer = require('../models/customer');
 const cardInfo = require('../models/cardInfo');
 const ctrlCard = require('../controllers/card');
 
@@ -50,31 +52,33 @@ router.post('/login', (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    console.log(email, password, process.env.admin_email, process.env.admin_pw);
-
-    if (email == process.env.admin_email && password == process.env.admin_pw) {
-
-        console.log(process.env.jwt_key);
-
-        const token = jwt.sign({
-            email: email,
-            userId: process.env.admin_id
-        }, process.env.jwt_key,
-            {
-                expiresIn: "1h"
-            });
-
-        res.status(200).json({
-            message: 'Auth Success',
-            token: token,
-            expiresIn: 3600
+    customer.findOne({email: req.body.email})
+        .exec()
+        .then(doc => {
+            bcrypt.compare(password, doc.password, (err, result) => {
+                if(doc && result == true){
+                    const token = jwt.sign({
+                        email: email,
+                        userId: doc._id
+                    }, process.env.jwt_key,
+                        {
+                            expiresIn: "1h"
+                        });
+            
+                    res.status(200).json({
+                        message: 'Auth Success',
+                        token: token,
+                        expiresIn: 3600,
+                        currentUser: email,
+                        currentUserId: doc._id,
+                    })
+                }else{
+                    res.status(401).json({
+                        message: 'Auth Failed'
+                    })
+                }
+            })
         })
-
-    } else {
-        res.status(401).json({
-            message: 'Auth Failed'
-        })
-    }
 });
 
 //find customer by id

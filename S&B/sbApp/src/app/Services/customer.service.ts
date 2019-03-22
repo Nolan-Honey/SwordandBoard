@@ -1,54 +1,54 @@
-import {Injectable} from '@angular/core';
-import {Customer} from '../Shared/customer.model';
+import { Injectable } from '@angular/core';
+import { Customer } from '../Shared/customer.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs/observable'
-import {map} from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
-export class CustomerService{
+export class CustomerService {
 
 
     baseUrl = environment.apiBaseUrl
-    constructor(private http:HttpClient){
+    constructor(private http: HttpClient) {
     }
-    registerURL = environment.apiBaseUrl+'/register';
-    postUser(customer:Customer){
-        return this.http.post(this.registerURL,customer);
+    registerURL = environment.apiBaseUrl + '/register';
+    postUser(customer: Customer) {
+        return this.http.post(this.registerURL, customer);
     }
 
-    customerURL = environment.apiBaseUrl+'/customers'
-    
-    getCustomers():Observable<Customer[]>{
+    customerURL = environment.apiBaseUrl + '/customers'
+
+    getCustomers(): Observable<Customer[]> {
         return this.http.get<Customer[]>(this.customerURL)
     }
     //find a customer by id
-    viewCustomer(id){
-       const uri = this.baseUrl +'/customers/'+ id
-        return this.http.get(uri).pipe(map(res =>{
+    viewCustomer(id) {
+        const uri = this.baseUrl + '/customers/' + id
+        return this.http.get(uri).pipe(map(res => {
             return res
         }));
     }
-// update customer
-    updateCustomer(id, first_name, last_name, email, credit ){
+
+    // update customer
+    updateCustomer(id, first_name, last_name, email, credit) {
         const uri = this.baseUrl + '/customers/update/' + id
         const selectedCustomer = {
-        
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
-        credit: credit
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            credit: credit
         }
 
         this.http.post(uri, selectedCustomer)
-        .subscribe(res =>{
-            console.log("customer updated")
-        })
+            .subscribe(res => {
+                console.log("customer updated")
+            })
     }
-    deleteCustomer(id){
-        const uri = this.baseUrl+'/customers/delete/' + id
-        return this.http.get(uri).pipe(map(res =>{
+    deleteCustomer(id) {
+        const uri = this.baseUrl + '/customers/delete/' + id
+        return this.http.get(uri).pipe(map(res => {
             return res
         }))
     }
