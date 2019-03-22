@@ -29,13 +29,10 @@ export class CustomerComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
-
-    let currentDate = new Date();
     
     this.customerService.viewCustomer(localStorage.getItem("currentUserId")).subscribe(res => {
       this.customer = res
       this.customerLoaded = true
-      console.log(this.now)
     })
     
   }
