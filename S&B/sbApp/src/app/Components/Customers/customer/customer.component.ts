@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
+import { CustomerService } from '../../../Services/customer.service';
+
 
 @Component({
   selector: 'app-customer',
@@ -10,9 +12,12 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class CustomerComponent implements OnInit {
   title = 'My Profile';
   userIsAuthenticated = false;
+  customerLoaded = false;
+  private customer: any
   private authListenerSubs: Subscription;
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private customerService: CustomerService
   ) { }
 
   ngOnInit() {
@@ -22,6 +27,12 @@ export class CustomerComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+    this.customerService.viewCustomer(localStorage.getItem("currentUserId")).subscribe(res => {
+      this.customer = res
+      this.customerLoaded = true
+    })
+    
   }
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();

@@ -11,15 +11,15 @@
                 <table id="cInfoTable">
                     <tr>
                         <td>Name:</td>
-                        <td><label>Magic Customer</label></td>
+                        <td><label *ngIf="customerLoaded">{{customer.first_name + " " + customer.last_name}}</label></td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td><label>m.customer@magic.com</label></td>
+                        <td><label *ngIf="customerLoaded">{{customer.email}}</label></td>
                     </tr>
                     <tr>
                         <td>Joined:</td>
-                        <td><label>January 8, 2018</label></td>
+                        <td><label *ngIf="customerLoaded">{{customer.time}}</label></td>
                     </tr>
                 </table>
                 

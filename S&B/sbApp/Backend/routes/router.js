@@ -59,7 +59,7 @@ router.post('/login', (req, res, next) => {
                 if(doc && result == true){
                     const token = jwt.sign({
                         email: email,
-                        userId: process.env.admin_id
+                        userId: doc._id
                     }, process.env.jwt_key,
                         {
                             expiresIn: "1h"
@@ -68,7 +68,9 @@ router.post('/login', (req, res, next) => {
                     res.status(200).json({
                         message: 'Auth Success',
                         token: token,
-                        expiresIn: 3600
+                        expiresIn: 3600,
+                        currentUser: email,
+                        currentUserId: doc._id,
                     })
                 }else{
                     res.status(401).json({
