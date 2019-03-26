@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 const ctrlCustomer = require('../controllers/customer');
 const customer = require('../models/customer');
@@ -55,7 +55,7 @@ router.post('/login', (req, res, next) => {
     customer.findOne({email: req.body.email})
         .exec()
         .then(doc => {
-            bcrypt.compare(password, doc.password, (err, result) => {
+            bcryptjs.compare(password, doc.password, (err, result) => {
                 if(doc && result == true){
                     const token = jwt.sign({
                         email: email,

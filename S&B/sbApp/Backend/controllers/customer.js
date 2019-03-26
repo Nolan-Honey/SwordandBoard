@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 //+++++++++++++++++++++++++++EMAIL SERVICE++++++++++++++++++++++++++++++++++++++
 var nodemailer = require('nodemailer');
@@ -25,7 +25,7 @@ module.exports.register = (req, res, next) => {
           message: "User Already Exist!"
         });
       } else {
-        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+        bcryptjs.hash(req.body.password, saltRounds, (err, hash) => {
           const customer = new Customer({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
