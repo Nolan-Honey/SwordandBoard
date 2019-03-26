@@ -90,7 +90,7 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   /****************************************************************/
-
+//update form methods
   createForm() {
     this.editForm = this.fBuilder.group({
       first_name: [''],
@@ -114,6 +114,12 @@ export class SearchCustomersComponent implements OnInit {
     this.customer = this.customerService.viewCustomer(this.customer_id).subscribe(res => {
       this.customer = res;
     })
+  }
+
+  addCredit(amount){
+    var current_credit = this.customer.credit
+    var new_credit = current_credit + amount
+    this.customer.credit = new_credit
   }
 
   updateCustomer(first_name, last_name, email, credit) {
