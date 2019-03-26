@@ -10,7 +10,10 @@ export class AppComponent {
   title = 'App Component';
   toState = 'state1';
   userIsAuthenticated = false;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
   private authListenerSubs: Subscription;
+
 
   constructor(
     private renderer: Renderer2,
@@ -25,6 +28,14 @@ export class AppComponent {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+    this.isAdmin = this.authService.getIsAdmin();
+    this.adminListenerSubs = this.authService
+      .getIsAdminStatusListener()
+      .subscribe(admin => {
+        this.isAdmin = admin;
+      });
+
   }
 
   bg1() {
@@ -60,6 +71,7 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
   }
 
 }

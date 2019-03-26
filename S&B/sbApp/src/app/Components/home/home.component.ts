@@ -12,7 +12,7 @@ import { networkInterfaces } from 'os';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  
+
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   cards: any = []
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
 
   constructor(
     private cardInfoService: cardService,
@@ -37,6 +39,13 @@ export class HomeComponent implements OnInit {
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
+      });
+
+    this.isAdmin = this.authService.getIsAdmin();
+    this.adminListenerSubs = this.authService
+      .getIsAdminStatusListener()
+      .subscribe(admin => {
+        this.isAdmin = admin;
       });
     this.cardInfoService.getcardInfo()
       .subscribe(data => {
@@ -59,7 +68,7 @@ export class HomeComponent implements OnInit {
     this.spinner.show()
     // this.cardName = this.newCard.get('cardName').value;
     //this.cardInfoService.viewCard(this.newCard.value).subscribe(
-      this.cardInfoService.viewCard(this.newCard.value).subscribe(
+    this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
         this.cards = res;
         this.spinner.hide()
@@ -74,6 +83,7 @@ export class HomeComponent implements OnInit {
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
   }
 
 }

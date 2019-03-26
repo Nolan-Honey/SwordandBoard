@@ -13,6 +13,8 @@ export class AdminComponent implements OnInit {
   showCustomer=false;
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
   
   constructor(private authService: AuthService) {}
 
@@ -23,6 +25,13 @@ export class AdminComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+      this.isAdmin = this.authService.getIsAdmin();
+      this.adminListenerSubs = this.authService
+        .getIsAdminStatusListener()
+        .subscribe(admin => {
+          this.isAdmin = admin;
+        });
   }
   showAddCustomer(b){
   return this.showAdd=b
@@ -32,5 +41,7 @@ export class AdminComponent implements OnInit {
   }
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
+
   }
 }

@@ -17,6 +17,9 @@ export class CustomerComponent implements OnInit {
   now = formatDate(new Date(), 'yyyy/MM/dd', 'en');;
   private customer: any;
   private authListenerSubs: Subscription;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
+
   constructor(
     private authService: AuthService,
     private customerService: CustomerService
@@ -29,6 +32,13 @@ export class CustomerComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+      this.isAdmin = this.authService.getIsAdmin();
+      this.adminListenerSubs = this.authService
+        .getIsAdminStatusListener()
+        .subscribe(admin => {
+          this.isAdmin = admin;
+        });
     
     this.customerService.viewCustomer(localStorage.getItem("currentUserId")).subscribe(res => {
       this.customer = res
@@ -38,6 +48,8 @@ export class CustomerComponent implements OnInit {
   }
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
+
   }
 
 }

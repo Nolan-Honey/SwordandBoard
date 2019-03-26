@@ -6,7 +6,8 @@ var customerSchema = new Schema({
     email:String,
     password:String,
     credit:number = 0,
-    time:String
+    time:String,
+    role:  String
 });
 module.exports = mongoose.model('Customer', customerSchema);
 

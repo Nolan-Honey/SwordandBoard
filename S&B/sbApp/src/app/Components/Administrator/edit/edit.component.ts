@@ -17,6 +17,8 @@ export class EditComponent implements OnInit {
   showErrorMessage: boolean;
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
 
   constructor(private customerService: CustomerService,
     private route: ActivatedRoute,
@@ -62,9 +64,18 @@ export class EditComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+      this.isAdmin = this.authService.getIsAdmin();
+      this.adminListenerSubs = this.authService
+        .getIsAdminStatusListener()
+        .subscribe(admin => {
+          this.isAdmin = admin;
+        });
   }
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
+
   }
 }

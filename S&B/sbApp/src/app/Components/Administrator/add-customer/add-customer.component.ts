@@ -13,6 +13,8 @@ export class AddCustomerComponent implements OnInit {
   customers = []
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  isAdmin = false;
+  private adminListenerSubs: Subscription;
   constructor(
     private customerService: CustomerService,
     private authService: AuthService
@@ -38,6 +40,13 @@ export class AddCustomerComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+      this.isAdmin = this.authService.getIsAdmin();
+      this.adminListenerSubs = this.authService
+        .getIsAdminStatusListener()
+        .subscribe(admin => {
+          this.isAdmin = admin;
+        });
   }
   onSubmit() {
     var emailExist: Boolean = false;
@@ -64,6 +73,8 @@ export class AddCustomerComponent implements OnInit {
   }
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
+
   }
 
 }

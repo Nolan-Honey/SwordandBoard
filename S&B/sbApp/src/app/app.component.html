@@ -39,8 +39,7 @@
         title='Customer Login'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
     </li>
     <li>
-
-      <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent"
+      <a *ngIf="userIsAuthenticated && isAdmin" class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent"
         title='Admin Login'><img width='30px' height='30px' src='../assets/images/adminIcon.png'></a>
     </li>
   </ul>

@@ -71,6 +71,7 @@ router.post('/login', (req, res, next) => {
                         expiresIn: 3600,
                         currentUser: email,
                         currentUserId: doc._id,
+                        role: doc.role
                     })
                 }else{
                     res.status(401).json({

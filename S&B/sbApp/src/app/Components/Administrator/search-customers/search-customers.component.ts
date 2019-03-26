@@ -24,7 +24,9 @@ export class SearchCustomersComponent implements OnInit {
   showErrorMessage: boolean;
   load = false;
   userIsAuthenticated = false;
+  isAdmin: boolean;
   private authListenerSubs: Subscription;
+  private adminListenerSubs: Subscription;
 
   newCustomer = new FormGroup({
     first_name: new FormControl(''),
@@ -46,14 +48,18 @@ export class SearchCustomersComponent implements OnInit {
   ngOnInit() {
     this.customerService.getCustomers()
       .subscribe(data => this.customers = data)
-
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
-
+    this.adminListenerSubs = this.authService
+      .getIsAdminStatusListener()
+      .subscribe(isAdmin => {
+        this.isAdmin = isAdmin;
+      });
+    this.isAdmin = this.authService.getIsAdmin();
   }
 
   onClickDelete(id) {
@@ -90,7 +96,7 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   /****************************************************************/
-//update form methods
+  //update form methods
   createForm() {
     this.editForm = this.fBuilder.group({
       first_name: [''],
@@ -107,7 +113,7 @@ export class SearchCustomersComponent implements OnInit {
     })
   }
 
-  getID(id){
+  getID(id) {
     this.customer_id = id
     console.log("customer_id retrieved")
     console.log(this.customer_id)
@@ -116,22 +122,22 @@ export class SearchCustomersComponent implements OnInit {
     })
   }
 
-  addCredit(amount){
+  addCredit(amount) {
     var current_credit = this.customer.credit
     var new_credit = current_credit + amount
     this.customer.credit = new_credit
   }
 
   updateCustomer(first_name, last_name, email, credit) {
-    
-      this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, credit);
-      console.log(this.customer_id, first_name, last_name, email, credit);
-      this.load = false;
-      location.reload();
-      //this.ngOnInit();
-      //this.router.navigate(['admin'])
-    }
-  
+
+    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, credit);
+    console.log(this.customer_id, first_name, last_name, email, credit);
+    this.load = false;
+    location.reload();
+    //this.ngOnInit();
+    //this.router.navigate(['admin'])
+  }
+
 
   onLoad(b) {
     this.load = b
@@ -154,5 +160,7 @@ export class SearchCustomersComponent implements OnInit {
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.adminListenerSubs.unsubscribe();
+
   }
 }

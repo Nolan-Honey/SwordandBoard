@@ -24,3 +24,19 @@ export class AuthGuard implements CanActivate {
     return isAuth;
   }
 }
+
+@Injectable()
+export class AdminAuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean | Observable<boolean> | Promise<boolean> {
+    const isAdmin = this.authService.getIsAdmin();
+    if (!isAdmin) {
+      this.router.navigate(['/']);
+    }
+    return isAdmin;
+  }
+}
