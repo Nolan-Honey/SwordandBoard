@@ -1,44 +1,69 @@
 const mongoose = require('mongoose');
 
 module.exports.card = (req, res, next) => {
-var cardValue = req.body.cardName;
-var white = req.body.white
-var blue = req.body.blue
-var black = req.body.black
-var red = req.body.red
-var green = req.body.green
-var colors =[]
-if(white == true){
-    white = "W"
-    if(blue == true){
-        blue = "B"
-        if(black == true){
-            black = "U"
-            if(red == true){
-                red = "R"
-                if(green == true){
-                    green = "G"
-                }
+    var cardValue = req.body.cardName;
+    var white = req.body.white
+    var blue = req.body.blue
+    var black = req.body.black
+    var red = req.body.red
+    var green = req.body.green
+    var set = req.body.set
+    var cardColor = []
+    if (white == true) {
+        white = "W"
+        cardColor.push(white)
+    }
+    if (blue == true) {
+        blue = "U"
+        cardColor.push(blue)
+    }
+    if (black == true) {
+        black = "B"
+        cardColor.push(black)
+    }
+    if (red == true) {
+        red = "R"
+        cardColor.push(red)
+    }
+    if (green == true) {
+        green = "G"
+        cardColor.push(green)
+    }
+
+
+
+    var card = mongoose.model('Scryfall');
+    if (set) {
+        card.find({$or:[{set_name: { "$regex": cardValue, "$options": "i" }},{set: { "$regex": cardValue, "$options": "i" }}]}, function (err, docs) {
+            if (err) {
             }
+            res.send(docs)
         }
+        )
+    }
+    else{
+    if (!cardValue == "" && !cardColor.length == 0) {
+        card.find({ colors: { $all: cardColor },name: { "$regex": cardValue, "$options": "i" } }, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        }
+        )
+    }
+    else if(cardValue == ""){
+        card.find({ colors: { $all: cardColor } }, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        }
+        )
+    }
+    else {
+        card.find({ name: { "$regex": cardValue, "$options": "i" } }, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        })
     }
 }
-var card = mongoose.model('Scryfall');
-card.find({name: { "$regex": cardValue, "$options": "i" } },function (err, docs) {
-    if(err){
-    }
-    console.log(white,blue,black,red,green)
-    res.send(docs)
-})
 }
-//const mtg = require('mtgsdk')
-
-//     var cards = []
-//     mtg.card.all({ name:cardValue, pageSize: 1 })
-//         .on('data', x => {
-//             cards.push(x)
-//         })
-
-// setTimeout(function(){
-//     res.send(cards)
-// },3000)

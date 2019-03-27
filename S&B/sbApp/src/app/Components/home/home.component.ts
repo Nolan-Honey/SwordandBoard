@@ -60,11 +60,11 @@ export class HomeComponent implements OnInit {
     blue: new FormControl(''),
     black: new FormControl(''),
     red: new FormControl(''),
-    green: new FormControl('')
+    green: new FormControl(''),
+    set:new FormControl('')
   })
 
   onSubmit() {
-    console.log(this.newCard.value)
     this.spinner.show()
     // this.cardName = this.newCard.get('cardName').value;
     //this.cardInfoService.viewCard(this.newCard.value).subscribe(
