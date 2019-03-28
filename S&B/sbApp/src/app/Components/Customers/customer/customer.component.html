@@ -1,9 +1,5 @@
-<h1>{{title}}</h1>
+<h1 *ngIf="customerLoaded">{{customer.first_name + " " + customer.last_name}}'s Profile</h1>
 <div class="customer">
-    <div id="cNameImage">
-        <h2 style="text-align: center;">"Customer Name"</h2>
-        <img src="../../../assets/images/CustomerImage.jpg" alt="Profile Picture">
-    </div>
 
     <div id="cInfo">
         <h2 id="header2">Information</h2>

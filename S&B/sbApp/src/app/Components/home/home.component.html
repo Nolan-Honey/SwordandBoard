@@ -1,22 +1,30 @@
 <div class="cards">
     <div class="cards">
-        <form [formGroup]="newCard" (ngSubmit)="onSubmit()">
+        <form class='searchForm' [formGroup]="newCard" (ngSubmit)="onSubmit()">
             <div id="border">
-                <input id="cardInput" type="text" class="form-control" formControlName='cardName'
-                    placeholder="Search card...">
-                <input type="checkbox" formControlName='white' value="W"><label id="White_Mana"><img
-                        src="../../../assets/images/White_Mana.png"></label>
-                <input type="checkbox" formControlName='blue'><label id="Blue_Mana"><img
-                        src="../../../assets/images/Blue_Mana.png"></label>
-                <input type="checkbox" formControlName='black'><label id="Black_Mana"><img
-                        src="../../../assets/images/Black_Mana.png"></label>
-                <input type="checkbox" formControlName='red'><label id="Red_Mana"><img
-                        src="../../../assets/images/Red_Mana.png"></label>
-                <input type="checkbox" formControlName='green'><label id="Green_Mana"><img
-                        src="../../../assets/images/Green_Mana.png"></label><br>
-                <label id="set">
-                    <p>Find set by name or code</p>
-                </label><input type="checkbox" formControlName='set'><br>
+                <label id="set">Card Name</label>
+                    <input id="cardInput" type="text" class="form-control" formControlName='cardName' placeholder="Search Card...">
+                <br>
+                <label id="set">Card Set</label>
+                <!--<select class="form-control" formControlName="">
+                        <option *ngFor="">
+                          {{}}
+                        </option>
+                    </select>-->
+                <br>
+                <label id="set">Card Type</label>
+                <br>
+                    <input type="checkbox" formControlName='white' value="W">
+                        <label id="White_Mana"><img src="../../../assets/images/White_Mana.png"></label>
+                    <input type="checkbox" formControlName='blue'>
+                        <label id="Blue_Mana"><img src="../../../assets/images/Blue_Mana.png"></label>
+                    <input type="checkbox" formControlName='black'>
+                        <label id="Black_Mana"><img src="../../../assets/images/Black_Mana.png"></label>
+                    <input type="checkbox" formControlName='red'>
+                        <label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
+                    <input type="checkbox" formControlName='green'><label id="Green_Mana">
+                        <img src="../../../assets/images/Green_Mana.png"></label>
+                <br>
                 <button class="btn btn-dark" type="submit">Search</button>
             </div>
         </form>
@@ -27,14 +35,16 @@
     </ngx-spinner>
     <div class="container">
         <div class="row text-center text-lg-left">
-            <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
+            <div *ngFor=" let card of cards | paginate: { itemsPerPage: 20, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput" >
+                    <p id='cardName'>{{card.name}}</p>
+                    <p id='cardName'>Price</p>
+                    <p id='cardName'>Inventory</p>
                 <div class="flip-box">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
                             <img id="image" class="img-fluid img-thumbnail" src="{{card.image_uris.normal}}" >
                         </div>
-                        <div class="flip-box-back" style="text-align:left">
-                            <p style="font-size:18px">Name: {{card.name}}</p>
+                        <div class="flip-box-back" >
                             <p style="font-size:18px">Set Name: {{card.set_name}}</p>
                             <p style="font-size:18px">Set Code: {{card.set}}</p>
                             <p style="font-size:18px">Description: {{card.oracle_text}}</p>       
@@ -42,6 +52,7 @@
                     </div>
                 </div>
             </div>
+            <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
         </div>
     </div>
     <!-- <div class="container">
