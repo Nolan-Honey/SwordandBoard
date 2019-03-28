@@ -14,8 +14,9 @@ h1, h2{
 #cInfo{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 #cInfo td{
     padding: 4% 0% 4% 0%;
@@ -37,7 +38,7 @@ h1, h2{
     text-align:center;
 }
 #cInfoTable,#cInfoTable label {
-    font-size: 80%;
+    font-size: 100%;
     font-weight:900;
 }
 #cTable {
