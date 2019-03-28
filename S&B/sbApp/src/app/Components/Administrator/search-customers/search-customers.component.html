@@ -33,7 +33,9 @@
         <input type="email" class="form-control" formControlName='email' #email placeholder="Email Address" [(ngModel)] = "customer.email">
       </div>
   <div class="form-group">
-          <input type="text" class="form-control" formControlName='store_credit' #store_credit placeholder="Customer credit" [(ngModel)] = "customer.credit">
+          <input type="text" class="form-control" formControlName='store_credit' #store_credit  placeholder = "current credit: {{customer.credit}}">
+          <button type="button" (click) = "addCredit(store_credit.value)">Add</button>
+          <button type="button" (click)= "subtractCredit(store_credit.value)">subtract</button>
       </div>        
   <div class="form-group">
           <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid"> Update</button>
