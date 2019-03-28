@@ -2,6 +2,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   height: 500px;
   margin:0.5%;
+  
 }
  label{
     padding: 0 20px 0 5px;
@@ -17,10 +18,9 @@
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */  
   }
   .cards{
-margin: auto;
-width: 62%;
-
-  }
+  margin: auto;
+  width: 62%;
+}
 #image{
     box-shadow: 2px 2px 2px 2px black;
     margin-bottom: 15px
@@ -35,7 +35,8 @@ margin: auto 0
 }
 
 #cardInput{
-  max-width: 100%;
+  margin-left: 17px;
+  width: 92%;
 }
 .searchForm{
   width: 425px;
@@ -44,6 +45,7 @@ margin: auto 0
   text-align: center;
   color: white;
   font-size: 25px;
+  background: rgba(0, 0, 0, 0.8); 
 }
 #description{
   font-size: 18px;
