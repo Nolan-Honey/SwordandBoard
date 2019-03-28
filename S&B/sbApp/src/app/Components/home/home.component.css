@@ -133,3 +133,17 @@ label{
 .my-pagination /deep/ .ngx-pagination .current {
   background:  rgb(187, 53, 0);
 }
+
+.btn {        
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border: none;
+  min-width: 140px;
+  outline: none !important;
+}
+.btn:hover {        
+  background-color: orangered;
+  transition: 0.5s;
+}

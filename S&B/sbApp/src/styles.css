@@ -24,10 +24,7 @@ body{
     background-size: cover;
 }
   #sbLogo{
-    object-position: center; 
-    width: 20.8%;
+    width: 30.8%;
     height: 22%;
-    object-fit: cover;    
-    margin: 0px 0px 0 0px;
   }
   
