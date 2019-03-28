@@ -123,14 +123,28 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   addCredit(amount) {
-    var current_credit = this.customer.credit
-    var new_credit = current_credit + amount
+    //store current credit
+    var current_credit = Number(this.customer.credit)
+    console.log(current_credit)
+    //create new credit
+    var new_credit = current_credit + Number(amount)
+    //store new credit to customer object
+    this.customer.credit = new_credit
+  }
+
+  subtractCredit(amount) {
+    //store current credit
+    var current_credit = Number(this.customer.credit)
+    console.log(current_credit)
+    //create new credit
+    var new_credit = current_credit + Number(amount)
+    //store new credit to customer object
     this.customer.credit = new_credit
   }
 
   updateCustomer(first_name, last_name, email, credit) {
 
-    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, credit);
+    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, this.customer.credit);
     console.log(this.customer_id, first_name, last_name, email, credit);
     this.load = false;
     location.reload();
