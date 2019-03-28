@@ -1,54 +1,5 @@
-/*img{
-    width: 25%;
-    float: left;
-    margin-left: 20%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-}
-#cTable{
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    margin-right: 68%;
-}
-#cTable td{
-    padding:0% 0% 0% 0%
-}
-#cInfo{
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    font-size: 95%;
-    float: left;
-    margin-left: 5%;
-    padding-right: 1%;
-}
-#cCredit, #cOrders, #cTable{
-    float: left;
-    
-}
-#cCredit{
-    float: left;
-    margin: 0 0px 0px 290px;
-}
-#cOrders{
-    float: right;
-    margin: 0 0px 0px 290px;
-}
-#cInfoTable td{
-    padding: 2%;
-}
-.customer{
-    text-align: justify;
-}
-#header{
-    margin: 2% 68% 2% 0%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-}
-#header2{
-    text-align: center;
-}*/
-h1{
+
+h1, h2{
     text-align: center;
 }
 .customer{
@@ -59,14 +10,6 @@ h1{
     grid-template-columns: 45% 45%;
     padding: 10px;
     color: white;
-}
-#cNameImage{
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 5%;
-}
-img{
-    width:100%;
 }
 #cInfo{
     background-color: rgba(0, 0, 0, 0.8);
@@ -80,18 +23,27 @@ img{
 #cCredit{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0% 15% 0% 15%;
-}
-#cCredit td{
-    padding: 4% 0% 4% 0%;
+    padding: 20px;
+    text-align:center;
 }
 #cOrders{
     background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);padding: 0% 15% 0% 15%;
-}
-#cOrders td{
-    padding: 4% 0% 4% 0%;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align:center;
 }
 #nHeader{
-    padding-left: 35%
+    padding-left: 35%;
+    text-align:center;
+}
+#cInfoTable,#cInfoTable label {
+    font-size: 80%;
+    font-weight:900;
+}
+#cTable {
+    font-size: 80%;
+    font-weight:900;
+}
+#cTable td{
+    width:20%;
 }

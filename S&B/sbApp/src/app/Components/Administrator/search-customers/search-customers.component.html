@@ -15,8 +15,8 @@
     <td>{{x.last_name}}</td>
     <td>{{x.email}}</td>
     <td>{{x.credit}}</td>
-    <td class='edit'><button  (click)='onLoad(true); getID(x._id)'>Edit</button></td>
-    <td class='delete'><button  (click) = "onClickDelete(x._id)">Delete</button></td>
+    <td ><button class='controlbtn' (click)='onLoad(true); getID(x._id)'>Edit</button></td>
+    <td ><button class='controlbtn' (click) = "onClickDelete(x._id)">Delete</button></td>
   </tr>
 </table>
 </div>
@@ -34,11 +34,11 @@
       </div>
   <div class="form-group">
           <input type="text" class="form-control" formControlName='store_credit' #store_credit  placeholder = "current credit: {{customer.credit}}">
-          <button type="button" (click) = "addCredit(store_credit.value)">Add</button>
-          <button type="button" (click)= "subtractCredit(store_credit.value)">subtract</button>
+          <button type="button" class='btn btn-primary btn-lg controlbtn' (click) = "addCredit(store_credit.value)">Add Credit</button>
+          <button type="button" class='btn btn-primary btn-lg controlbtn' (click)= "subtractCredit(store_credit.value)">Subtract Credit</button>
       </div>        
   <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid"> Update</button>
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid">Update</button>
       </div>
   </form>
 </div>       
