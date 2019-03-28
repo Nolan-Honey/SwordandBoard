@@ -137,7 +137,7 @@ export class SearchCustomersComponent implements OnInit {
     var current_credit = Number(this.customer.credit)
     console.log(current_credit)
     //create new credit
-    var new_credit = current_credit + Number(amount)
+    var new_credit = current_credit - Number(amount)
     //store new credit to customer object
     this.customer.credit = new_credit
   }
