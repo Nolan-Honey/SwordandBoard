@@ -1,6 +1,7 @@
 .cardOutput{
   background-color: rgba(0, 0, 0, 0.8);
   height: 500px;
+  margin:0.5%;
 }
  label{
     padding: 0 20px 0 5px;
@@ -17,7 +18,7 @@
   }
   .cards{
 margin: auto;
-width: 77%;
+width: 62%;
 
   }
 #image{
@@ -44,7 +45,31 @@ margin: auto 0
   color: white;
   font-size: 25px;
 }
+#description{
+  font-size: 18px;
+  overflow: auto;  
+  width: auto;           
+  height: 290px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(187, 53, 0); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(187, 53, 0);
+}
 #border{
     display: inline;
 }
@@ -95,6 +120,9 @@ label{
   background-color: black;
   color: white;
   transform: rotateY(180deg);
+}
+.my-pagination /deep/ .ngx-pagination{
+  margin: 5% 22% 5% 22%;
 }
 .my-pagination /deep/ .ngx-pagination a {
   color:white;

@@ -61,7 +61,12 @@ export class AuthService {
                     console.log(expirationDate);
                     this.saveAuthData(token, expirationDate,response.currentUser, response.currentUserId, response.role);
                     window.location.reload;
-                    this.router.navigate(["/"]);
+                    if(this.isAdmin != true){
+                        this.router.navigate(["/customer"]);
+                    }else{
+                        this.router.navigate(["/admin"]);
+                    }
+                    
                 }
             });
     }

@@ -97,8 +97,11 @@ ul.container
   
   margin-bottom: 40px;
 }
-.spacer{
-  margin-left: 7%;
+.spacer1{
+  margin-left: 11%;
+}
+.spacer2{
+  margin-left: 17%;
 }
 
 ul.container a

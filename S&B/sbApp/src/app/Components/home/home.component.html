@@ -47,14 +47,15 @@
                         <div class="flip-box-back" >
                             <p style="font-size:18px">Set Name: {{card.set_name}}</p>
                             <p style="font-size:18px">Set Code: {{card.set}}</p>
-                            <p style="font-size:18px">Description: {{card.oracle_text}}</p>       
+                            <p id='description'>Description: {{card.oracle_text}}</p>       
                         </div>
                     </div>
                 </div>
             </div>
-            <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
+            
         </div>
     </div>
+    <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
     <!-- <div class="container">
         <div class="row text-center text-lg-left">
             <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
