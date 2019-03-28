@@ -7,7 +7,7 @@ import { Response } from 'selenium-webdriver/http';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Subscription } from 'rxjs';
 import { networkInterfaces } from 'os';
-
+import { ErrorHandler, Injectable} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -66,8 +66,6 @@ export class HomeComponent implements OnInit {
 
   onSubmit() {
     this.spinner.show()
-    // this.cardName = this.newCard.get('cardName').value;
-    //this.cardInfoService.viewCard(this.newCard.value).subscribe(
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
         this.cards = res;

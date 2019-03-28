@@ -30,11 +30,16 @@ module.exports.card = (req, res, next) => {
         cardColor.push(green)
     }
 
-
+    var card2 = mongoose.model('card_prices_with_set_and_names')
+    card2.find({card:cardValue},function(err,docs){
+        if(err){
+        }
+        console.log(docs)
+    });
 
     var card = mongoose.model('Scryfall');
     if (set) {
-        card.find({$or:[{set_name: { "$regex": cardValue, "$options": "i" }},{set: { "$regex": cardValue, "$options": "i" }}]}, function (err, docs) {
+        card.find({$or:[{set_name:cardValue},{set:cardValue}]}, function (err, docs) {
             if (err) {
             }
             res.send(docs)
