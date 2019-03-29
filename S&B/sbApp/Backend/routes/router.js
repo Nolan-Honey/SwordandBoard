@@ -100,7 +100,7 @@ router.route('/customers/update/:id').post(function (req, res){
         else{
             customer.first_name = req.body.first_name
             customer.last_name = req.body.last_name
-            customer.email = req.body.email
+            //customer.email = req.body.email
             customer.credit = req.body.credit
             
             customer.save().then(customer =>{

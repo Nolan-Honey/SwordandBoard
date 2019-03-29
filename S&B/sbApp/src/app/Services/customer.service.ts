@@ -32,12 +32,11 @@ export class CustomerService {
     }
 
     // update customer
-    updateCustomer(id, first_name, last_name, email, credit, notes) {
+    updateCustomer(id, first_name, last_name, credit, notes) {
         const uri = this.baseUrl + '/customers/update/' + id
         const selectedCustomer = {
             first_name: first_name,
             last_name: last_name,
-            email: email,
             credit: credit,
             notes: notes
         }

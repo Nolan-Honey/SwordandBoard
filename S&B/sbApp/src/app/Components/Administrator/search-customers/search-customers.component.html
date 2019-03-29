@@ -29,16 +29,13 @@
       <div class="form-group">
         <input type="text" class="form-control" formControlName='last_name' #last_name placeholder="Last Name" [(ngModel)] = "customer.last_name" >
       </div>
-      <div class="form-group">
-        <input type="email" class="form-control" formControlName='email' #email placeholder="Email Address" [(ngModel)] = "customer.email">
-      </div>
   <div class="form-group">
           <input type="text" class="form-control" formControlName='store_credit' #store_credit  placeholder = "current credit: {{customer.credit}}">
-          <button type="button" class='btn btn-primary btn-lg controlbtn' (click) = "addCredit(store_credit.value)">Add Credit</button>
+          <button type="button" class='btn btn-primary btn-lg controlbtn' (click) = "addCredit(store_credit.value); store_credit.value = ''">Add Credit</button>
           <button type="button" class='btn btn-primary btn-lg controlbtn' (click)= "subtractCredit(store_credit.value)">Subtract Credit</button>
       </div>
       <div class="form group">
-        <input type="text" class= "form-control" formControlName= 'notes' placeholder="notes">
+        <input type="text" class= "form-control" formControlName= 'notes' #notes placeholder="notes">
       </div>        
   <div class="form-group">
           <button type="submit" class="btn btn-primary btn-lg" [disabled]="!editForm.valid">Update</button>

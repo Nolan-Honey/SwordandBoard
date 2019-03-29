@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Subscription } from 'rxjs';
+import { store } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-search-customers',
@@ -22,6 +23,7 @@ export class SearchCustomersComponent implements OnInit {
   customer: any
   showSuccessMessage: boolean;
   showErrorMessage: boolean;
+  message: String;
   load = false;
   userIsAuthenticated = false;
   isAdmin: boolean;
@@ -124,6 +126,7 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   addCredit(amount) {
+    if (!isNaN(Number(amount))){
     //store current credit
     var current_credit = Number(this.customer.credit)
     console.log(current_credit)
@@ -131,6 +134,12 @@ export class SearchCustomersComponent implements OnInit {
     var new_credit = current_credit + Number(amount)
     //store new credit to customer object
     this.customer.credit = new_credit
+    }
+    else {
+      this.showErrorMessage = true
+      this.message = "amount entered is not a number"
+      console.log(this.message)
+    }
   }
 
   subtractCredit(amount) {
@@ -143,10 +152,10 @@ export class SearchCustomersComponent implements OnInit {
     this.customer.credit = new_credit
   }
 
-  updateCustomer(first_name, last_name, email, credit, notes) {
+  updateCustomer(first_name, last_name, credit, notes) {
 
-    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, this.customer.credit, notes);
-    console.log(this.customer_id, first_name, last_name, email, credit);
+    this.customerService.updateCustomer(this.customer_id, first_name, last_name,  this.customer.credit, notes);
+    console.log(this.customer_id, first_name, last_name, credit);
     this.load = false;
     location.reload();
     //this.ngOnInit();
