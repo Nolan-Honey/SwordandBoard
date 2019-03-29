@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
   })
 
   onSubmit() {
-    if (this.newCard.value.set == "Select Set") {
+    if (this.newCard.value.set == "Select a set") {
       this.newCard.value.set = false;
     }
     this.spinner.show()

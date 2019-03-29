@@ -29,15 +29,22 @@ module.exports.card = (req, res, next) => {
         green = "G"
         cardColor.push(green)
     }
-
-    var card2 = mongoose.model('card_prices_with_set_and_names')
-    card2.find({card:cardValue},function(err,docs){
-        if(err){
-        }
-        //console.log(docs)
-    });
+    // var card2 = mongoose.model('card_prices_with_set_and_names')
+    // card2.find({card:cardValue},function(err,docs){
+    //     if(err){
+    //     }
+    //     //console.log(docs)
+    // });
     var card = mongoose.model('Scryfall');
-    if (!set == "") {
+    if (!set == "" && !cardValue == "") {
+        card.find({$and:[{set_name: set },{name: { "$regex": cardValue, "$options": "i" }}]}, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        }
+        )
+    }
+    else if (!set == "") {
         card.find({set_name:set}, function (err, docs) {
             if (err) {
             }
