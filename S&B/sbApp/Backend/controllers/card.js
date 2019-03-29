@@ -7,6 +7,7 @@ module.exports.card = (req, res, next) => {
     var black = req.body.black
     var red = req.body.red
     var green = req.body.green
+    var colourless = req.body.colourless
     var set = req.body.set
     var cardColor = []
     if (white == true) {
@@ -29,6 +30,7 @@ module.exports.card = (req, res, next) => {
         green = "G"
         cardColor.push(green)
     }
+    console.log(colourless)
     // var card2 = mongoose.model('card_prices_with_set_and_names')
     // card2.find({card:cardValue},function(err,docs){
     //     if(err){
@@ -36,6 +38,24 @@ module.exports.card = (req, res, next) => {
     //     //console.log(docs)
     // });
     var card = mongoose.model('Scryfall');
+    console.log(cardValue)
+    if (colourless && !cardValue =="") {
+        card.find({$and:[{type_line: "Artifact" },{name: { "$regex": cardValue, "$options": "i" }}]}, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        }
+        )
+    }
+    else if(colourless) {
+        card.find({type_line:"Artifact"}, function (err, docs) {
+            if (err) {
+            }
+            res.send(docs)
+        }
+        )
+    }
+    else{
     if (!set == "" && !cardValue == "") {
         card.find({$and:[{set_name: set },{name: { "$regex": cardValue, "$options": "i" }}]}, function (err, docs) {
             if (err) {
@@ -76,5 +96,6 @@ module.exports.card = (req, res, next) => {
             res.send(docs)
         })
     }
+}
 }
 }

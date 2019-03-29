@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
     black: new FormControl(''),
     red: new FormControl(''),
     green: new FormControl(''),
+    colourless:new FormControl(''),
     set:new FormControl(false)
   })
 
