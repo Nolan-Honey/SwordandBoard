@@ -36,10 +36,9 @@ module.exports.card = (req, res, next) => {
         }
         console.log(docs)
     });
-
     var card = mongoose.model('Scryfall');
-    if (set) {
-        card.find({$or:[{set_name:cardValue},{set:cardValue}]}, function (err, docs) {
+    if (!set == "") {
+        card.find({set_name:set}, function (err, docs) {
             if (err) {
             }
             res.send(docs)

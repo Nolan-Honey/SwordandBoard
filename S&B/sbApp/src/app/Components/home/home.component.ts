@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { Subscription } from 'rxjs';
 import { networkInterfaces } from 'os';
 import { ErrorHandler, Injectable} from '@angular/core';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,8 @@ export class HomeComponent implements OnInit {
   title = 'Home Component';
   cardName: string = ""
   cards: any = []
+  setData:any = []
+  setName:any = []
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
   isAdmin = false;
@@ -34,6 +37,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     //Auth info
+    this.cardInfoService.getSetData().subscribe(
+      res =>{
+        this.setData = res;
+      }
+    )
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
@@ -71,6 +79,7 @@ export class HomeComponent implements OnInit {
         this.cards = res;
         this.spinner.hide()
         console.log(res)
+        console.log(this.newCard.value)
       },
       err => {
         console.log(err)

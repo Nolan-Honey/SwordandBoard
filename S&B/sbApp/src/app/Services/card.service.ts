@@ -13,7 +13,7 @@ import { observable } from 'rxjs';
     providedIn:'root'
 })
 export class cardService{
-
+    
     baseUrl = environment.apiBaseUrl
     constructor(private http:HttpClient){
     }
@@ -32,5 +32,8 @@ export class cardService{
     }
     errorHandler(error:HttpErrorResponse){
         return Observable.throw(error.message ||"Server Error")
+    }
+    getSetData(){
+        return this.http.get('https://api.scryfall.com/sets')
     }
 }
