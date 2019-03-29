@@ -1,8 +1,13 @@
 .cardOutput{
   background-color: rgba(0, 0, 0, 0.8);
   margin:0.5%;
+<<<<<<< HEAD
   border-radius: 2%;
   width:24%;
+=======
+  border-radius: 0%;  
+  width: 24%;
+>>>>>>> 8699ace85695066cf03b11c67ff6fb65b63e2388
 }
  label{
     padding: 0 20px 0 5px;
