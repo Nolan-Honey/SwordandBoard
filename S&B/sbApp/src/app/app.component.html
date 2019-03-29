@@ -18,6 +18,10 @@
   <span class="spacer1" *ngIf="userIsAuthenticated"></span>
   <ul class="container2 borderYtoX">
     <li>
+        <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/cart" routerLinkActive="mat-accent"
+        title='Customer Profile'><img width='30px' height='30px' src='../assets/images/cart.png'></a>
+    </li>
+    <li>
       <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/customer" routerLinkActive="mat-accent"
         title='Customer Profile'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
       <a *ngIf="userIsAuthenticated && isAdmin" class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent"

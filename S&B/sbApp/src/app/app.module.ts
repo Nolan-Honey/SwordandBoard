@@ -29,6 +29,7 @@ import { SignupComponent } from './Components/Credentials/signup/signup.componen
 import { SearchCustomersComponent } from './Components/Administrator/search-customers/search-customers.component';
 import { EditComponent } from './Components/Administrator/edit/edit.component';
 import { AddCustomerComponent } from './Components/Administrator/add-customer/add-customer.component';
+import { CartComponent } from './Components/Customers/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AddCustomerComponent } from './Components/Administrator/add-customer/ad
     SearchCustomersComponent,
     FilterPipe,
     EditComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
