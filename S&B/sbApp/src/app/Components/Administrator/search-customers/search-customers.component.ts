@@ -103,6 +103,7 @@ export class SearchCustomersComponent implements OnInit {
       last_name: [''],
       email: [''],
       store_credit: [''],
+      notes: [''],
     });
 
   }
@@ -142,9 +143,9 @@ export class SearchCustomersComponent implements OnInit {
     this.customer.credit = new_credit
   }
 
-  updateCustomer(first_name, last_name, email, credit) {
+  updateCustomer(first_name, last_name, email, credit, notes) {
 
-    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, this.customer.credit);
+    this.customerService.updateCustomer(this.customer_id, first_name, last_name, email, this.customer.credit, notes);
     console.log(this.customer_id, first_name, last_name, email, credit);
     this.load = false;
     location.reload();

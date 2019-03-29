@@ -32,13 +32,14 @@ export class CustomerService {
     }
 
     // update customer
-    updateCustomer(id, first_name, last_name, email, credit) {
+    updateCustomer(id, first_name, last_name, email, credit, notes) {
         const uri = this.baseUrl + '/customers/update/' + id
         const selectedCustomer = {
             first_name: first_name,
             last_name: last_name,
             email: email,
-            credit: credit
+            credit: credit,
+            notes: notes
         }
 
         this.http.post(uri, selectedCustomer)
@@ -51,5 +52,8 @@ export class CustomerService {
         return this.http.get(uri).pipe(map(res => {
             return res
         }))
+    }
+    updateHistory(){
+
     }
 }

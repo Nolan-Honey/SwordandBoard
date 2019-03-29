@@ -7,6 +7,7 @@ const ctrlCustomer = require('../controllers/customer');
 const customer = require('../models/customer');
 const cardInfo = require('../models/cardInfo');
 const ctrlCard = require('../controllers/card');
+const History = require('../models/customerHistory');
 
 router.post('/card',ctrlCard.card);
 
@@ -104,7 +105,20 @@ router.route('/customers/update/:id').post(function (req, res){
             
             customer.save().then(customer =>{
                 res.json("customer updated")
+                let history = new History({
+                    first_name: customer.first_name,
+                    last_name: customer.last_name,
+                    email: customer.email,
+                    credit: customer.credit,
+                    notes: req.body.notes,
+                    time:  Date()
+                })
+                history.save().then(history =>{
+                    //res.json("new update in customer history")
+                    console.log("new update in customer history")
+                })
             })
+
             .catch(function (err) {
                 res.status(400).send('unable to update database')
             });
