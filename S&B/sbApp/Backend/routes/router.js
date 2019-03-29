@@ -141,12 +141,13 @@ router.route('/customers/update/:id').post(function (req, res){
             customer.save().then(customer =>{
                 res.json("customer updated")
                 let history = new History({
+                    customer_id: customer._id,
                     first_name: customer.first_name,
                     last_name: customer.last_name,
                     email: customer.email,
                     credit: customer.credit,
                     notes: req.body.notes,
-                    time:  Date()
+                    time:  Date().substring(4, 15) //System Time
                 })
                 history.save().then(history =>{
                     //res.json("new update in customer history")
@@ -173,4 +174,15 @@ router.route('/customers/delete/:id').get(function(req,res){
         }
     })
 })
+
+//get History
+router.route('/customers/history/:id').get(function(req, res){
+    const id = req.params.id
+    const history = History
+    history.find({customer_id: id}, (err, history)=>{
+            res.json(history);
+    })
+
+})
+
 module.exports = router;
