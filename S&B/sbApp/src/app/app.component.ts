@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { AuthService } from './Services/auth.service';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

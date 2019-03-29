@@ -158,6 +158,12 @@ label{
   text-align: center;
   margin: 2%;
 }
+#amt{
+  width: 18%;
+  color: black;
+  text-align: center;
+  margin: 2%;
+}
 #add{
   width: 10%;
   color: black;

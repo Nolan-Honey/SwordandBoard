@@ -8,9 +8,44 @@ const customer = require('../models/customer');
 const cardInfo = require('../models/cardInfo');
 const ctrlCard = require('../controllers/card');
 const History = require('../models/customerHistory');
+const Settings = require('../models/adminTools');
 
 router.post('/card',ctrlCard.card);
-
+router.route('/settings/:id').get(function (req, res){
+    const id = req.params.id
+    Settings.findById(id, (err, setting)=> {
+        res.json(setting)
+    })
+})
+router.get('/settings', function (req, res) {
+    Settings.find({}).exec(function (err, ci) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(ci)
+        }
+    })
+});
+router.route('/settings/update/:id').post(function (req, res){
+    const id = req.params.id
+    Settings.findById(id, function (err, setting){
+        if (!setting)
+            return new Error('Could not load customer')
+        else{
+            setting.Login = req.body.Login
+            setting.Pricing = req.body.Pricing
+            setting.Stock = req.body.Stock
+            setting.Credit = req.body.Credit
+            setting.save().then(setting => {
+                res.json('Update complete');
+            })
+            .catch(err => {
+                  res.status(400).send("unable to update the database");
+            });
+        }
+    })
+})
 
 router.get('/cardInfo', function (req, res) {
     cardInfo.find({}).exec(function (err, ci) {

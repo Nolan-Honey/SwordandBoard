@@ -1,27 +1,31 @@
 <h1>{{title}}</h1>  
-<form class='adminForm'>
+<form class='adminForm' >
     <div class='tools'>
-        <input class='check' type="checkbox" checked>
-        <label class='lblFeature'>Enable Card Pricing System</label><br>
+        <input *ngIf= 'settings[0].Pricing' class='check' type="checkbox" (click)="pricingClicked($event)" checked>
+        <input *ngIf='!settings[0].Pricing'class='check' type="checkbox" (click)="pricingClicked($event)" >
+        <label class='lblFeature'>Enable Card Pricing System: </label><br>
         <label class='lblDesc'>Display the prices</label>
     </div>
     <div class='tools'>
-        <input class='check' type="checkbox" checked>
+        <input *ngIf='settings[0].Stock' class='check' type="checkbox" (click)="stockClicked($event)" checked>
+        <input *ngIf='!settings[0].Stock'class='check' type="checkbox" (click)="stockClicked($event)" >
         <label class='lblFeature'>Enable Card Stock System</label><br>
         <label class='lblDesc'>Display stock of the cards</label>
     </div>
     <div class='tools'>
-        <input class='check' type="checkbox" checked>
+        <input *ngIf='settings[0].Credit' class='check' type="checkbox" (click)="creditClicked($event)" checked >
+        <input *ngIf='!settings[0].Credit'class='check' type="checkbox" (click)="creditClicked($event)" >
         <label class='lblFeature'>Enable Store Credit System</label><br>
         <label class='lblDesc'>Allow Customer Credit Feature</label>
     </div>        
     <div class='tools'>
-        <input class='check' type="checkbox" checked>
-        <label class='lblFeature'>Enable Customer Login System</label>
+        <input *ngIf='settings[0].Login' class='check' type="checkbox" (click)="loginClicked($event)" checked>
+        <input *ngIf='!settings[0].Login'class='check' type="checkbox" (click)="loginClicked($event)" >
+        <label class='lblFeature'>Enable Customer Login System? {{customerLogin}}</label>
         <label class='lblDesc'>Allow Customer Login/Registration</label>
     </div>
     <div >
-        <input class='enableCommit confirm' type="submit" value="Confirm Changes to the System?"> 
+        <input class='enableCommit confirm' type="submit" (click)="confirmChanges()" value="Confirm Changes to the System?"> 
     </div>
 </form>
 <br>

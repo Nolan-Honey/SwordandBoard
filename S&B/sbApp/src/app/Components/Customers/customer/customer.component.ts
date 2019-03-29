@@ -3,6 +3,8 @@ import {formatDate} from '@angular/common';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CustomerService } from '../../../Services/customer.service';
+import { AdminTools } from '../../../Services/adminTools.service'
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,13 +21,29 @@ export class CustomerComponent implements OnInit {
   private authListenerSubs: Subscription;
   isAdmin = false;
   private adminListenerSubs: Subscription;
+  setting = true
+  settings: any;
 
   constructor(
+    private route: ActivatedRoute,
     private authService: AuthService,
-    private customerService: CustomerService
+    private customerService: CustomerService, 
+    private tools:AdminTools
   ) { }
+  getSettings() {
+    this.tools.getSettings().subscribe(res => {
+      this.settings = res;
+      
+    })
+  }
 
   ngOnInit() {
+    this.getSettings();
+    this.route.params.subscribe(params => {
+      this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
+      this.settings = res;
+      })
+    })
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()

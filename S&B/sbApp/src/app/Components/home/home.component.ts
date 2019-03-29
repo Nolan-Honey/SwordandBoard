@@ -3,12 +3,9 @@ import { cardService } from '../../Services/card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Response } from 'selenium-webdriver/http';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Subscription } from 'rxjs';
-import { networkInterfaces } from 'os';
-import { ErrorHandler, Injectable} from '@angular/core';
-import { forEach } from '@angular/router/src/utils/collection';
+import { AdminTools } from '../../Services/adminTools.service';
 
 @Component({
   selector: 'app-home',
@@ -26,16 +23,31 @@ export class HomeComponent implements OnInit {
   private authListenerSubs: Subscription;
   isAdmin = false;
   private adminListenerSubs: Subscription;
+  setting = true
+  settings: any;
 
   constructor(
     private cardInfoService: cardService,
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private spinner: NgxSpinnerService,
+    private spinner: NgxSpinnerService, 
+    private tools:AdminTools
   ) { }
 
+  getSettings() {
+    this.tools.getSettings().subscribe(res => {
+      this.settings = res;
+      
+    })
+  }
   ngOnInit() {
+    this.getSettings();
+    this.route.params.subscribe(params => {
+      this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
+      this.settings = res;
+      })
+    })
     //Auth info
     this.cardInfoService.getSetData().subscribe(
       res =>{
