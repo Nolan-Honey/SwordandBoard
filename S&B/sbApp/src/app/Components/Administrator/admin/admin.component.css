@@ -8,6 +8,7 @@ h1{
     grid-gap: 10% 10%;
     grid-template-columns: 45% 45%;
     padding: 10px;
+    text-align: center;
 }
 .confirm{
     font-size: 25px;

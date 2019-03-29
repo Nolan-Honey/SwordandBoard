@@ -18,7 +18,7 @@ import {
   MatSelectModule,
 } from "@angular/material";
 import { AppRoutingModule } from "./app-routing.module";
-import { FilterPipe } from './filter/filter.pipe';
+import { FilterPipe } from './Filter/filter.pipe';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './Components/Administrator/admin/admin.component';
