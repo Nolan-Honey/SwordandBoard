@@ -40,27 +40,11 @@
     </div>
 
     <div id="cOrders">
-            <h2 id="header">Order History</h2>
+            <h2 id="header">Credit History</h2>
             <table id="cTable">
-                <tr>
-                    <td>Order #</td>
+                <tr *ngFor= "let data of history">
+                    <td>{{data.time}}</td>
                     <td>Date</td>
-                </tr>
-                <tr>
-                    <td>sb12345</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb67890</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb95175</td>
-                    <td>02/05/18</td>
-                </tr>
-                <tr>
-                    <td>sb84260</td>
-                    <td>02/05/18</td>
                 </tr>
                     
             </table>

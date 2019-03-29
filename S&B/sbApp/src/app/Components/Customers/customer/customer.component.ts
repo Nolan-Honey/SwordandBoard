@@ -16,6 +16,7 @@ export class CustomerComponent implements OnInit {
   customerLoaded = false;
   now = formatDate(new Date(), 'yyyy/MM/dd', 'en');;
   private customer: any;
+  private history: any;
   private authListenerSubs: Subscription;
   isAdmin = false;
   private adminListenerSubs: Subscription;
@@ -44,8 +45,17 @@ export class CustomerComponent implements OnInit {
       this.customer = res
       this.customerLoaded = true
     })
+    this.getUserHistory()
     
   }
+
+  getUserHistory(){
+    this.customerService.getHistory(localStorage.getItem("currentUserId")).subscribe(res=>{
+      this.history = res
+      console.log(this.history)
+    })
+  }
+
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
     this.adminListenerSubs.unsubscribe();
