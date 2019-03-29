@@ -52,7 +52,11 @@ export class CustomerService {
             return res
         }))
     }
-    updateHistory(){
-
+    //gets history of customer
+    getHistory(id){
+        const uri = this.baseUrl + '/customers/history/' + id
+        return this.http.get(uri).pipe(map (res =>{
+            return res;
+        }))
     }
 }
