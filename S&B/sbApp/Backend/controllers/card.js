@@ -34,7 +34,7 @@ module.exports.card = (req, res, next) => {
     card2.find({card:cardValue},function(err,docs){
         if(err){
         }
-        console.log(docs)
+        //console.log(docs)
     });
     var card = mongoose.model('Scryfall');
     if (!set == "") {

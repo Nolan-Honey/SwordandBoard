@@ -69,10 +69,13 @@ export class HomeComponent implements OnInit {
     black: new FormControl(''),
     red: new FormControl(''),
     green: new FormControl(''),
-    set:new FormControl('')
+    set:new FormControl(false)
   })
 
   onSubmit() {
+    if (this.newCard.value.set == "Select Set") {
+      this.newCard.value.set = false;
+    }
     this.spinner.show()
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {

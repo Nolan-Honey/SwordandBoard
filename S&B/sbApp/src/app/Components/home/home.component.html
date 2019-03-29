@@ -8,6 +8,7 @@
                 <br>
                 <label id="set">Card Set</label>
                 <select class="form-control" id="cardInput" formControlName="set">
+                    <option>Select Set</option>
                     <option *ngFor='let cardSet of setData.data'>
                         {{cardSet.name}}
                     </option>
