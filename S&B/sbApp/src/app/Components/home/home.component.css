@@ -1,7 +1,13 @@
 .cardOutput{
   background-color: rgba(0, 0, 0, 0.8);
   margin:0.5%;
-  border-radius: 0%  
+<<<<<<< HEAD
+  border-radius: 2%;
+  width:24%;
+=======
+  border-radius: 0%;  
+  width: 24%;
+>>>>>>> 8699ace85695066cf03b11c67ff6fb65b63e2388
 }
  label{
     padding: 0 20px 0 5px;
@@ -18,7 +24,9 @@
   }
   .cards{
   margin: auto;
+  margin-top: 2%;
   width: 62%;
+  margin-top: 2%;
 }
 #image{
     box-shadow: 2px 2px 2px 2px black;
@@ -45,6 +53,7 @@ margin: auto 0
   color: white;
   font-size: 25px;
   background: rgba(0, 0, 0, 0.8); 
+  border-radius: 2% 
 }
 #description{
   font-size: 18px;

@@ -34,12 +34,12 @@ h1{
 .enableCommit{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0% 67% 0% 65%;
+    padding: 0% 67% 0% 90%;
 }
 .toolsOpt{
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0% 28% 0% 27%;
+    padding: 0% 34% 0% 34%;
     font-size: 23px;
 }
 #ct{
