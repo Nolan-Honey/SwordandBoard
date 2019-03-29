@@ -1,0 +1,39 @@
+#table100{
+    width: auto;
+    height: 100%;
+  }
+  #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 30px; /* Increase font-size */
+  }
+  
+  #myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+  }
+  
+  #myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  #myTable tr.header{
+    /* Add a grey background color to the table header and on hover */
+    background-color: black;
+  }
+  #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: rgba(194, 194, 194, 0.32);
+  } 
+  .controlbtn{
+    color:black;
+    background: white;
+    border: none;
+  }
+  .controlbtn:hover{
+    background-color: orangered;
+    transition: 0.5s;
+  }

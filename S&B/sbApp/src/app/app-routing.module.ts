@@ -7,7 +7,8 @@ import { AuthGuard, AdminAuthGuard } from "./Shared/auth.guard";
 import { HomeComponent } from "./Components/home/home.component";
 import { AdminComponent } from "./Components/Administrator/admin/admin.component";
 import { CustomerComponent } from "./Components/Customers/customer/customer.component";
-import { SearchCustomersComponent } from "./Components/Administrator/search-customers/search-customers.component"
+import { SearchCustomersComponent } from "./Components/Administrator/search-customers/search-customers.component";
+import { CartComponent } from "./Components/Customers/cart/cart.component";
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "admin", component: AdminComponent , canActivate: [AdminAuthGuard]},
   { path: "customer", component: CustomerComponent, canActivate: [AuthGuard]},
   { path: "customer-search", component: SearchCustomersComponent/*, canActivate: [AuthGuard]*/},
-  { path: 'edit/:id', component:  AdminComponent, canActivate: [AuthGuard]}
+  { path: 'edit/:id', component:  AdminComponent, canActivate: [AuthGuard]},
+  { path: 'cart', component:  CartComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

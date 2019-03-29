@@ -1,0 +1,25 @@
+<h3 style="text-align:center;">Cart</h3>
+<div id="table100">
+<table id="myTable">
+    <tr class="header">
+        <th>Remove</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td align="center">
+            <a class='controlbtn' (click)="remove(item.product.id)">X</a>
+        </td>
+        <td>{{item.product.name}}</td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price * item.quantity}}</td>
+    </tr>
+    <tr class="header">
+        <td colspan="4" align="left">Total</td>
+        <td >{{total}}</td>
+    </tr>
+</table>
+</div>
