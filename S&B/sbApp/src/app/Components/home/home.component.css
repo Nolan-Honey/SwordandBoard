@@ -1,7 +1,8 @@
 .cardOutput{
   background-color: rgba(0, 0, 0, 0.8);
   margin:0.5%;
-  border-radius: 0%  
+  border-radius: 2%;
+  width:24%;
 }
  label{
     padding: 0 20px 0 5px;
@@ -19,6 +20,7 @@
   .cards{
   margin: auto;
   width: 62%;
+  margin-top: 2%;
 }
 #image{
     box-shadow: 2px 2px 2px 2px black;
@@ -45,6 +47,7 @@ margin: auto 0
   color: white;
   font-size: 25px;
   background: rgba(0, 0, 0, 0.8); 
+  border-radius: 2% 
 }
 #description{
   font-size: 18px;
