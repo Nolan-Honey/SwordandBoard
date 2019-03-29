@@ -112,7 +112,7 @@ router.route('/customers/update/:id').post(function (req, res){
                     email: customer.email,
                     credit: customer.credit,
                     notes: req.body.notes,
-                    time:  Date().substring(4, 24) //System Time
+                    time:  Date().substring(4, 15) //System Time
                 })
                 history.save().then(history =>{
                     //res.json("new update in customer history")

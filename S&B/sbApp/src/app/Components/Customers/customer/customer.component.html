@@ -35,7 +35,28 @@
                 <td>{{this.now}}</td>
             </tr>
         </table>
+        <h2> Credit History</h2>
+        <table>
+            <tr>
+                <td>Date</td>
+                <td>Credit</td>
+            </tr>
+            <tr *ngFor= "let data of history">
+                <td>{{data.time}}</td>
+                <td>{{data.credit}}</td>
+            </tr>
+        </table>
         <h2>Notes:</h2>
+        <table>
+            <tr>
+                <td>Date</td>
+                <td>Note</td>
+            </tr>
+            <tr *ngFor= "let data of history">
+                <td>{{data.time}}</td>
+                <td>{{data.notes}}</td>
+            </tr>
+        </table>
         <p></p>
     </div>
 
