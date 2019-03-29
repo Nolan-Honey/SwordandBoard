@@ -143,19 +143,27 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   subtractCredit(amount) {
-    //store current credit
-    var current_credit = Number(this.customer.credit)
-    console.log(current_credit)
-    //create new credit
-    var new_credit = current_credit - Number(amount)
-    //store new credit to customer object
-    this.customer.credit = new_credit
+    if (!isNaN(Number(amount))){
+      //store current credit
+      var current_credit = Number(this.customer.credit)
+      console.log(current_credit)
+      //create new credit
+      var new_credit = current_credit - Number(amount)
+      //store new credit to customer object
+      this.customer.credit = new_credit
+      }
+      else {
+        this.showErrorMessage = true
+        this.message = "amount entered is not a number"
+        console.log(this.message)
+      }
   }
 
-  updateCustomer(first_name, last_name, credit, notes) {
+  updateCustomer(first_name, last_name, notes) {
+    console.log(first_name, last_name, notes)
 
-    this.customerService.updateCustomer(this.customer_id, first_name, last_name,  this.customer.credit, notes);
-    console.log(this.customer_id, first_name, last_name, credit);
+    this.customerService.updateCustomer(this.customer_id, first_name, last_name, this.customer.credit, notes);
+    console.log(this.customer_id, first_name, last_name);
     this.load = false;
     location.reload();
     //this.ngOnInit();
