@@ -10,7 +10,7 @@ body{
     position: relative fixed;
     margin-top: 0;
     margin-right: auto;
-    margin-bottom: 0;
+    margin-bottom: 1%;
     margin-left: auto;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
