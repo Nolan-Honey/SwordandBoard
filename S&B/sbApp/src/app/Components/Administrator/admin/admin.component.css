@@ -8,6 +8,7 @@ h1{
     grid-gap: 10% 10%;
     grid-template-columns: 45% 45%;
     padding: 10px;
+    text-align: center;
 }
 .confirm{
     font-size: 25px;
@@ -29,7 +30,7 @@ h1{
     font-size: 25px;
 }
 .lblDesc{
-    font-size:60%;
+    font-size:80%;
 }
 .enableCommit{
     background-color: rgba(0, 0, 0, 0.8);

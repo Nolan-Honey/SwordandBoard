@@ -21,7 +21,7 @@
 </table>
 </div>
 <div *ngIf='load' class="signup-form">
-  <form [formGroup]="editForm" (ngSubmit)="updateCustomer(first_name.value, last_name.value, email.value, store_credit.value, notes.value)">
+  <form [formGroup]="editForm" (ngSubmit)="updateCustomer(first_name.value, last_name.value, notes.value)">
   <h2>Update Customer</h2>
       <div class="form-group">
         <input type="text" class="form-control" formControlName='first_name' #first_name placeholder="First Name" [(ngModel)] = "customer.first_name" >
@@ -31,8 +31,8 @@
       </div>
   <div class="form-group">
           <input type="text" class="form-control" formControlName='store_credit' #store_credit  placeholder = "current credit: {{customer.credit}}">
-          <button type="button" class='btn btn-primary btn-lg controlbtn' (click) = "addCredit(store_credit.value); store_credit.value = ''">Add Credit</button>
-          <button type="button" class='btn btn-primary btn-lg controlbtn' (click)= "subtractCredit(store_credit.value)">Subtract Credit</button>
+          <button type="button" class='btn btn-primary btn-lg controlbtn' (click) = "addCredit(store_credit.value); store_credit.value = '' ">Add Credit</button>
+          <button type="button" class='btn btn-primary btn-lg controlbtn' (click)= "subtractCredit(store_credit.value); store_credit.value = '' ">Subtract Credit</button>
       </div>
       <div class="form group">
         <input type="text" class= "form-control" formControlName= 'notes' #notes placeholder="notes">
