@@ -35,8 +35,6 @@
 #table100{
   width: auto;
   height: 100%;
-  overflow: scroll;
-  overflow-x: hidden
 }
 
 #form{

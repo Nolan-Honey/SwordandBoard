@@ -26,6 +26,8 @@
                 <label id="Red_Mana"><img src="../../../assets/images/Red_Mana.png"></label>
                 <input type="checkbox" formControlName='green'><label id="Green_Mana">
                     <img src="../../../assets/images/Green_Mana.png"></label>
+                <input type="checkbox" formControlName='Colourless'><label id="Colourless_Mana">
+                    <img src="../../../assets/images/Colourless_Mana.png"></label>    
                 <br>
                 <button class="btn btn-dark" type="submit">Search</button>
             </div>
@@ -40,8 +42,6 @@
             <div *ngFor=" let card of cards | paginate: { itemsPerPage: 20, currentPage: p}"
                 class="col-lg-3 col-md-4 col-6 cardOutput">
                 <p id='cardName'>{{card.name}}</p>
-                <p id='cardName'>Price</p>
-                <p id='cardName'>Inventory</p>
                 <div class="flip-box">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
@@ -54,6 +54,8 @@
                         </div>
                     </div>
                 </div>
+                <p id='cardName'>Price</p>
+                <p id='cardName'>Inventory:<input id='inv' type='text' value='1'><button id='add'>+</button></p>
             </div>
 
         </div>
