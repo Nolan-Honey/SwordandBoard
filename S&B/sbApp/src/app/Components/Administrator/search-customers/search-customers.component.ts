@@ -49,7 +49,10 @@ export class SearchCustomersComponent implements OnInit {
 
   ngOnInit() {
     this.customerService.getCustomers()
-      .subscribe(data => this.customers = data)
+      .subscribe(data => 
+        this.customers = this.filterCustomers(data)
+        )
+        console.log(this.customers)
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
@@ -62,6 +65,13 @@ export class SearchCustomersComponent implements OnInit {
         this.isAdmin = isAdmin;
       });
     this.isAdmin = this.authService.getIsAdmin();
+  }
+
+  filterCustomers(customers){
+    let index = customers.findIndex(i => i.email === 'admin')
+    customers.splice(index, 1)
+    console.log(customers)
+    return customers
   }
 
   onClickDelete(id) {
