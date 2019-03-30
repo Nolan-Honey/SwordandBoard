@@ -144,10 +144,14 @@ export class SearchCustomersComponent implements OnInit {
     var new_credit = current_credit + Number(amount)
     //store new credit to customer object
     this.customer.credit = new_credit
+    this.showSuccessMessage = true
+    this.message = "Credit Added"
+    setTimeout(() => {this.showSuccessMessage = false}, 4000)
     }
     else {
       this.showErrorMessage = true
       this.message = "amount entered is not a number"
+      setTimeout(()=> {this.showErrorMessage = false}, 4000)
       console.log(this.message)
     }
   }
@@ -161,12 +165,17 @@ export class SearchCustomersComponent implements OnInit {
       var new_credit = current_credit - Number(amount)
       //store new credit to customer object
       this.customer.credit = new_credit
+      this.showSuccessMessage = true
+      this.message = "Credit subtracted"
+      setTimeout(() => {this.showSuccessMessage = false}, 4000)
       }
       else {
         this.showErrorMessage = true
         this.message = "amount entered is not a number"
+        setTimeout(()=> {this.showErrorMessage = false}, 4000)
         console.log(this.message)
       }
+      // setTimeout(() => this.successMessage = false, 4000)
   }
 
   updateCustomer(first_name, last_name, notes) {
@@ -174,10 +183,9 @@ export class SearchCustomersComponent implements OnInit {
 
     this.customerService.updateCustomer(this.customer_id, first_name, last_name, this.customer.credit, notes);
     console.log(this.customer_id, first_name, last_name);
-    this.load = false;
-    location.reload();
-    //this.ngOnInit();
-    //this.router.navigate(['admin'])
+    this.showSuccessMessage = true
+    this.message = "Update successful"
+    setTimeout(() => {location.reload(), this.load = false, this.showSuccessMessage = false}, 3000)
   }
 
 
