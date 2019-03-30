@@ -1,15 +1,14 @@
 {
-    "development":{
+    "development": {
         "PORT": 3000,
-        "MONGODB_URI":"mongodb+srv://admin:2ez_4arteezy@cluster0-pbwub.gcp.mongodb.net/the_sword_and_board_online_pricing_db?retryWrites=true",
-        "admin_email":"123@test.ca",
-        "admin_pw":"admin",
+        "MONGODB_URI": "mongodb+srv://admin:2ez_4arteezy@cluster0-pbwub.gcp.mongodb.net/the_sword_and_board_online_pricing_db?retryWrites=true",
+        "admin_email": "123@test.ca",
+        "admin_pw": "admin",
         "admin_id": "1211",
-        "jwt_key" : "J1235J"
+        "jwt_key": "J1235J"
     },
-    "production":{
-        "PORT":80,
-        "MONGODB_URI":""
+    "production": {
+        "PORT": 80,
+        "MONGODB_URI": ""
     }
-    
 }

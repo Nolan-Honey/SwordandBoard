@@ -107,6 +107,9 @@ export class HomeComponent implements OnInit {
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   addToCart(name){
+    if(localStorage.getItem('myCart') === null){
+      localStorage.setItem('myCart', '[]')
+    }
     this.cart = JSON.parse(localStorage.getItem('myCart'))
     this.cart.push({'name' : name})
     let cart = JSON.stringify(this.cart)

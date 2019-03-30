@@ -52,7 +52,7 @@ export class AuthService {
                     this.setAuthTimer(expiresInDuration);
                     this.isAuthenticated = true;
                     this.authStatusListener.next(true);
-                    if(response.role === "admin"){
+                    if(response.role === "xRrsQ8vejN"){
                         this.isAdmin = true;
                         this.adminStatusListener.next(true);
                     }
@@ -83,7 +83,7 @@ export class AuthService {
             this.isAuthenticated = true;
             this.setAuthTimer(expiresIn / 1000);
             this.authStatusListener.next(true);
-            if(authInformation.role === "admin"){
+            if(authInformation.role === "xRrsQ8vejN"){
                 this.isAdmin = true;
                 this.adminStatusListener.next(true);
             }
