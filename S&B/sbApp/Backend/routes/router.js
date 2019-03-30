@@ -11,6 +11,7 @@ const History = require('../models/customerHistory');
 const Settings = require('../models/adminTools');
 
 router.post('/card',ctrlCard.card);
+
 router.route('/settings/:id').get(function (req, res){
     const id = req.params.id
     Settings.findById(id, (err, setting)=> {

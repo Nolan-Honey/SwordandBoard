@@ -8,8 +8,8 @@ import { AdminTools } from '../../../Services/adminTools.service';
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"]
 })
-export class LoginComponent implements OnInit{
-  
+export class LoginComponent implements OnInit {
+
 
   setting = true
   settings: any;
@@ -18,28 +18,28 @@ export class LoginComponent implements OnInit{
     password: new FormControl(''),
   });
 
-  constructor(public authService: AuthService, private tools:AdminTools, private route: ActivatedRoute,
-    private router: Router) {}
+  constructor(public authService: AuthService, private tools: AdminTools, private route: ActivatedRoute,
+    private router: Router) { }
   onLogin() {
     if (this.loginForm.invalid) {
       return;
-    }else{
+    } else {
       this.authService.login(this.loginForm.get("email").value, this.loginForm.get("password").value);
     }
   }
+
   getSettings() {
     this.tools.getSettings().subscribe(res => {
       this.settings = res;
-      
     })
-    
   }
-    ngOnInit() {
-      this.getSettings();
-      this.route.params.subscribe(params => {
-        this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
-        this.settings = res;
-        })
-      })
-    }
+
+  ngOnInit() {
+    this.getSettings();
+    // this.route.params.subscribe(params => {
+    // this.tools.viewSettings(params['id']).subscribe(res => {
+    //     this.settings = res;
+    //   })
+    // })
+  }
 }

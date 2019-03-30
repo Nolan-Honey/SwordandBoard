@@ -56,9 +56,8 @@
                 </div>
                 <p id='cardName' *ngIf='settings[0].Pricing'>Price:</p>
                 <p id='cardName' *ngIf='settings[0].Stock'>Inventory:<input id='inv' type='text' value='1' disabled></p>
-                <p id='cardName' *ngIf='settings[0].Stock && settings[0].Pricing'>Amount:<input id='amt' type='number'><button id='add'>+</button></p>
+                <p id='cardName' *ngIf='settings[0].Stock && settings[0].Pricing'>Amount:<input id='amt' type='number'><button id='add' (click)="addToCart(card.name)">+</button></p>
             </div>
-
         </div>
     </div>
     <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>

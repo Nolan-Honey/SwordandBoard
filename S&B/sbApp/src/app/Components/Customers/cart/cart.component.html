@@ -12,10 +12,10 @@
         <td align="center">
             <a class='controlbtn' (click)="remove(item.product.id)">X</a>
         </td>
-        <td>{{item.product.name}}</td>
-        <td>{{item.product.price}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
         <td>{{item.quantity}}</td>
-        <td>{{item.product.price * item.quantity}}</td>
+        <td>{{item.price * item.quantity}}</td>
     </tr>
     <tr class="header">
         <td colspan="4" align="left">Total</td>

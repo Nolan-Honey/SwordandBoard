@@ -17,8 +17,9 @@ export class HomeComponent implements OnInit {
   title = 'Home Component';
   cardName: string = ""
   cards: any = []
-  setData:any = []
-  setName:any = []
+  setData: any = []
+  setName: any = []
+  private cart: any;
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
   isAdmin = false;
@@ -31,26 +32,26 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private spinner: NgxSpinnerService, 
-    private tools:AdminTools
+    private spinner: NgxSpinnerService,
+    private tools: AdminTools
   ) { }
 
   getSettings() {
     this.tools.getSettings().subscribe(res => {
       this.settings = res;
-      
+
     })
   }
   ngOnInit() {
     this.getSettings();
     this.route.params.subscribe(params => {
       this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
-      this.settings = res;
+        this.settings = res;
       })
     })
     //Auth info
     this.cardInfoService.getSetData().subscribe(
-      res =>{
+      res => {
         this.setData = res;
       }
     )
@@ -81,8 +82,8 @@ export class HomeComponent implements OnInit {
     black: new FormControl(''),
     red: new FormControl(''),
     green: new FormControl(''),
-    colourless:new FormControl(''),
-    set:new FormControl(false)
+    colourless: new FormControl(''),
+    set: new FormControl(false)
   })
 
   onSubmit() {
@@ -103,6 +104,16 @@ export class HomeComponent implements OnInit {
     );
 
   }
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  addToCart(name){
+    this.cart = JSON.parse(localStorage.getItem('myCart'))
+    this.cart.push({'name' : name})
+    let cart = JSON.stringify(this.cart)
+    localStorage.setItem('myCart', cart)
+    console.log(cart)
+  }
+
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
