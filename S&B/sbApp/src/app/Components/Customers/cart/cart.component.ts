@@ -16,4 +16,11 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.items = JSON.parse(localStorage.getItem('myCart'))
   }
+
+  removeItem(name){
+    console.log(this.items)
+    let index = this.items.findIndex(i => i.name === name)
+    this.items.splice(index, 1)
+    localStorage.setItem('myCart', JSON.stringify(this.items))
+  }
 }
