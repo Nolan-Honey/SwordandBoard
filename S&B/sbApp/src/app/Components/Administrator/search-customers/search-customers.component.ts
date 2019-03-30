@@ -150,14 +150,14 @@ export class SearchCustomersComponent implements OnInit {
     }
     else {
       this.showErrorMessage = true
-      this.message = "amount entered is not a number"
+      this.message = "Amount entered is not a number"
       setTimeout(()=> {this.showErrorMessage = false}, 4000)
       console.log(this.message)
     }
   }
 
   subtractCredit(amount) {
-    if (!isNaN(Number(amount))){
+    if (!isNaN(Number(amount)) && Number(amount) <= this.customer.credit){
       //store current credit
       var current_credit = Number(this.customer.credit)
       console.log(current_credit)
@@ -169,9 +169,15 @@ export class SearchCustomersComponent implements OnInit {
       this.message = "Credit subtracted"
       setTimeout(() => {this.showSuccessMessage = false}, 4000)
       }
-      else {
+      else if(isNaN(Number(amount))) {
         this.showErrorMessage = true
-        this.message = "amount entered is not a number"
+        this.message = "Amount entered is not a number"
+        setTimeout(()=> {this.showErrorMessage = false}, 4000)
+        console.log(this.message)
+      }
+      else{
+        this.showErrorMessage = true
+        this.message = "Amount entered is higher than the available credit. Credit not subtracted"
         setTimeout(()=> {this.showErrorMessage = false}, 4000)
         console.log(this.message)
       }
