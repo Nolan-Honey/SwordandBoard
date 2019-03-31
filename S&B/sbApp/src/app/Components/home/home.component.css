@@ -159,10 +159,11 @@ label{
   margin: 2%;
 }
 #amt{
-  width: 18%;
+  width: 25%;
   color: black;
   text-align: center;
-  margin: 2%;
+  margin-left:auto;
+  margin-right:auto;
 }
 #add{
   width: 15%;

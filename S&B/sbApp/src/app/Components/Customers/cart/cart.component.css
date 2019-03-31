@@ -7,7 +7,8 @@
     margin-left:auto;
     margin-right:auto;
     border: 1px solid #ddd; /* Add a grey border */
-    font-size: 30px; /* Increase font-size */
+    font-size: 25px; /* Increase font-size */
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   }
   
   #myTable th, #myTable td {
@@ -19,23 +20,19 @@
   #myTable tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
+    background-color: rgba(127, 53, 14,0.8)
   }
   
   #myTable tr.header{
     /* Add a grey background color to the table header and on hover */
-    background-color: black;
+    background-color: rgba(0,0,0,0.8);
   }
-  #myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: rgba(194, 194, 194, 0.32);
-  } 
   .controlbtn{
-    
-    color:black;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
     background: white;
     border: none;
-  }
-  .controlbtn:hover{
-    background-color: orangered;
-    transition: 0.5s;
+    min-width: 140px;
+    outline: none !important;
   }

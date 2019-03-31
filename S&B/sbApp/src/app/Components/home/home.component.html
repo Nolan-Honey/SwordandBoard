@@ -57,33 +57,16 @@
                 <!-- <p id='cardName' *ngIf='settings[0].Pricing'>Price: CAD${{card.lang}}</p> -->
                 <p id='cardName' *ngIf='settings[0].Pricing'>Price: CAD${{card.lang}}</p>
                 <p id='cardName' *ngIf='settings[0].Stock'>Inventory:<input id='inv' type='text' value='{{card.collector_number.substr(0,1)}}' disabled></p>
-                <p id='cardName' *ngIf='userIsAuthenticated && settings[0].Stock && settings[0].Pricing'>Amount:<input id='amt' type='number' value=0><button id='add' (click)="addToCart(card.name, card.lang, quantity )">+</button></p>
+                    <!--<input id='amt' type='number' value=0>
+                    <button id='add' (click)="addToCart()">+</button>-->
+                    <form  *ngIf='userIsAuthenticated && settings[0].Stock && settings[0].Pricing' 
+                    [formGroup]="quantity" (ngSubmit)="addToCart(card.name, card.lang )">
+                            <p id='cardName'>Amount
+                            <input id='amt' type='number' value=1 class="form-control" formControlName='num' min=1 max={{card.collector_number.substr(0,1)}} >
+                            <button id='add' type='submit'>+</button></p>
+                    </form>
             </div>
         </div>
     </div>
     <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
-    <!-- <div class="container">
-        <div class="row text-center text-lg-left">
-            <div *ngFor=" let card of cards" class="col-lg-3 col-md-4 col-6">
-                <p>{{card.name }}</p>
-                <p>{{card.set}}</p>
-                <div class="zoom">
-                    <img id="image" class="img-fluid img-thumbnail" src="{{card.image_uris.normal}}" alt="Image not avalible">
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <table id="resultsTable" *ngIf="allDataFetched">
-        <tr>
-            <th>Card Name</th>
-            <th>Card Category</th>
-            <th>Card Price</th>
-        </tr>
-        <tr *ngFor="let x of JSON.parse(sessionStorage.getItem('cardInfo')) | filter: {card:searchtext} | paginate: { itemsPerPage: 20, currentPage: p}">
-            <td>{{x.card}}</td>
-            <td>{{x.category}}</td>
-            <td>{{x.msrp}}</td>
-        </tr>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </table> -->
 </div>

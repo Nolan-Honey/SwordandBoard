@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   private adminListenerSubs: Subscription;
   setting = true
   settings: any;
-  quantity=[0, 1,2,3,4,5,6,7,9, 10]
 
   constructor(
     private cardInfoService: cardService,
@@ -110,18 +109,20 @@ export class HomeComponent implements OnInit {
     );
 
   }
+  quantity = new FormGroup({
+    num: new FormControl()
+  })
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  addToCart(name, price, quantity){
-    quantity=2
+  addToCart(name, price){
     if(localStorage.getItem('myCart') === null){
       localStorage.setItem('myCart', '[]')
     }
     this.cart = JSON.parse(localStorage.getItem('myCart'))
-    this.cart.push({'name' : name, 'price': price, 'quantity':quantity})
+    this.cart.push({'id':Math.random(), 'name' : name, 'price': price, 'quantity':this.quantity.value.num})
     let cart = JSON.stringify(this.cart)
     localStorage.setItem('myCart', cart)
-    console.log(cart)
+    alert('You added ' + this.quantity.value.num + ' ' + name + ' cards @ CAD$'+ price + ' each to your cart!' )
   }
 
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

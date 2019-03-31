@@ -1,8 +1,8 @@
-<h3 style="text-align:center;">Cart</h3>
+<h1 style="text-align:center;">Cart</h1>
 <div id="table100">
 <table id="myTable">
     <tr class="header">
-        <th>Remove</th>
+        <th></th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -10,7 +10,7 @@
     </tr>
     <tr *ngFor="let item of items">
         <td align="center">
-            <a class='controlbtn' (click)="removeItem(item.name)">X</a>
+            <button class='controlbtn btn-dark' (click)="removeItem(item.id)">Remove</button>
         </td>
         <td>{{item.name}}</td>
         <td>CAD${{item.price}}</td>
@@ -29,7 +29,9 @@
         <td colspan="4" style='text-align: right'>Total:</td>
         <td >CAD${{total}}</td>
     </tr>
-    <button class='controlbtn' type="submit" >Continue to Check Out</button>
+    <tr class="header">
+        <td colspan='5' style='text-align: right'><button class='controlbtn btn-dark' type="submit" >Continue to Check Out</button></td>
+    </tr>
 </table>
 
 </div>
