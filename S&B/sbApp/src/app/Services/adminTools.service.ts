@@ -8,10 +8,6 @@ import { Observable } from 'rxjs/observable'
 
 @Injectable({ providedIn: "root" })
 export class AdminTools {
-    private cardPricingEnabled=true
-    private cardStockEnabled=true
-    private storeCreditEnabled=true
-    private customerLoginEnabled=true
     baseUrl = environment.apiBaseUrl
 
     constructor(private http: HttpClient, private router: Router) { }
@@ -27,7 +23,6 @@ export class AdminTools {
         this.http.post(uri, selectedSettings)
             .subscribe(res => {
                 console.log("Settings updated")
-                console.log("New Settings\n"+selectedSettings.Credit+" \n"+ selectedSettings.Login+"\n "+ selectedSettings.Pricing+"\n "+ selectedSettings.Stock)
             })
     }
 

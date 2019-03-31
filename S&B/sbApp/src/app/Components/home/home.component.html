@@ -39,7 +39,7 @@
     </ngx-spinner>
     <div class="container">
         <div class="row text-center text-lg-left">
-            <div *ngFor=" let card of cards | paginate: { itemsPerPage: 20, currentPage: p}"
+            <div *ngFor=" let card of cards |  paginate: { itemsPerPage: 20, currentPage: p}"
                 class="col-lg-3 col-md-4 col-6 cardOutput">
                 <p id='cardName'>{{card.name}}</p>
                 <div class="flip-box">
@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <!-- <p id='cardName' *ngIf='settings[0].Pricing'>Price: CAD${{card.lang}}</p> -->
-                <p id='cardName'>Price: CAD${{card.lang}}</p>
+                <p id='cardName' *ngIf='settings[0].Pricing'>Price: CAD${{card.lang}}</p>
                 <p id='cardName' *ngIf='settings[0].Stock'>Inventory:<input id='inv' type='text' value='{{card.collector_number.substr(0,1)}}' disabled></p>
-                <p id='cardName' *ngIf='settings[0].Stock && settings[0].Pricing'>Amount:<input id='amt' type='number'><button id='add' (click)="addToCart(card.name)">+</button></p>
+                <p id='cardName' *ngIf='userIsAuthenticated && settings[0].Stock && settings[0].Pricing'>Amount:<input id='amt' type='number' value=0><button id='add' (click)="addToCart(card.name, card.lang, quantity )">+</button></p>
             </div>
         </div>
     </div>

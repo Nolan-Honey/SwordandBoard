@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   private adminListenerSubs: Subscription;
   setting = true
   settings: any;
-  ranNum = Math.floor(Math.random() * 11);
+  quantity=[0, 1,2,3,4,5,6,7,9, 10]
 
   constructor(
     private cardInfoService: cardService,
@@ -49,7 +49,9 @@ export class HomeComponent implements OnInit {
 
     })
   }
+
   ngOnInit() {
+
     this.getSettings();
     this.route.params.subscribe(params => {
       this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
@@ -78,7 +80,6 @@ export class HomeComponent implements OnInit {
       });
     this.cardInfoService.getcardInfo()
       .subscribe(data => {
-        console.log('trying to get')
         sessionStorage.setItem('cards', data.toString())
       })
   }
@@ -93,19 +94,15 @@ export class HomeComponent implements OnInit {
     colourless: new FormControl(''),
     set: new FormControl(false)
   })
-
   onSubmit() {
     if (this.newCard.value.set == "Select a set") {
       this.newCard.value.set = false;
     }
-
     this.spinner.show()
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
         this.cards = res;
         this.spinner.hide()
-        console.log(res)
-        console.log(this.newCard.value)
       },
       err => {
         console.log(err)
@@ -115,12 +112,13 @@ export class HomeComponent implements OnInit {
   }
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  addToCart(name){
+  addToCart(name, price, quantity){
+    quantity=2
     if(localStorage.getItem('myCart') === null){
       localStorage.setItem('myCart', '[]')
     }
     this.cart = JSON.parse(localStorage.getItem('myCart'))
-    this.cart.push({'name' : name})
+    this.cart.push({'name' : name, 'price': price, 'quantity':quantity})
     let cart = JSON.stringify(this.cart)
     localStorage.setItem('myCart', cart)
     console.log(cart)

@@ -165,11 +165,10 @@ label{
   margin: 2%;
 }
 #add{
-  width: 10%;
+  width: 15%;
   color: black;
   text-align: center;
   margin: 2%;
   background-color: orangered;
   border: none;
-  height: 30px;
 }

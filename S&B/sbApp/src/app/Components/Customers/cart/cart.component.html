@@ -6,20 +6,30 @@
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
-        <th>Sub Total</th>
+        <th>Amount</th>
     </tr>
     <tr *ngFor="let item of items">
         <td align="center">
             <a class='controlbtn' (click)="removeItem(item.name)">X</a>
         </td>
         <td>{{item.name}}</td>
-        <td>{{item.price}}</td>
+        <td>CAD${{item.price}}</td>
         <td>{{item.quantity}}</td>
-        <td>{{item.price * item.quantity}}</td>
+        <td>CAD${{item.price * item.quantity}}</td>
     </tr>
     <tr class="header">
-        <td colspan="4" align="left">Total</td>
-        <td >{{total}}</td>
+            <td colspan="4" style='text-align:right'>Sub Total:</td>
+            <td >CAD${{subtotal}}</td>
     </tr>
+    <tr class="header">
+            <td colspan="4" style='text-align:right'>Tax:</td>
+            <td >CAD${{tax}}</td>
+    </tr>
+    <tr class="header">
+        <td colspan="4" style='text-align: right'>Total:</td>
+        <td >CAD${{total}}</td>
+    </tr>
+    <button class='controlbtn' type="submit" >Continue to Check Out</button>
 </table>
+
 </div>
