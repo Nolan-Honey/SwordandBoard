@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   private adminListenerSubs: Subscription;
   setting = true
   settings: any;
+  ranNum = Math.floor(Math.random() * 11);
 
   constructor(
     private cardInfoService: cardService,
