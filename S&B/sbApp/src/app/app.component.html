@@ -1,47 +1,36 @@
 <mat-toolbar style="background-color: rgba(0, 0, 0, 0.9);">
-  <span>
-    <ul class="borderYtoX" style='margin-left:30px'>
-      <li><a class="headerButton " mat-button (click)="clickMethod()" id="siteLink" title='Go Back'>Sword & Board</a></li>
-    </ul>
-    <div class="dropdown">
-      <img title='Change Background' src='../assets/images/bgIcon.jpg' width='20px' height='10px'>
-      <div class="dropdown-content">
-        <button (click)="bg4()"><img id='bg' src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button>
-        <button (click)="bg1()"><img id='bg' src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button>
-        <button (click)="bg2()"><img id='bg' src='../assets/images/backgrounds/bg2.jpg' width='100px' height='100px'></button>
-        <!--<button (click)="bg3()"><img id='bg' src='../assets/images/backgrounds/bg5.jpg' width='100px' height='100px'></button>-->
-
-        <button (click)="bg5()"><img id='bg' src='../assets/images/backgrounds/bg6-invert.jpg' width='100px' height='100px'></button>
-      </div>
-    </div>
-  </span>
-  <span class="spacer1" *ngIf="userIsAuthenticated"></span>
-  <ul class="container2 borderYtoX">
-    <li>
-        <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/cart" routerLinkActive="mat-accent"
-        title='Customer Profile'><img width='30px' height='30px' src='../assets/images/cart.png'></a>
-    </li>
-    <li>
+  <div class="container borderYtoX">
+    <!--Logout/Login-->
+      <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img
+        width='30px' height='30px' src='../assets/images/adminLogout.png'></a>
+      <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent"
+      title='Login'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
+<!--Card Search-->
+      <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent" title='MTG Search'>
+        <img width='30px' height='30px' src='../assets/images/cards.png'></a>
+<!--admin/customer profiles-->
       <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/customer" routerLinkActive="mat-accent"
         title='Customer Profile'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
       <a *ngIf="userIsAuthenticated && isAdmin" class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent"
         title='Admin Login'><img width='30px' height='30px' src='../assets/images/adminIcon.png'></a>
-    </li>
-  </ul>
-  <span class="spacer2" *ngIf="!userIsAuthenticated"></span>
-  <ul class="container borderYtoX">
-    <li>
-      <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent" title='MTG Search'>
-        <img width='30px' height='30px' src='../assets/images/cards.png'></a>
-    </li>
-    <li>
-      <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img
-          width='30px' height='30px' src='../assets/images/adminLogout.png'></a>
-      <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent"
-        title='Login'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
-    </li>
-
-  </ul>
+ <!--cart-->
+      <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/cart" routerLinkActive="mat-accent"
+        title='Cart'><img width='30px' height='30px' src='../assets/images/cart.png'></a>
+  </div> 
+  <div class="container borderYtoX" id='web'>
+  <div class="dropdown">
+    <img title='Change Background' src='../assets/images/bgIcon.jpg' width='20px' height='10px'>
+    <div class="dropdown-content">
+      <button (click)="bg4()"><img id='bg' src='../assets/images/backgrounds/bg3-invert.jpg' width='100px' height='100px'></button><br>
+      <button (click)="bg1()"><img id='bg' src='../assets/images/backgrounds/bg.jpg' width='100px' height='100px'></button><br>
+      <!--<button (click)="bg2()"><img id='bg' src='../assets/images/backgrounds/bg2.jpg' width='100px' height='100px'></button><br>-->
+      <button (click)="bg3()"><img id='bg' src='../assets/images/backgrounds/bg5.jpg' width='100px' height='100px'></button><br>
+      <button (click)="bg5()"><img id='bg' src='../assets/images/backgrounds/bg6-invert.jpg' width='100px' height='100px'></button>
+    </div>
+  </div>
+ 
+    <a class="headerButton " mat-button (click)="clickMethod()" id="siteLink" title='Go Back'>Back to The Sword & Board</a>
+  </div>
 </mat-toolbar>
 <div>
   <a routerLink="/"><img id="sbLogo" alt="s&b logo" data-type="image" src="../assets/images/snblogowhite.png"></a>

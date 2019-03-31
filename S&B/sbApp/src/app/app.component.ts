@@ -49,7 +49,7 @@ export class AppComponent {
   }
   bg3() {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg5.jpg")');
-    this.renderer.setStyle(document.body, 'color', 'black');
+    this.renderer.setStyle(document.body, 'color', 'white');
 
   }
   bg4() {
