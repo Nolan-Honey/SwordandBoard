@@ -52,7 +52,6 @@ export class SearchCustomersComponent implements OnInit {
       .subscribe(data => 
         this.customers = this.filterCustomers(data)
         )
-        console.log(this.customers)
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
@@ -70,7 +69,6 @@ export class SearchCustomersComponent implements OnInit {
   filterCustomers(customers){
     let index = customers.findIndex(i => i.email === 'admin')
     customers.splice(index, 1)
-    console.log(customers)
     return customers
   }
 
@@ -128,8 +126,6 @@ export class SearchCustomersComponent implements OnInit {
 
   getID(id) {
     this.customer_id = id
-    console.log("customer_id retrieved")
-    console.log(this.customer_id)
     this.customer = this.customerService.viewCustomer(this.customer_id).subscribe(res => {
       this.customer = res;
     })
@@ -139,7 +135,6 @@ export class SearchCustomersComponent implements OnInit {
     if (!isNaN(Number(amount))){
     //store current credit
     var current_credit = Number(this.customer.credit)
-    console.log(current_credit)
     //create new credit
     var new_credit = current_credit + Number(amount)
     //store new credit to customer object
@@ -160,7 +155,6 @@ export class SearchCustomersComponent implements OnInit {
     if (!isNaN(Number(amount)) && Number(amount) <= this.customer.credit){
       //store current credit
       var current_credit = Number(this.customer.credit)
-      console.log(current_credit)
       //create new credit
       var new_credit = current_credit - Number(amount)
       //store new credit to customer object
@@ -185,10 +179,7 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   updateCustomer(first_name, last_name, notes) {
-    console.log(first_name, last_name, notes)
-
     this.customerService.updateCustomer(this.customer_id, first_name, last_name, this.customer.credit, notes);
-    console.log(this.customer_id, first_name, last_name);
     this.showSuccessMessage = true
     this.message = "Update successful"
     setTimeout(() => {location.reload(), this.load = false, this.showSuccessMessage = false}, 3000)
@@ -205,12 +196,10 @@ export class SearchCustomersComponent implements OnInit {
   }
   enableEditCustomer(b) {
     this.editCustomer = b
-    console.log(this.editCustomer)
     this.router.navigate(['/edit', '5c618f5afff4e72cd42580fc'])
   }
   disableEditCustomer(b) {
     this.editCustomer = b
-    console.log(this.editCustomer)
     this.router.navigate(['admin'])
   }
 

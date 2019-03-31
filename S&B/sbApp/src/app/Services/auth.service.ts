@@ -63,8 +63,10 @@ export class AuthService {
                     window.location.reload;
                     if(this.isAdmin != true){
                         this.router.navigate(["/customer"]);
+                        alert('Logged In')
                     }else{
                         this.router.navigate(["/admin"]);
+                        alert('Logged In')
                     }
                     
                 }
@@ -99,6 +101,7 @@ export class AuthService {
         clearTimeout(this.tokenTimer);
         this.clearAuthData();
         this.router.navigate(["/login"]);
+        alert('Logged Out')
     }
 
     private setAuthTimer(duration: number) {
