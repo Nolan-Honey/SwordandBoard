@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   cardName: string = ""
   cards: any = []
   setData: any = []
-  setName: any = []
+  setName = []
   private cart: any;
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
@@ -37,6 +37,12 @@ export class HomeComponent implements OnInit {
     private tools: AdminTools
   ) { }
 
+  setSort(){
+    this.setData.data.forEach(s=>{
+      this.setName.push(s.name)
+    })
+    this.setName.sort()
+  }
   getSettings() {
     this.tools.getSettings().subscribe(res => {
       this.settings = res;
@@ -54,6 +60,7 @@ export class HomeComponent implements OnInit {
     this.cardInfoService.getSetData().subscribe(
       res => {
         this.setData = res;
+        this.setSort()
       }
     )
     this.userIsAuthenticated = this.authService.getIsAuth();
@@ -91,6 +98,7 @@ export class HomeComponent implements OnInit {
     if (this.newCard.value.set == "Select a set") {
       this.newCard.value.set = false;
     }
+
     this.spinner.show()
     this.cardInfoService.viewCard(this.newCard.value).subscribe(
       res => {
