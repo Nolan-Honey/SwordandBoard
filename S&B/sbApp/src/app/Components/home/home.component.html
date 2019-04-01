@@ -60,7 +60,7 @@
                     <!--<input id='amt' type='number' value=0>
                     <button id='add' (click)="addToCart()">+</button>-->
                     <form  *ngIf='userIsAuthenticated && settings[0].Stock && settings[0].Pricing' 
-                    [formGroup]="quantity" (ngSubmit)="addToCart(card.name, card.lang )">
+                    [formGroup]="quantity" (ngSubmit)="addToCart(card.name, card.lang, card.collector_number.substr(0,1) )">
                             <p id='cardName'>Amount
                             <input id='amt' type='number' value=1 class="form-control" formControlName='num' min=1 max={{card.collector_number.substr(0,1)}} >
                             <button id='add' type='submit'>+</button></p>

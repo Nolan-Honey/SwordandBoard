@@ -1,20 +1,20 @@
 <mat-toolbar style="background-color: rgba(0, 0, 0, 0.9);">
   <div class="container borderYtoX">
     <!--Logout/Login-->
-      <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton" mat-button (click)="onLogout()" title='Logout'><img
+      <a *ngIf="userIsAuthenticated" routerLink="/" class="headerButton"  (click)="onLogout()" title='Logout'><img
         width='30px' height='30px' src='../assets/images/adminLogout.png'></a>
-      <a *ngIf="!userIsAuthenticated" class="headerButton" mat-button routerLink="/login" routerLinkActive="mat-accent"
+      <a *ngIf="!userIsAuthenticated" class="headerButton"  routerLink="/login" routerLinkActive="mat-accent"
       title='Login'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
 <!--Card Search-->
-      <a class="headerButton" mat-button routerLink="/" routerLinkActive="mat-accent" title='MTG Search'>
+      <a class="headerButton"  routerLink="/" routerLinkActive="mat-accent" title='MTG Search'>
         <img width='30px' height='30px' src='../assets/images/cards.png'></a>
 <!--admin/customer profiles-->
-      <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/customer" routerLinkActive="mat-accent"
+      <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton"  routerLink="/customer" routerLinkActive="mat-accent"
         title='Customer Profile'><img width='30px' height='30px' src='../assets/images/customerLogin.png'></a>
-      <a *ngIf="userIsAuthenticated && isAdmin" class="headerButton" mat-button routerLink="/admin" routerLinkActive="mat-accent"
+      <a *ngIf="userIsAuthenticated && isAdmin" class="headerButton"  routerLink="/admin" routerLinkActive="mat-accent"
         title='Admin Login'><img width='30px' height='30px' src='../assets/images/adminIcon.png'></a>
  <!--cart-->
-      <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/cart" routerLinkActive="mat-accent"
+      <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton"  routerLink="/cart" routerLinkActive="mat-accent"
         title='Cart' style="width:0%;"><img width='30px' height='30px' src='../assets/images/cart.png'><!--<input type='text' value='{{total}}' disabled style="width: 25%;background-color: rgba(0,0,0,0.8);border: none; color: white;">--></a>
         
   </div> 

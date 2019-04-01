@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
   isAdmin = false;
   private adminListenerSubs: Subscription;
   setting = true
-  settings: any;
+  settings: any;  
+
 
 
   constructor(
@@ -115,15 +116,24 @@ export class HomeComponent implements OnInit {
   })
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  addToCart(name, price){
+  addToCart(name, price, max){
     if(localStorage.getItem('myCart') === null){
       localStorage.setItem('myCart', '[]')
     }
     this.cart = JSON.parse(localStorage.getItem('myCart'))
-    this.cart.push({'id':Math.random(), 'name' : name, 'price': price, 'quantity':this.quantity.value.num})
-    let cart = JSON.stringify(this.cart)
-    localStorage.setItem('myCart', cart)
-    alert('You added ' + this.quantity.value.num + ' ' + name + ' card(s) @ CAD$'+ price + ' each to your cart!' )
+    if(this.quantity.value.num >=1 && this.quantity.value.num <= max ){
+      this.cart.push({'id':Math.random(), 'name' : name, 'price': price, 'quantity':this.quantity.value.num})
+      let cart = JSON.stringify(this.cart)
+      localStorage.setItem('myCart', cart)
+      alert('Added ' + this.quantity.value.num + ' ' + name + ' card(s) @ CAD$'+ price + ' each to your cart!' )
+    }else if(this.quantity.value.num < 1 || this.quantity.value.num > max || this.quantity.value.num == null){
+      if(this.quantity.value.num == null){
+        alert('Cannot add blank value to your cart. Please try again.')
+      }else{
+        alert('Cannot add '+this.quantity.value.num+ ' card(s) to your cart. Please try again.')
+      }
+      
+    }    
   }
 
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
