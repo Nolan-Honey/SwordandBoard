@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   setting = true
   settings: any;
 
+
   constructor(
     private cardInfoService: cardService,
     private route: ActivatedRoute,
@@ -122,7 +123,7 @@ export class HomeComponent implements OnInit {
     this.cart.push({'id':Math.random(), 'name' : name, 'price': price, 'quantity':this.quantity.value.num})
     let cart = JSON.stringify(this.cart)
     localStorage.setItem('myCart', cart)
-    alert('You added ' + this.quantity.value.num + ' ' + name + ' cards @ CAD$'+ price + ' each to your cart!' )
+    alert('You added ' + this.quantity.value.num + ' ' + name + ' card(s) @ CAD$'+ price + ' each to your cart!' )
   }
 
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

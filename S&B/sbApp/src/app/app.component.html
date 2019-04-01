@@ -15,7 +15,8 @@
         title='Admin Login'><img width='30px' height='30px' src='../assets/images/adminIcon.png'></a>
  <!--cart-->
       <a *ngIf="userIsAuthenticated && !isAdmin" class="headerButton" mat-button routerLink="/cart" routerLinkActive="mat-accent"
-        title='Cart'><img width='30px' height='30px' src='../assets/images/cart.png'></a>
+        title='Cart' style="width:0%;"><img width='30px' height='30px' src='../assets/images/cart.png'><!--<input type='text' value='{{total}}' disabled style="width: 25%;background-color: rgba(0,0,0,0.8);border: none; color: white;">--></a>
+        
   </div> 
   <div class="container borderYtoX" id='web'>
   <div class="dropdown">
