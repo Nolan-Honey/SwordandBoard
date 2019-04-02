@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "sign-up", component: SignupComponent},
   { path: "admin", component: AdminComponent , canActivate: [AdminAuthGuard]},
-  { path: "customer", component: CustomerComponent, canActivate: [AdminAuthGuard]},
+  { path: "customer", component: CustomerComponent, canActivate: [AuthGuard]},
   { path: "customer-search", component: SearchCustomersComponent, canActivate: [AdminAuthGuard]},
   { path: 'edit/:id', component:  AdminComponent, canActivate: [AdminAuthGuard]},
   { path: 'cart', component:  CartComponent, canActivate: [AuthGuard]}
