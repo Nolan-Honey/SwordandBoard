@@ -1,0 +1,24 @@
+<div class="cards">
+  
+  <div class="container">
+      <div class="row text-center text-lg-left">
+          <div *ngFor=" let card of cardData.data |  paginate: { itemsPerPage: 20, currentPage: p}"
+              class="col-lg-3 col-md-4 col-6 cardOutput">
+              <p id='cardName'>{{card.name}}</p>
+              <div class="flip-box">
+                  <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                          <img id="image" class="img-fluid img-thumbnail" src="{{card.image_uris.normal}}">
+                      </div>
+                      <div class="flip-box-back">
+                          <p style="font-size:18px">Set Name: {{card.set_name}}</p>
+                          <p style="font-size:18px">Set Code: {{card.set}}</p>
+                          <p id='description'>Description: {{card.oracle_text}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
+</div>
