@@ -1,179 +1,207 @@
 .cardOutput{
-    background-color: rgba(0, 0, 0, 0.8);
-    margin:0.5%;
-    border-radius: 2%;
-    width:24%;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin:0.5%;
+  border-radius: 2%;
+  width:24%;
+}
+ label{
+    padding: 0 20px 0 5px;
+ } 
+ #cardName{
+  font-size:66%;
+  text-align: center;
+ }
+ .cardOutput{
+  width:18%;
+  display: inline-block;
+ }
+
+ .tablview{
+   width:100%;
+   display: inline-block;
+ }
+
+ .row{
+   margin:0;
+ }
+
+ #_ngcontent-c0{
+   display:inline-block;
+ }
+
+ .zoom {
+    transition: transform .2s; /* Animation */
   }
-   label{
-      padding: 0 20px 0 5px;
-   } 
-   #cardName{
-    font-size:66%
-   }
-  
-   .zoom {
-      transition: transform .2s; /* Animation */
-    }
-    .zoom:hover {
-      transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */  
-    }
-    .cards{
-    margin: auto;
-    margin-top: 2%;
-    width: 62%;
-    margin-top: 2%;
+  .zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */  
   }
-  #image{
-      box-shadow: 2px 2px 2px 2px black;
-      margin-bottom: 15px
-  }
-  
-  .container{
-  margin: auto 0
-  }
-  
-  #type{
-      padding-left: 132px
-  }
-  
-  #cardInput{
-    margin-left: 17px;
-    width: 92%;
-  }
-  .searchForm{
-    width: 425px;
-    padding: 30px 0;
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-    font-size: 25px;
-    background: rgba(0, 0, 0, 0.8); 
-    border-radius: 2% 
-  }
-  #description{
-    font-size: 18px;
-    overflow: auto;  
-    width: auto;           
-    height: 290px;
-  }
-  /* width */
-  ::-webkit-scrollbar {
-    width: 5px;
+  .cards{
+  margin-top: 2%;
+  width: 95%;
+  margin-left:5%;
+}
+#image{
+    box-shadow: 2px 2px 2px 2px black;
+    margin-bottom: 15px;
+    width:70%;
+}
+
+#backgroundVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -100;
   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.8); 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(187, 53, 0); 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(187, 53, 0);
-  }
-  #border{
-      display: inline;
-  }
-  label{
-    color:white
-  }
-  
-  .flip-box {
-    background-color: transparent;
-    width: auto;
-    height: auto;
-    margin-bottom: 145%;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-box-inner {
-    position: relative;
-    width: auto;
-    height: auto;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-box:hover .flip-box-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-box-front, .flip-box-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    text-align: center;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-box-front {
-    background-color: #bbb;
-    color: black;
-  }
-  
-  /* Style the back side */
-  .flip-box-back {
-    background-color: black;
-    color: white;
-    transform: rotateY(180deg);
-  }
-  .my-pagination /deep/ .ngx-pagination{
-    margin: 5% 22% 5% 22%;
-  }
-  .my-pagination /deep/ .ngx-pagination a {
-    color:white;
-  }
-  .my-pagination /deep/ .ngx-pagination a:hover {
-    background:rgba(0, 0, 0, 0.8);
-  }
-  .my-pagination /deep/ .ngx-pagination .current {
-    background:  rgb(187, 53, 0);
-  }
-  
-  .btn {        
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-    background: white;
-    border: none;
-    min-width: 140px;
-    outline: none !important;
-  }
-  .btn:hover {        
-    background-color: orangered;
-    transition: 0.5s;
-  }
-  #inv{
-    width: 10%;
-    color: black;
-    text-align: center;
-    margin: 2%;
-  }
-  #amt{
-    width: 25%;
-    color: black;
-    text-align: center;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  #add{
-    width: 15%;
-    color: black;
-    text-align: center;
-    margin: 2%;
-    background-color: orangered;
-    border: none;
-  }
-  .quickcart{
-    float:left;
-  }
-  
+
+.container{
+width: 100%;
+}
+
+#type{
+  padding-left: 132px
+}
+
+#cardInput{
+  margin-left: 17px;
+  width: 92%;
+}
+.searchForm{
+  width: 425px;
+  padding: 30px 0;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  background: rgba(0, 0, 0, 0.8); 
+  border-radius: 2% 
+}
+#description{
+  font-size: 18px;
+  overflow: auto;
+  width: 90%; 
+  padding-left:4%;       
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(187, 53, 0); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(187, 53, 0);
+}
+#border{
+    display: inline;
+}
+label{
+  color:white
+}
+
+.flip-box {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  margin-bottom: 111%;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: auto;
+  height: auto;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+}
+.my-pagination /deep/ .ngx-pagination{
+  margin: 5% 22% 5% 22%;
+  text-align: center;
+}
+.my-pagination /deep/ .ngx-pagination a {
+  color:white;
+}
+.my-pagination /deep/ .ngx-pagination a:hover {
+  background:rgba(0, 0, 0, 0.8);
+}
+.my-pagination /deep/ .ngx-pagination .current {
+  background:  rgb(187, 53, 0);
+}
+
+.btn {        
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border: none;
+  min-width: 140px;
+  outline: none !important;
+}
+.btn:hover {        
+  background-color: orangered;
+  transition: 0.5s;
+}
+#inv{
+  width: 10%;
+  color: black;
+  text-align: center;
+  margin: 2%;
+}
+#amt{
+  width: 25%;
+  color: black;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+#add{
+  width: 15%;
+  color: black;
+  text-align: center;
+  margin: 2%;
+  background-color: orangered;
+  border: none;
+}
+.quickcart{
+  float:left;
+}
