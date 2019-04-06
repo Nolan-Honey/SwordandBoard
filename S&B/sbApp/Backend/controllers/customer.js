@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
 });
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const Customer = require('../models/customer');
-
+const passLength = 8;
 
 module.exports.register = (req, res, next) => {
 
@@ -58,4 +58,39 @@ module.exports.register = (req, res, next) => {
       }
     })
 
+}
+
+module.exports.resetPass = (req, res) =>{
+  var password = ""
+  for (let index = 0; index < passLength; index++) {
+    password += String.fromCharCode(48 + Math.random() * 122);
+  }
+
+  bcryptjs.hash(password, saltRounds, (err, hash) => {
+    Customer.findOneAndUpdate({email: req.body.email}, {password: hash},{new: true}, (err, res) =>{
+      if (err){
+        console.log('email not found')
+        console.log(err)
+      }
+      else{
+          console.log(res)
+          console.log('')
+      }
+    })
+    var mailOptions = {
+      from: '02capstone@gmail.com',
+      to: email,
+      subject: 'Sword & Board Password Reset',
+      text: "Someone (hopefully you) has requested to resest your password \n\
+      Your new password is: \n" + password
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  })
+  password = ""
 }

@@ -155,13 +155,14 @@ router.route('/customers/update/:id').post(function (req, res){
                     console.log("new update in customer history")
                 })
             })
-
             .catch(function (err) {
                 res.status(400).send('unable to update database')
             });
         }
     })
 })
+// password reset
+router.post('/resetPass', ctrlCustomer.resetPass)
 
 //Delete Customer
 router.route('/customers/delete/:id').get(function(req,res){
