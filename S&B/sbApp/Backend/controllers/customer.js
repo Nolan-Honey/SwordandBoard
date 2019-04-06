@@ -61,13 +61,16 @@ module.exports.register = (req, res, next) => {
 }
 
 module.exports.resetPass = (req, res) =>{
-  var password = ""
+
+  const email = req.body.email;
+  var password = "";
+  
   for (let index = 0; index < passLength; index++) {
     password += String.fromCharCode(48 + Math.random() * 122);
   }
 
   bcryptjs.hash(password, saltRounds, (err, hash) => {
-    Customer.findOneAndUpdate({email: req.body.email}, {password: hash},{new: true}, (err, res) =>{
+    Customer.findOneAndUpdate({email: email}, {password: hash},{new: true}, (err, res) =>{
       if (err){
         console.log('email not found')
         console.log(err)
