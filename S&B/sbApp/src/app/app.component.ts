@@ -64,10 +64,6 @@ export class AppComponent {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg.jpg")');
     this.renderer.setStyle(document.body, 'color', 'white');
   }
-  bg2() {
-    this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg2.jpg")');
-    this.renderer.setStyle(document.body, 'color', 'white');
-  }
   bg3() {
     this.renderer.setStyle(document.body, 'background-image', 'url("../assets/images/backgrounds/bg5.jpg")');
     this.renderer.setStyle(document.body, 'color', 'white');
