@@ -39,6 +39,7 @@ export class AppComponent {
     this.route.params.subscribe(params => {
       this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
       this.settings = res;
+
       })
     })
     this.authService.autoAuthUser();
