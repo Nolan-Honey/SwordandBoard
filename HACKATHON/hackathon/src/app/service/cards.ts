@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
     providedIn:'root'
 })
 export default class cardService{
-    
     constructor(private http:HttpClient){
     }
     getCardData(){

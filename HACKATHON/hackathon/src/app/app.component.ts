@@ -25,9 +25,6 @@ export class AppComponent implements OnInit {
       }
     )
   }
- /* createFile(name, set, image, description){
-    return {name:name,set:set, image:image, description:description}
-  }*/
   showC(){
     if(this.showCards){
       return this.showCards=false;

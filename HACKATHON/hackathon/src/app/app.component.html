@@ -1,23 +1,30 @@
 <video autoplay muted loop id="backgroundVideo">
         <source src="../../assets/dazeGif.webm" type="video/webm">
 </video>
-<div >
-<button *ngIf='showCards' (click)='showC()'>Show Cards</button>
-<button *ngIf='!showCards' (click)='showC()'>Hide Cards</button>
-<button *ngIf='showSets'(click)='showS()'>Show Sets</button>
-<button *ngIf='!showSets'(click)='showS()'>Hide Sets</button>
-</div>
-<div *ngIf='!showSets && !showCards'>
+<div>
     <h1 style='text-align: center'>
-        Choose what you want to show
+        Magic the Gathering: Card and Set Simplified Display
     </h1>
 </div>
+<div>
+    <h4 style='text-align: center'>
+        Choose what you want to show
+    </h4>
+<button class='myButton1' *ngIf='showCards' (click)='showC()'>Show Cards</button>
+<button class='myButton1' *ngIf='!showCards' (click)='showC()'>Hide Cards</button>
+<button class='myButton2' *ngIf='showSets'(click)='showS()'>Show Sets</button>
+<button class='myButton2' *ngIf='!showSets'(click)='showS()'>Hide Sets</button>
+</div>
+
 <div class="cards" *ngIf='showCards'>
+        <h1 style='text-align: center'>
+                Card Display
+        </h1>
     <label class='filter'>Card Search</label>
     <input style="text-align: center;" [(ngModel)]="searchText" placeholder="search text goes here">
   <div class="container">  
         <div class="row text-center text-lg-left">
-            <div *ngFor=" let card of cardData.data | filter: {name:searchText,  oracle_text:searchText} |  paginate: { itemsPerPage: 20, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
+            <div *ngFor=" let card of cardData.data | filter: {name:searchText,  oracle_text:searchText} |  paginate: { itemsPerPage: 15, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
                 <p id='cardName'>{{card.name}}</p>
                 <div class="flip-box">
                     <div class="flip-box-inner">
@@ -37,11 +44,14 @@
   <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
 </div>    
 <div class="cards" *ngIf='showSets'>
+        <h1 style='text-align: center'>
+                Set Display
+        </h1>
 <label class='filter'>Set Search</label>
     <input style="text-align: center;" [(ngModel)]="searchSet" placeholder="search text goes here">
     <div class="container">  
           <div class="row text-center text-lg-left">
-              <div *ngFor=" let set of setData.data | filter: {name:searchSet} |  paginate: { itemsPerPage: 20, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
+              <div *ngFor=" let set of setData.data | filter: {name:searchSet} |  paginate: { itemsPerPage: 15, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
                   <p id='cardName'>{{set.name}}</p>
                   <div class="flip-box">
                       <div class="flip-box-inner">
@@ -51,6 +61,7 @@
                           <div class="flip-box-back">
                               <p style="font-size:18px">Release Date: {{set.released_at}}</p>
                               <p style="font-size:18px">Set Code: {{set.code}}</p>
+                              <p style="font-size:18px">Card Count: {{set.card_count}}</p>
                           </div>
                       </div>
                  </div>           
