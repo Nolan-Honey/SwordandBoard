@@ -44,7 +44,14 @@ export class CartComponent implements OnInit {
     console.log('3b: '+this.total)
     let index = this.items.findIndex(i => i.id === id)
 
-    this.items.splice(index, 1)
+    this.items.forEach(item=>{
+      if(item.quantity <=1){
+        this.items.splice(index, 1)
+      }else{
+        return item.quantity=item.quantity -1
+      }
+    })
+    
     localStorage.setItem('myCart', JSON.stringify(this.items))
   }
 }
