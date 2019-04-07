@@ -66,17 +66,17 @@ module.exports.resetPass = (req, res) =>{
   var password = "";
   
   for (let index = 0; index < passLength; index++) {
-    password += String.fromCharCode(48 + Math.random() * 122);
+    password += String.fromCharCode(Math.floor(48 + Math.random() * (122-48)));
   }
 
   bcryptjs.hash(password, saltRounds, (err, hash) => {
-    Customer.findOneAndUpdate({email: email}, {password: hash},{new: true}, (err, res) =>{
+    Customer.findOneAndUpdate({email: email}, {password: hash},{new: true}, (err) =>{
       if (err){
         console.log('email not found')
         console.log(err)
       }
       else{
-          console.log(res)
+          res.send("password reset")
           console.log('')
       }
     })
@@ -84,8 +84,8 @@ module.exports.resetPass = (req, res) =>{
       from: '02capstone@gmail.com',
       to: email,
       subject: 'Sword & Board Password Reset',
-      text: "Someone (hopefully you) has requested to resest your password \n\
-      Your new password is: \n" + password
+      text: `Someone (hopefully you) has requested to reset your password 
+Your new password is: ${password}`
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -95,5 +95,4 @@ module.exports.resetPass = (req, res) =>{
       }
     });
   })
-  password = ""
 }
