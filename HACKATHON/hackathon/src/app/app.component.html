@@ -1,8 +1,14 @@
 <video autoplay muted loop id="backgroundVideo">
         <source src="../../assets/dazeGif.webm" type="video/webm">
 </video>
+<div>
+<button *ngIf='showCards' (click)='showC()'>Show Cards</button>
+<button *ngIf='!showCards' (click)='showC()'>Hide Cards</button>
+<button *ngIf='showSets'(click)='showS()'>Show Sets</button>
+<button *ngIf='!showSets'(click)='showS()'>Hide Sets</button>
+</div>
 
-<div class="cards">
+<div class="cards" *ngIf='showCards'>
     
   <div class="container">  
         <div class="row text-center text-lg-left">
@@ -25,3 +31,25 @@
   </div>
   <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
 </div>
+<div class="cards" *ngIf='showSets'>
+    
+    <div class="container">  
+          <div class="row text-center text-lg-left">
+              <div *ngFor=" let set of setData.data |  paginate: { itemsPerPage: 20, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
+                  <p id='cardName'>{{set.name}}</p>
+                  <div class="flip-box">
+                      <div class="flip-box-inner">
+                          <div class="flip-box-front">
+                              <img id="image" class="img-fluid img-thumbnail" src="{{set.icon_svg_uri}}">
+                          </div>
+                          <div class="flip-box-back">
+                              <p style="font-size:18px">Release Date: {{set.released_at}}</p>
+                              <p style="font-size:18px">Set Code: {{set.code}}</p>
+                          </div>
+                      </div>
+                 </div>           
+              </div>      
+        </div>       
+    </div>
+    <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
+  </div>
