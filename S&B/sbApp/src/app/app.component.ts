@@ -1,6 +1,8 @@
 import { Component, Renderer2 } from '@angular/core';
 import { AuthService } from './Services/auth.service';
 import { Subscription } from 'rxjs';
+import { AdminTools } from './Services/adminTools.service'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,18 +16,31 @@ export class AppComponent {
   isAdmin = false;
   private adminListenerSubs: Subscription;
   private authListenerSubs: Subscription;
-  items: any;
-  total=0.0
-  subtotal=0.0
-  tax=0.0
+
+  setting = true
+  settings: any;
 
 
   constructor(
     private renderer: Renderer2,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private tools:AdminTools
   ) { }
+  getSettings() {
+    this.tools.getSettings().subscribe(res => {
+      this.settings = res;
+      
+    })
+  }
 
   ngOnInit() {
+    this.getSettings();
+    this.route.params.subscribe(params => {
+      this.settings = this.tools.viewSettings(params['id']).subscribe(res => {
+      this.settings = res;
+      })
+    })
     this.authService.autoAuthUser();
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
@@ -41,13 +56,6 @@ export class AppComponent {
         
         this.isAdmin = admin;
       });
-      this.items = JSON.parse(localStorage.getItem('myCart'))
-      this.items.forEach(item=>{
-        this.subtotal+=(item.price*item.quantity)
-      })
-      this.subtotal=parseFloat(this.subtotal.toFixed(2))
-      this.tax=parseFloat((this.subtotal*0.13).toFixed(2))
-      this.total=parseFloat((this.tax+this.subtotal).toFixed(2))
 
   }
 
