@@ -4,6 +4,17 @@
   border-radius: 2%;
   width:24%;
 }
+.cardDisplay{
+  padding-left:39.5%;
+  padding-right:40%;
+}
+.headerText{
+  text-shadow:
+  -1px -1px 0 rgb(255, 255, 255),
+  1px -1px 0 rgb(255, 255, 255),
+  -1px 1px 0 rgb(255, 255, 255),
+  1px 1px 0 rgb(255, 255, 255);
+}
 
  label{
     padding: 0 20px 0 5px;
@@ -225,7 +236,7 @@ label{
 	border:1px solid #d6bcd6;
 	display:inline-block;
 	cursor:pointer;
-	color:#04aed9;
+	color:#005368;
 	font-family:Arial;
 	font-size:17px;
 	padding:7px 25px;
@@ -265,7 +276,7 @@ label{
 	border:1px solid #d6bcd6;
 	display:inline-block;
 	cursor:pointer;
-	color:#04aed9;
+	color:#005368;
 	font-family:Arial;
 	font-size:17px;
 	padding:7px 25px;

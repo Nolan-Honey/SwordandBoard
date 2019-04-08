@@ -2,12 +2,12 @@
         <source src="../../assets/dazeGif.webm" type="video/webm">
 </video>
 <div>
-    <h1 style='text-align: center'>
+    <h1 class='headerText' style='text-align: center '>
         Magic the Gathering: Card and Set Simplified Display
     </h1>
 </div>
 <div>
-    <h4 style='text-align: center'>
+    <h4 class='headerText' style='text-align: center'>
         Choose what you want to show
     </h4>
 <button class='myButton1' *ngIf='showCards' (click)='showC()'>Show Cards</button>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="cards" *ngIf='showCards'>
-        <h1 style='text-align: center'>
+        <h1 class="cardDisplay headerText">
                 Card Display
         </h1>
     <label class='filter'>Card Search</label>
@@ -25,7 +25,7 @@
   <div class="container">  
         <div class="row text-center text-lg-left">
             <div *ngFor=" let card of cardData.data | filter: {name:searchText,  oracle_text:searchText} |  paginate: { itemsPerPage: 15, currentPage: p}" class="col-lg-3 col-md-4 col-6 cardOutput">              
-                <p id='cardName'>{{card.name}}</p>
+                <p class='headerText' id='cardName'>{{card.name}}</p>
                 <div class="flip-box">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
