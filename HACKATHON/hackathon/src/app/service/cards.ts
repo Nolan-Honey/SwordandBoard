@@ -10,4 +10,8 @@ export default class cardService{
     getSetData(){
         return this.http.get('https://api.scryfall.com/cards')
     }
+    
+  randomCard(){
+    return this.http.get('https://api.scryfall.com/cards/random');
+  }
 }

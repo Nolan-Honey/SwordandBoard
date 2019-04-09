@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
  /* createFile(name, set, image, description){
     return {name:name,set:set, image:image, description:description}
   }*/
+  
   data(){
     this.cardData.data.map(card=>{
       
