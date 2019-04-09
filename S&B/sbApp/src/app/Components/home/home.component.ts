@@ -125,12 +125,12 @@ export class HomeComponent implements OnInit {
       this.cart.push({'id':Math.random(), 'name' : name, 'price': price, 'quantity':this.quantity.value.num})
       let cart = JSON.stringify(this.cart)
       localStorage.setItem('myCart', cart)
-      alert('Added ' + this.quantity.value.num + ' ' + name + ' card(s) @ CAD$'+ price + ' each to your cart!' )
+      alert('Added ' + this.quantity.value.num + ' ' + name + ' to your Items!' )
     }else if(this.quantity.value.num < 1 || this.quantity.value.num > max || this.quantity.value.num == null){
       if(this.quantity.value.num == null){
         alert('Cannot add blank value to your cart. Please try again.')
       }else{
-        alert('Cannot add '+this.quantity.value.num+ ' card(s) to your cart. Please try again.')
+        alert('Cannot add '+this.quantity.value.num+ ' card(s) to your Items. Please try again.')
       }
       
     }    

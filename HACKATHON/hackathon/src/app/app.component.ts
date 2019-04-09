@@ -8,26 +8,36 @@ import cardService from './service/cards';
 })
 export class AppComponent implements OnInit {
   cardData: any =[]
-  ourCards:any=[]
+  setData:any=[]
   title = 'hackathon';
+  showCards=true;
+  showSets=true
   constructor(private cards:cardService){}
   ngOnInit(){
-    this.cards.getSetData().subscribe(
+    this.cards.getCardData().subscribe(
       res => {
         this.cardData = res;
       }
     )
+    this.cards.getSetData().subscribe(
+      res=>{
+        this.setData=res
+      }
+    )
   }
- /* createFile(name, set, image, description){
-    return {name:name,set:set, image:image, description:description}
-  }*/
-  
-  data(){
-    this.cardData.data.map(card=>{
-      
-      //this.ourCards.push(this.createFile(card.name, card.set_name, card.image_uris.small, card.oracle_text))
-    })
-    console.log(this.ourCards)
-
+  showC(){
+    if(this.showCards){
+      return this.showCards=false;
+    }else{
+      return this.showCards=true
+    }
+    
+  }
+  showS(){
+    if(this.showSets){
+      return this.showSets=false;
+    }else{
+      return this.showSets=true
+    }
   }
 }

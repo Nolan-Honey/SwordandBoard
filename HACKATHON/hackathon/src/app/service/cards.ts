@@ -4,14 +4,12 @@ import { Injectable } from '@angular/core';
     providedIn:'root'
 })
 export default class cardService{
-    
     constructor(private http:HttpClient){
     }
-    getSetData(){
+    getCardData(){
         return this.http.get('https://api.scryfall.com/cards')
     }
-    
-  randomCard(){
-    return this.http.get('https://api.scryfall.com/cards/random');
-  }
+    getSetData(){
+        return this.http.get('https://api.scryfall.com/sets')
+    }
 }

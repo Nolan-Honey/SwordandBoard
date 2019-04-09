@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
   getSettings() {
     this.tools.getSettings().subscribe(res => {
       this.settings = res;
+      console.log(this.settings[0].Pricing)
     })
   }
 
