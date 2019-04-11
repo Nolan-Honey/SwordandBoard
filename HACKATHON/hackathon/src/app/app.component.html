@@ -1,5 +1,5 @@
 <video autoplay muted loop id="backgroundVideo">
-        <source src="../../assets/dazeGif.webm" type="video/webm">
+    <source src="../../assets/dazeGif.webm" type="video/webm">
 </video>
 <div>
     <h1 class='headerText' style='text-align: center '>
@@ -16,7 +16,7 @@
 <button class='myButton2' *ngIf='!showSets'(click)='showS()'>Hide Sets</button>
 </div>
 
-<div class="cards" *ngIf='showCards'>
+<div class="cards" *ngIf='!showCards'>
         <h1 class="cardDisplay headerText">
                 Card Display
         </h1>
@@ -43,7 +43,7 @@
   </div>
   <pagination-controls class="my-pagination" (pageChange)="p = $event" autoHide=true></pagination-controls>
 </div>    
-<div class="cards" *ngIf='showSets'>
+<div class="cards" *ngIf='!showSets'>
         <h1 style='text-align: center'>
                 Set Display
         </h1>
