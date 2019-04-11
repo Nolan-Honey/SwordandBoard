@@ -30,6 +30,8 @@ import { SearchCustomersComponent } from './Components/Administrator/search-cust
 import { EditComponent } from './Components/Administrator/edit/edit.component';
 import { AddCustomerComponent } from './Components/Administrator/add-customer/add-customer.component';
 import { CartComponent } from './Components/Customers/cart/cart.component';
+import { ChangePasswordComponent } from './Components/Customers/Passwords/change-password/change-password.component';
+import { ResetPasswordComponent } from './Components/Customers/Passwords/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { CartComponent } from './Components/Customers/cart/cart.component';
     FilterPipe,
     EditComponent,
     AddCustomerComponent,
-    CartComponent
+    CartComponent,
+    ChangePasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

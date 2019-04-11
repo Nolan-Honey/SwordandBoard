@@ -52,6 +52,22 @@ export class CustomerService {
             return res
         }))
     }
+    changePassword(id, password){
+        const uri = this.baseUrl + '/changePass/' + id
+        const selectedCustomer = {
+            password: password
+        }
+        return this.http.post(uri, selectedCustomer).subscribe(res =>{
+            console.log("password changed")
+        })
+    }
+    //reset password
+    resetPassword(email){
+        const uri = this.baseUrl + '/resetPass'
+        console.log(email)
+        return this.http.post(uri, email)
+
+    }
     //gets history of customer
     getHistory(id){
         const uri = this.baseUrl + '/customers/history/' + id

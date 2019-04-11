@@ -76,7 +76,7 @@ module.exports.resetPass = (req, res) =>{
         console.log(err)
       }
       else{
-          res.send("password reset")
+          res.json("password reset")
           console.log('')
       }
     })
